@@ -1,0 +1,86 @@
+This is BibTeX, Version 0.99cThe top-level auxiliary file: CMA_annelaure.aux
+The style file: plainnat.bst
+format.book.pages is an unknown function---line 938 of file plainnat.bst
+Database file #1: classification.bib
+You're missing a field name---line 1351 of file classification.bib
+ : 
+ : %  author =   {J.H. Friedman},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 1656 of file classification.bib
+ : @inproceedings{Boser1992
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1665 of file classification.bib
+ : @book{ScholkopfSmola2002
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1672 of file classification.bib
+ : @article{Breiman2001
+ :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1687 of file classification.bib
+ : @article{Khan2001
+ :                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1699 of file classification.bib
+ :   @manual{Carey2007
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1707 of file classification.bib
+ : @book{Ripley1996
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1742 of file classification.bib
+ : @article{Tibshirani2002
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1748 of file classification.bib
+ : @article{Zhu2004
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1754 of file classification.bib
+ : @article{Buhlmann2003
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1762 of file classification.bib
+ : @article{Friedman2001
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1778 of file classification.bib
+ : @article{glmpath
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1786 of file classification.bib
+ : @article{elasticnet
+ :                    ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1820 of file classification.bib
+ :  @manual{e1071pack
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1827 of file classification.bib
+ : @book{dabook
+ :             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1835 of file classification.bib
+ : @article{specht
+ :                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1843 of file classification.bib
+ :   @inbook{limma
+ :                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1855 of file classification.bib
+ : @article{rfe
+ :             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1863 of file classification.bib
+ : @article{Golub1999
+ :                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1880 of file classification.bib
+ :  @manual{MCRestimate
+ :                     ,
+I'm skipping whatever remains of this entry
+(There were 21 error messages)

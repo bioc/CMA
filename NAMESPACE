@@ -1,0 +1,15 @@
+import(methods, stats, Biobase)
+importFrom(graphics, plot)
+importFrom(graphics, boxplot)
+
+exportClasses("learningsets", "cloutput", "varseloutput", "clvarseloutput", "genesel", "evaloutput", "tuningresult")
+
+exportMethods("show", "summary", "toplist", "plot", "best", "boxplot", "ftable", "roc", "obsinfo", "GeneSelection",
+              "tune", "classification", "join", "evaluation", "compare", "Planarplot", 
+              "ldaCMA", "svmCMA", "shrinkldaCMA", "scdaCMA", "rfCMA", "qdaCMA",
+               "pnnCMA", "pls_rfCMA", "pls_lrCMA", "pls_ldaCMA", "plrCMA",
+               "pknnCMA", "knnCMA", "nnetCMA", "LassoCMA", "ElasticNetCMA",
+               "compBoostCMA", "gbmCMA", "dldaCMA", "fdaCMA", "flexdaCMA")
+
+
+export(GenerateLearningsets, ttest, welchtest, wilcoxtest, ftest, kruskaltest, limmatest, golubcrit, rfe)
