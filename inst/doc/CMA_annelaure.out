@@ -1,9 +1,0 @@
-\BOOKMARK [1][-]{section.1}{Statistical background}{}
-\BOOKMARK [1][-]{section.2}{Class prediction based high-dimensional data with small samples}{}
-\BOOKMARK [2][-]{subsection.2.1}{Settings}{section.2}
-\BOOKMARK [2][-]{subsection.2.2}{Estimation of prediction accuracy}{section.2}
-\BOOKMARK [2][-]{subsection.2.3}{Constructing a prediction rule}{section.2}
-\BOOKMARK [1][-]{section.3}{Overview of CMA features}{}
-\BOOKMARK [1][-]{section.4}{Comparison with existing packages}{}
-\BOOKMARK [1][-]{section.5}{Example 1: Focussing on one method}{}
-\BOOKMARK [1][-]{section.6}{Example 2: classifier comparison}{}
