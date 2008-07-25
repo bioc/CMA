@@ -61,14 +61,14 @@ stop("Invalid 'scheme' specified. Must be one of 'pairwise' or 'one-vs-all' \n")
 }
 if( maxlvl == 2) scheme <- "pairwise"
 else{
-      if(missing(scheme) & is.element(method, c("kruskal.test", "f.test", "rf", "boosting", "limma")))
+      if(missing(scheme) & is.element(method, c("kruskal.test", "f.test", "rf", "boosting", "limma", "rf")))
       scheme <- "multiclass"
       if(missing(scheme) & !is.element(method, c("kruskal.test", "f.test", "boosting", "limma"))){
         warning("y has more than two levels, but 'scheme' is not specified and
                   a multiclass method is not used; set to 'one-vs-all' \n")
         scheme <- "one-vs-all"
       }
-      if(!missing(scheme) && (scheme == "multiclass" & !is.element(method, c("kruskal.test", "f.test", "boosting", "limma")))){
+      if(!missing(scheme) && (scheme == "multiclass" & !is.element(method, c("kruskal.test", "f.test", "boosting", "limma", "rf")))){
       warning("scheme is 'multiclass' although a multiclass method is not used;
                   set to 'one-vs-all' \n")
        scheme <- "one-vs-all"

@@ -51,12 +51,16 @@ if(missing(genesel)){
  }
 
 
-else{ if(class(genesel) != "genesel") stop("'genesel' must be of class 'genesel' \n")
+else{ 
+      if(class(genesel) != "genesel") stop("'genesel' must be of class 'genesel' \n")
       ngenes <- ncol(genesel@rankings[[1]])
       nitergenesel <- nrow(genesel@rankings[[1]])
       if(ngenes != ncol(X)) stop("object 'genesel' does not match the input data \n")
       if(nitergenesel != nrow(learnmatrix))
       stop("object 'genesel' does not match 'learningsets' \n")
+      warning("Combination of feature selection and hyperparameter tuning
+               is subject to pessimistic bias and will be fixed in a future
+               package version. \n")
       }
 
 if(!missing(nbgene))
@@ -88,10 +92,10 @@ if(length(grids) == 0){
                               nnetCMA = list(size = 1:5, decay = c(0, 2^{-(4:1)})))
  if(classifname == "svmCMA"){
    if(!hasArg(kernel)) ll$kernel <- "linear"
-   else ll$kernel <- match.arg(kernel)
+   #else ll$kernel <- match.arg(kernel)
     grids <- switch(ll$kernel, linear = list(cost = c(0.1, 1, 5, 10, 50, 100, 500)),
                             radial = list(cost = c(0.1, 1, 5, 10, 50, 100, 500),
-                                         gamma = 2^{-2:2}),
+                                         gamma = 1/ncol(X) * 2^{-2:2}),
                             polynomial = list(cost = c(0.1, 1, 5, 10, 50, 100, 500),
                                              degree = 2:4))
  }

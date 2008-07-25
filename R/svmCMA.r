@@ -25,7 +25,7 @@ setGeneric("svmCMA", function(X, y, f, learnind, ...)
 
 setMethod("svmCMA", signature(X="matrix", y="numeric", f="missing"),
           function(X, y, f, learnind, ...){
-require(e1071, quietly=TRUE)
+library(e1071, pos = length(search()))
 nrx <- nrow(X)
 ly <- length(y)
 if(nrx != length(y))

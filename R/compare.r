@@ -38,8 +38,22 @@ stop("All elements of 'clresultlist' must have the same length \n")
 
 
 col1 <- unlist(lapply(clresultlist, function(z) unique(unlist(lapply(z, slot, "method")))))
-if(length(col1) != length(unique(col1)))
-stop("No method may occur more than once \n")
+uniqnames <- character()
+times_uniqnames <- numeric() 
+for(i in seq(along = col1)){
+ if(!is.element(col1[i], uniqnames)){
+   uniqnames <- c(uniqnames, col1[i])
+   times_uniqnames <- c(times_uniqnames, 1)
+   }
+ else{
+      whichid <- which(uniqnames == col1[i])
+      times_uniqnames[whichid] <- times_uniqnames[whichid] + 1 
+      col1[i] <- paste(uniqnames[whichid], times_uniqnames[whichid], sep = "")
+ }
+}  
+
+#if(length(col1) != length(unique(col1)))
+#stop("No method may occur more than once \n")
 perfmatrix <- matrix(nrow = length(col1), ncol=length(measure))
 boxplotdata <- vector(mode = "list", length=length(measure))
 
@@ -60,7 +74,7 @@ for(i in seq(along = measure)){
  dots <- eval(dotsCall)
  if(!hasArg(names)) dots$names <- col1
  ask <- ((prod(par("mfcol"))) == 1 && dev.interactive())
- opar <- par(ask=ask)
+ opar <- par(ask=ask, las = 2)
  on.exit(par(opar))
  for(i in seq(along=boxplotdata)){
   if(!hasArg(main)) dots$main <- measure[i]
