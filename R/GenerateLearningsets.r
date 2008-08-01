@@ -50,7 +50,6 @@ if (method=="MCCV")
    if(any(classize < 1))
    stop("Generation of learningsets failed, one or several classes are too small. \n")
    indlist <- sapply(names(taby), function(z) which(y==z), simplify = FALSE)
-   if(is.m
    learnmatrix <- matrix(nrow=niter, ncol=ntrain)
    lower <- cumsum(c(1, classize[-length(classize)]))
    upper <- cumsum(classize)
