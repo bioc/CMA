@@ -13,11 +13,11 @@ created with the intention to be used for Microarray data, it can as well
 be used in various \code{(p > n)}-scenarios.}
 \details{
 \tabular{ll}{
-Package: \tab CMA \\
-Type: \tab Package \\
-Version: \tab 0.8.5 \\
-Date: \tab 2008-2-13 \\
-License: \tab GPL (version 2 or later) \\
+Package: & CMA \\
+Type: & Package \\
+Version: & 0.8.5 \\
+Date: & 2008-2-13 \\
+License: & GPL (version 2 or later) \\
 }
 Most Important Steps for the workflow are:
 \describe{
