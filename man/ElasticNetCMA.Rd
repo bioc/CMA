@@ -1,6 +1,8 @@
 \name{ElasticNetCMA}
 \alias{ElasticNetCMA}
+
 \title{Classification and variable selection by the ElasticNet}
+
 \description{
  Zou and Hastie (2004) proposed a combined L1/L2 penalty for regularization and
  variable selection. The Elastic Net penalty encourages a grouping effect, where
@@ -9,11 +11,13 @@
  of the same name.
 
  The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.
- For \code{S4} method information, see \code{ElasticNetCMA-methods}.}
+ For \code{S4} method information, see \code{ElasticNetCMA-methods}.
+}
+
 \usage{
 ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{X}{Gene expression data. Can be one of the following:
            \itemize{
@@ -56,18 +60,28 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
   \item{\dots}{Further arguments passed to the function \code{glmpath}
                from the package of the same name.}
 }
+
 \note{For a strongly related method, s. \code{\link{LassoCMA}}.
       Up to now, this method can only be applied to binary classification.}
+
 \value{An object of class \code{\link{clvarseloutput}}.}
+
 \references{Zhou, H., Hastie, T. (2004).
+
             Regularization and variable selection via the elastic net.
+
             \emph{Journal of the Royal Statistical Society B, 67(2),301-320}
 
              Young-Park, M., Hastie, T. (2007)
+
              L1-regularization path algorithm for generalized linear models.
+
              \emph{Journal of the Royal Statistical Society B, 69(4), 659-677}}
+
 \author{Martin Slawski \email{martin.slawski@campus.lmu.de}, 
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},
          \code{\link{knnCMA}}, \code{\link{ldaCMA}}, \code{\link{LassoCMA}},
@@ -75,6 +89,7 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
          \code{\link{pls_ldaCMA}}, \code{\link{pls_lrCMA}}, \code{\link{pls_rfCMA}},
          \code{\link{pnnCMA}}, \code{\link{qdaCMA}}, \code{\link{rfCMA}},
          \code{\link{scdaCMA}}, \code{\link{shrinkldaCMA}}, \code{\link{svmCMA}}}
+
 \examples{
 ### load Golub AML/ALL data
 data(golub)
@@ -92,4 +107,5 @@ show(result)
 ftable(result)
 plot(result)
 }
+
 \keyword{multivariate}
