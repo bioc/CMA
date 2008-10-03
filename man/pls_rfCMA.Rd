@@ -4,7 +4,7 @@
 \description{
   This method constructs a classifier that extracts
   Partial Least Squares components used to generate Random Forests, s. \code{\link{rfCMA}}.
-  \cr
+
   For \code{S4} method information, see \code{\link{pls_rfCMA-methods}}.
 }
 \usage{
@@ -49,11 +49,14 @@ pls_rfCMA(X, y, f, learnind, comp = 2 * nlevels(as.factor(y)), seed = 111, ...)
 
 \value{An object of class \code{\link{cloutput}}. }
 
-\references{Boulesteix, A.L.,  Strimmer, K. (2007).\cr
-            Partial least squares: a versatile tool for the analysis of high-dimensional genomic data.\cr
+\references{Boulesteix, A.L.,  Strimmer, K. (2007).
+
+            Partial least squares: a versatile tool for the analysis of high-dimensional genomic data.
+
             \emph{Briefings in Bioinformatics 7:32-44.}}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

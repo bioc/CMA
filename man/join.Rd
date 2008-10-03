@@ -6,7 +6,8 @@
              It is often more convenient to work with an object of class
              \code{\link{cloutput}} instead with a whole list, e.g.
              because the convenience method defined for that class can
-             be used.\cr
+             be used.
+
              For S4 method information, s. \code{\link{join-methods}}}
 \usage{
 join(cloutputlist)

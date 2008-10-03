@@ -2,7 +2,8 @@
 \alias{knnCMA}
 \title{Nearest Neighbours}
 \description{Ordinary \code{k} nearest neighbours algorithm from the
-very fast implementation in the package \code{class}.\cr
+very fast implementation in the package \code{class}.
+
 For \code{S4} method information, see \link{knnCMA-methods}.
 }
 \usage{
@@ -42,10 +43,13 @@ knnCMA(X, y, f, learnind, ...)
 \value{An object of class \code{\link{cloutput}}.}
 \note{Class probabilities are \emph{not} returned. For a probabilistic
       variant of \code{knn}, s. \code{\link{pknnCMA}}.}
-\references{Ripley, B.D. (1996)\cr
-            Pattern Recognition and Neural Networks.\cr
+\references{Ripley, B.D. (1996)
+
+            Pattern Recognition and Neural Networks.
+
             \emph{Cambridge University Press}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

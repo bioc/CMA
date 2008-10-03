@@ -16,9 +16,11 @@
 
 \source{Adopted from the dataset in the package \code{pamr}.}
 \references{Khan, J., Wei, J. S., Ringner, M., Saal, L. H., Ladanyi, M., Westermann, F., Berthold,
-F., Schwab, M., Antonescu, C. R., Peterson, C., Meltzer, P. S., (2001). \cr
+F., Schwab, M., Antonescu, C. R., Peterson, C., Meltzer, P. S., (2001).
+
 Classification and diagnostic prediction of cancers using gene expression profiling and artificial neural
-networks. \cr
+networks.
+
 \emph{Nature Medicine 7, 673-679}.}
 
 

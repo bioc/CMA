@@ -27,13 +27,9 @@
  \item{show}{Use \code{show(learningsets-object)} for brief information.}
 }
 
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
 
-
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
-
-
-
 
 \seealso{\code{\link{GenerateLearningsets}}, \code{\link{GeneSelection}},
          \code{\link{tune}}, \code{\link{classification}}}

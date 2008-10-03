@@ -7,10 +7,12 @@
 \alias{compBoostCMA,ExpressionSet,character,missing-method}
 \title{Componentwise Boosting}
 \description{Roughly speaking, Boosting combines 'weak learners'
-            in a weighted manner in a stronger ensemble.\cr
+            in a weighted manner in a stronger ensemble.
+
             'Weak learners' here consist of linear functions
             in one component (variable), as proposed by
-            Buehlmann and Yu (2003).\cr
+            Buehlmann and Yu (2003).
+
             It also generates sparsity and can as well be as
             used for variable selection alone. (s. \code{\link{GeneSelection}}.)
 }

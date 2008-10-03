@@ -9,8 +9,7 @@
 \description{
  Nearest neighbour variant that replaces the simple
   voting scheme by a weighted one (based on euclidean distances).
-  This is also used to compute class probabilities.\cr
-  
+  This is also used to compute class probabilities.
 }
 \section{Methods}{
 \describe{

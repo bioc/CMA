@@ -45,25 +45,30 @@ svmCMA(X, y, f, learnind, ...)
       default setting in the small sample, large number of predictors - situation,
       because additional nonlinearity is mostly not necessary there. It
       additionally avoids the tuning of a further kernel parameter \code{gamma},
-      s. help of the package \code{e1071} for details.\cr
+      s. help of the package \code{e1071} for details.
+
       Nevertheless, hyperparameter tuning concerning the parameter \code{cost} must
       usually be performed to obtain reasonale results, s. \code{\link{tune}}.}
 \value{An object of class \code{\link{cloutput}}.}
 \references{
-            Boser, B., Guyon, I., Vapnik, V.  (1992) \cr
-            A training algorithm for optimal margin classifiers.\cr
+            Boser, B., Guyon, I., Vapnik, V.  (1992)
+
+            A training algorithm for optimal margin classifiers.
+
             \emph{Proceedings of the fifth annual workshop on Computational learning theory, pages 144-152, ACM Press}.
 
             Chang, Chih-Chung and Lin, Chih-Jen :
             LIBSVM: a library for Support Vector Machines
             \url{http://www.csie.ntu.edu.tw/~cjlin/libsvm}
             
-            Schoelkopf, B., Smola, A.J. (2002) \cr
+            Schoelkopf, B., Smola, A.J. (2002)
+
             Learning with kernels.
             \emph{MIT Press, Cambridge, MA.}
             }
                     
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},

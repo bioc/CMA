@@ -7,7 +7,8 @@
 \alias{flexdaCMA,ExpressionSet,character,missing-method}
 \title{Flexible Discriminant Analysis}
 \description{
-  This method is experimental.\cr
+  This method is experimental.
+
  It is easy to show that, after appropriate scaling of the predictor matrix \code{X},
  Fisher's Linear Discriminant Analysis is equivalent to Discriminant Analysis
  in the space of the  fitted values from the linear regression of the

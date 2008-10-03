@@ -2,9 +2,11 @@
 \alias{rfCMA}
 \title{Classification based on Random Forests}
 \description{Random Forests were proposed by Breiman (2001)
-             and are implemented in the package \code{randomForest}.\cr
+             and are implemented in the package \code{randomForest}.
+
              In this package, they can as well be used to rank variables
-             according to their importance, s. \code{GeneSelection}.\cr
+             according to their importance, s. \code{GeneSelection}.
+
              For \code{S4} method information, see \link{rfCMA-methods}}
 \usage{
 rfCMA(X, y, f, learnind, varimp = TRUE, seed = 111, ...)}
@@ -46,11 +48,14 @@ rfCMA(X, y, f, learnind, varimp = TRUE, seed = 111, ...)}
 
 \value{If \code{varimp}, then an object of class \code{\link{clvarseloutput}} is returned,
        otherwise an object of class \code{\link{cloutput}}}
-\references{Breiman, L. (2001)\cr
-            Random Forest.\cr
+\references{Breiman, L. (2001)
+
+            Random Forest.
+
             \emph{Machine Learning, 45:5-32.}}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

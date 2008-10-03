@@ -3,8 +3,10 @@
 \title{Shrinkage linear discriminant analysis}
 \description{Linear Discriminant Analysis combined with the
              James-Stein-Shrinkage approach of Schaefer and Strimmer (2005)
-             for the covariance matrix.\cr
-             Currently still an experimental version.\cr
+             for the covariance matrix.
+
+             Currently still an experimental version.
+
              For \code{S4} method information, see \link{shrinkldaCMA-methods}}
 \usage{
 shrinkldaCMA(X, y, f, learnind, ...)
@@ -44,17 +46,22 @@ shrinkldaCMA(X, y, f, learnind, ...)
 
 \value{An object of class \code{\link{cloutput}}.}
 
-\note{This is still an experimental version.\cr
+\note{This is still an experimental version.
+
       Covariance shrinkage is performed by calling functions
-      from the package \code{corpcor}.\cr
+      from the package \code{corpcor}.
+
       Variable selection is \emph{not} necessary.}
 
-\references{ Schaefer, J., Strimmer, K. (2005).\cr
-             A shrinkage approach to large-scale covariance estimation and implications for functional genomics.\cr
+\references{ Schaefer, J., Strimmer, K. (2005).
+
+             A shrinkage approach to large-scale covariance estimation and implications for functional genomics.
+
              \emph{Statististical Applications in Genetics and Molecular Biology, 4:32. }
              }
              
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 

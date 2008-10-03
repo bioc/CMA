@@ -3,7 +3,8 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Flexible Discriminant Analysis}
 \description{
- This method is experimental.\cr
+ This method is experimental.
+ 
  It is easy to show that, after appropriate scaling of the predictor matrix \code{X},
  Fisher's Linear Discriminant Analysis is equivalent to Discriminant Analysis
  in the space of the  fitted values from the linear regression of the
@@ -11,7 +12,8 @@
  This gives rise to 'nonlinear discrimant analysis' methods that expand
  \code{X} in a suitable, more flexible basis. In order to avoid overfitting,
  penalization is used. In the implemented version, the linear model is replaced
- by a generalized additive one, using the package \code{mgcv}.\cr
+ by a generalized additive one, using the package \code{mgcv}.
+
  For \code{S4} method information, s. \code{\link{flexdaCMA-methods}}.
 }
 \usage{
@@ -61,11 +63,14 @@ flexdaCMA(X, y, f, learnind, comp = 1, plot = FALSE, ...)
       therefore, it should be applied only with very few variables.}
 
 \value{An object of class \code{\link{cloutput}}.}
-\references{Ripley, B.D. (1996)\cr
-            Pattern Recognition and Neural Networks.\cr
+\references{Ripley, B.D. (1996)
+
+            Pattern Recognition and Neural Networks.
+
             \emph{Cambridge University Press}}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

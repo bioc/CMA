@@ -9,7 +9,7 @@
 \description{
              Probabilistic Neural Networks is the term Specht (1990) used
              for a Gaussian kernel estimator for the conditional class
-             densities.\cr
+             densities.
 }
 \section{Methods}{
 \describe{

@@ -10,7 +10,7 @@
   This method constructs a classifier that extracts
   Partial Least Squares components used to generate Random Forests, s. \code{\link{rfCMA}}.
   The Partial Least Squares components are computed by the package
-  \code{plsgenomics}.\cr
+  \code{plsgenomics}.
 }
 \section{Methods}{
 \describe{

@@ -8,9 +8,10 @@
 \title{Shrunken Centroids Discriminant Analysis}
 \description{
   The nearest shrunken centroid classification algorithm is
-  detailly described in Tibshirani et al. (2002).\cr
+  detailly described in Tibshirani et al. (2002).
+
   It is widely known under the name PAM (prediction analysis for microarrays),
-  which can also be found in the package \code{pamr}.\cr
+  which can also be found in the package \code{pamr}.
 }
 \section{Methods}{
 \describe{

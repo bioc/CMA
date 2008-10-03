@@ -11,7 +11,7 @@
   Partial Least Squares components that form the the covariates
   in a binary logistic regression model.
   The Partial Least Squares components are computed by the package
-  \code{plsgenomics}.\cr
+  \code{plsgenomics}.
 }
 \section{Methods}{
 \describe{

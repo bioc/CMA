@@ -6,7 +6,8 @@
   Partial Least Squares components that are plugged into
   Linear Discriminant Analysis.
   The Partial Least Squares components are computed by the package
-  \code{plsgenomics}.\cr
+  \code{plsgenomics}.
+
   For \code{S4} method information, see \code{\link{pls_ldaCMA-methods}}.
 }
 \usage{
@@ -49,16 +50,21 @@ pls_ldaCMA(X, y, f, learnind, comp = 2, plot = FALSE)
 }
 
 \value{An object of class \code{\link{cloutput}}.}
-\references{Nguyen, D., Rocke, D. M., (2002).\cr
-            Tumor classifcation by partial least squares using microarray gene expression data.\cr
-            \emph{Bioinformatics 18, 39-50}\cr
+\references{Nguyen, D., Rocke, D. M., (2002).
+
+            Tumor classifcation by partial least squares using microarray gene expression data.
+
+            \emph{Bioinformatics 18, 39-50}
             
-            Boulesteix, A.L.,  Strimmer, K. (2007).\cr
-            Partial least squares: a versatile tool for the analysis of high-dimensional genomic data.\cr
+            Boulesteix, A.L.,  Strimmer, K. (2007).
+
+            Partial least squares: a versatile tool for the analysis of high-dimensional genomic data.
+
             \emph{Briefings in Bioinformatics 7:32-44.}
             }
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

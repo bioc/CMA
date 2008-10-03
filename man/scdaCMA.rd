@@ -3,9 +3,11 @@
 \title{Shrunken Centroids Discriminant Analysis}
 \description{
 The nearest shrunken centroid classification algorithm is
-detailly described in Tibshirani et al. (2002).\cr
+detailly described in Tibshirani et al. (2002).
+
 It is widely known under the name PAM (prediction analysis for microarrays),
-which can also be found in the package \code{pamr}.\cr
+which can also be found in the package \code{pamr}.
+
 For \code{S4} method information, see \link{scdaCMA-methods}.
 }
 \usage{
@@ -53,11 +55,14 @@ scdaCMA(X, y, f, learnind, delta = 0.5, ...)
 \note{The results can differ from those obtained by
       using the package \code{pamr}.}
 
-\references{ Tibshirani, R., Hastie, T., Narasimhan, B., and Chu, G., (2003).\cr
-             Class prediction by nearest shrunken centroids with applications to DNA microarrays.\cr
+\references{ Tibshirani, R., Hastie, T., Narasimhan, B., and Chu, G., (2003).
+
+             Class prediction by nearest shrunken centroids with applications to DNA microarrays.
+
              \emph{Statistical Science, 18, 104-117}}
              
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
         
 

@@ -6,7 +6,8 @@
   Partial Least Squares components that form the the covariates
   in a binary logistic regression model.
   The Partial Least Squares components are computed by the package
-  \code{plsgenomics}.\cr
+  \code{plsgenomics}.
+
   For \code{S4} method information, see \code{\link{pls_lrCMA-methods}}.
 }
 \usage{
@@ -55,11 +56,14 @@ pls_lrCMA(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE)
 
 \note{Up to now, only the two-class case is supported.}
 
-\references{Boulesteix, A.L.,  Strimmer, K. (2007).\cr
-            Partial least squares: a versatile tool for the analysis of high-dimensional genomic data.\cr
+\references{Boulesteix, A.L.,  Strimmer, K. (2007).
+
+            Partial least squares: a versatile tool for the analysis of high-dimensional genomic data.
+
             \emph{Briefings in Bioinformatics 7:32-44.}}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 

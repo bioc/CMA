@@ -5,8 +5,10 @@
   Given two variables, the methods trains a classifier
   (argument \code{classfier}) based on these two variables
   and plots the resulting class regions, learning- and test
-  observations in the plane.\cr
-  Appropriate variables are usually found by \code{\link{GeneSelection}}.\cr
+  observations in the plane.
+
+  Appropriate variables are usually found by \code{\link{GeneSelection}}.
+
   For S4 method information, s. \code{\link{Planarplot-methods}}.
 }
 \usage{
@@ -42,7 +44,8 @@ Planarplot(X, y, f, learnind, predind, classifier, gridsize = 100, ...)
                  denote the two variables used for classification.}
   \item{classifier}{Name of function ending with \code{CMA} indicating
                     the classifier to be used.}
-  \item{gridsize}{The gridsize used for two-dimensional plotting.\cr
+  \item{gridsize}{The gridsize used for two-dimensional plotting.
+
                   For both variables specified in \code{predind},
                   an equidistant grid of size \code{gridsize} is created.
                   The resulting two grids are then combined to obtain
@@ -54,7 +57,8 @@ Planarplot(X, y, f, learnind, predind, classifier, gridsize = 100, ...)
 }
 
 \value{No return.}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}.
         Idea is from the \code{MLInterfaces} package, contributed
         by Jess Mar, Robert Gentleman and Vince Carey.}

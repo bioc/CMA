@@ -3,7 +3,8 @@
 \title{Probabilistic Neural Networks}
 \description{Probabilistic Neural Networks is the term Specht (1990) used
              for a Gaussian kernel estimator for the conditional class
-             densities.\cr
+             densities.
+
              For \code{S4} method information, see \link{pnnCMA-methods}.}
 \usage{
 pnnCMA(X, y, f, learnind, sigma = 1)
@@ -14,7 +15,8 @@ pnnCMA(X, y, f, learnind, sigma = 1)
            \itemize{
            \item A \code{matrix}. Rows correspond to observations, columns to variables.
            \item A \code{data.frame}, when \code{f} is \emph{not} missing (s. below).
-           \item An object of class \code{ExpressionSet}.\cr
+           \item An object of class \code{ExpressionSet}.
+
            Each variable (gene) will be scaled for unit variance and zero mean.
            }}
   \item{y}{Class labels. Can be one of the following:
@@ -35,7 +37,8 @@ pnnCMA(X, y, f, learnind, sigma = 1)
   \item{learnind}{An index vector specifying the observations that
                   belong to the learning set. For this method, this
                   must \emph{not} be \code{missing}.}
-  \item{sigma}{Standard deviation of the Gaussian Kernel used.\cr
+  \item{sigma}{Standard deviation of the Gaussian Kernel used.
+
                This hyperparameter should be tuned, s. \code{\link{tune}}.
                The default is \code{1}, but this generally  does not
                lead to good results. Actually, this method reacts
@@ -47,11 +50,13 @@ pnnCMA(X, y, f, learnind, sigma = 1)
 \value{An object of class \code{\link{cloutput}}.}
 \note{There is actually no strong relation of this method to Feed-Forward
       Neural Networks, s. \code{\link{nnetCMA}}.}
-\references{Specht, D.F. (1990).\cr
+\references{Specht, D.F. (1990).
+
             Probabilistic Neural Networks.
             \emph{Neural Networks, 3, 109-118}.}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
         
 

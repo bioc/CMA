@@ -27,7 +27,8 @@ toplist(object, k = 10, iter = 1, show = TRUE, ...)
        scenarios (e.g., \code{1 vs. 3}).
        Otherwise, a single \code{data.frame} is returned.
 }
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 \seealso{\code{\link{genesel}}, \code{\link{GeneSelection}}, \code{\link{plot,genesel-method}}}
 \keyword{multivariate}

@@ -46,16 +46,19 @@ plrCMA(X, y, f, learnind, lambda = 0.01, scale = TRUE, ...)
 
 \value{An object of class \code{\link{cloutput}}.}
 \references{Zhu, J., Hastie, T. (2004).
-            Classification of gene microarrays by penalized logistic regression.\cr
+            Classification of gene microarrays by penalized logistic regression.
+
             \emph{Biostatistics 5:427-443}.}
-\author{Special thanks go to \cr
+\author{Special thanks go to
+
         Ji Zhu (University of Ann Arbor, Michigan)
- \cr
+ 
         Trevor Hastie (Stanford University)
- \cr
+
         who provided the basic code that was then adapted by
 
-        Martin Slawski \email{martin.slawski@campus.lmu.de}, \cr
+        Martin Slawski \email{martin.slawski@campus.lmu.de},
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}.}
 
 \seealso{code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

@@ -9,7 +9,8 @@
 \description{Given two variables, the methods trains a classifier
   (argument \code{classfier}) based on these two variables
   and plots the resulting class regions, learning- and test
-  observations in the plane.\cr
+  observations in the plane.
+
   Appropriate variables are usually found by \code{\link{GeneSelection}}.}
 \section{Methods}{
 \describe{

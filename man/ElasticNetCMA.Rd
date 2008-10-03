@@ -7,8 +7,9 @@
  The Elastic Net penalty encourages a grouping
  effect, where strongly correlated predictors tend to be in or out of the model together.
  The computation is done with the function \code{glmpath} from the package
- of the same name.\cr
- The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.\cr
+ of the same name.
+
+ The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.
  For \code{S4} method information, see \code{ElasticNetCMA-methods}.}
 \usage{
 ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
@@ -56,17 +57,17 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
   \item{\dots}{Further arguments passed to the function \code{glmpath}
                from the package of the same name.}
 }
-\note{For a strongly related method, s. \code{\link{LassoCMA}}.\cr
+\note{For a strongly related method, s. \code{\link{LassoCMA}}.
       Up to now, this method can only be applied to binary classification.}
 \value{An object of class \code{\link{clvarseloutput}}.}
-\references{Zhou, H., Hastie, T. (2004).\cr
+\references{Zhou, H., Hastie, T. (2004).
             Regularization and variable selection via the elastic net.
             \emph{Journal of the Royal Statistical Society B, 67(2),301-320}
 
-             Young-Park, M., Hastie, T. (2007)\cr
-             L1-regularization path algorithm for generalized linear models.\cr
+             Young-Park, M., Hastie, T. (2007)
+             L1-regularization path algorithm for generalized linear models.
              \emph{Journal of the Royal Statistical Society B, 69(4), 659-677}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}, 
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},

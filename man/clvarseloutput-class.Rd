@@ -53,7 +53,8 @@ Class \code{"\linkS4class{varseloutput}"}, directly.
 	 }
 }
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 \seealso{\code{\link{rfCMA}}, \code{\link{compBoostCMA}}, \code{\link{LassoCMA}}, \code{\link{ElasticNetCMA}}}
 \keyword{multivariate}

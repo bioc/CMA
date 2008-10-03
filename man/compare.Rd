@@ -53,11 +53,14 @@ compare(clresultlist, measure = c("misclassification", "sensitivity", "specifity
      plot is created for each of them.}
 \value{A \code{data.frame} with rows corresponding to the compared classifiers
        and columns to the performance measures, aggregated by \code{aggfun}, s. above.}
-\references{ Dudoit, S., Fridlyand, J., Speed, T. P. (2002)\cr
+\references{ Dudoit, S., Fridlyand, J., Speed, T. P. (2002)
+
             Comparison of discrimination methods for the classification of tumors
-            using gene expression data.\cr
+            using gene expression data.
+
             \emph{Journal of the American Statistical Association 97, 77-87}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
         
 \seealso{\code{\link{classification}}, \code{\link{evaluation}}}

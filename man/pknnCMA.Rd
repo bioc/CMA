@@ -4,7 +4,8 @@
 \description{
   Nearest neighbour variant that replaces the simple
   voting scheme by a weighted one (based on euclidean distances).
-  This is also used to compute class probabilities.\cr
+  This is also used to compute class probabilities.
+
   For \code{S4} class information, see \link{pknnCMA-methods}.
 }
 \usage{
@@ -56,7 +57,8 @@ pknnCMA(X, y, f, learnind, beta = 1, k = 1, ...)
 }
 \value{An object of class \code{\link{cloutput}}.}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

@@ -4,7 +4,8 @@
 \description{Performs a linear discriminant analysis under the assumption
 of a multivariate normal distribution in each classes (with equal, but
 generally structured) covariance matrices. The function \code{lda} from
-the package \code{MASS} is called for computation.\cr
+the package \code{MASS} is called for computation.
+
 For \code{S4} method information, see \link{ldaCMA-methods}.
 }
 \usage{
@@ -50,10 +51,13 @@ ldaCMA(X, y, f, learnind, ...)
 %  ~~ If necessary, more details than the description above ~~
 %}
 \value{An object of class \code{\link{cloutput}}.}
-\references{McLachlan, G.J. (1992).\cr
-           Discriminant Analysis and Statistical Pattern Recognition.\cr
+\references{McLachlan, G.J. (1992).
+
+           Discriminant Analysis and Statistical Pattern Recognition.
+
            \emph{Wiley, New York}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

@@ -7,7 +7,8 @@
 \alias{rfCMA,ExpressionSet,character,missing-method}
 \title{Classification based on Random Forests}
 \description{Random Forests were proposed by Breiman (2001)
-             and are implemented in the package \code{randomForest}.\cr
+             and are implemented in the package \code{randomForest}.
+
              In this package, they can as well be used to rank variables
              according to their importance, s. \code{GeneSelection}.}
 \section{Methods}{

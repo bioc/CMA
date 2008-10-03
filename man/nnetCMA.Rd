@@ -3,7 +3,8 @@
 \title{Feed-forward Neural Networks}
 \description{This method provides access to the function
 \code{nnet} in the package of the same name that trains
-Feed-forward Neural Networks with one hidden layer.\cr
+Feed-forward Neural Networks with one hidden layer.
+
 For \code{S4} method information, see \link{nnetCMA-methods}
 }
 \usage{
@@ -43,7 +44,8 @@ nnetCMA(X, y, f, learnind, eigengenes = FALSE, ...)
                     in this case, variable selection is necessary to reduce
                     the number of weights that have to be optimized.}
   \item{\dots}{Further arguments passed to the function \code{nnet}
-               from the package of the same name.\cr
+               from the package of the same name.
+
                Important parameters are:
                \itemize{
                \item \code{"size"}, i.e. the number of units in the hidden layer
@@ -61,11 +63,14 @@ nnetCMA(X, y, f, learnind, eigengenes = FALSE, ...)
       }
 }
 \value{An object of class \code{\link{cloutput}}.}
-\references{Ripley, B.D. (1996)\cr
-            Pattern Recognition and Neural Networks.\cr
+\references{Ripley, B.D. (1996)
+
+            Pattern Recognition and Neural Networks.
+
             \emph{Cambridge University Press}}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

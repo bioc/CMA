@@ -8,7 +8,8 @@
 \title{Shrinkage linear discriminant analysis}
 \description{Linear Discriminant Analysis combined with the
              James-Stein-Shrinkage approach of Schaefer and Strimmer (2005)
-             for the covariance matrix.\cr
+             for the covariance matrix.
+
              Currently still an experimental version.
              For \code{S4} method information, see \link{shrinkldaCMA-methods}}
 \section{Methods}{

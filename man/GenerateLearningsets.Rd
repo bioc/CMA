@@ -6,7 +6,8 @@
   does not give accurate information about the classification performance.
   Therefore, several different divisions should be used and aggregated.
   The implemented methods are discussed in Braga-Neto and Dougherty (2003)
-  and Molinaro et al. (2005) whose terminology is adopted.\cr
+  and Molinaro et al. (2005) whose terminology is adopted.
+
   This function is usually the basis for all deeper analyses.
 }
 \usage{
@@ -40,9 +41,9 @@ GenerateLearningsets(n, y, method = c("LOOCV", "CV", "MCCV", "bootstrap"), fold 
                 only when \code{method="MCCV"} or \code{method="bootstrap"}.}
   \item{strat}{Logical. Should stratified sampling be performed,
                   i.e. the proportion of observations from each class in the learning
-                  sets be the same as in the whole data set ? \cr
-                  Does not apply for \code{method = "LOOCV"}.}
-		
+                  sets be the same as in the whole data set ?
+
+                  Does not apply for \code{method = "LOOCV"}.}		
 }
 
 \details{
@@ -54,15 +55,20 @@ learning sets.
 }
 
 \value{An object of class \code{\link{learningsets}}}
-\references{Braga-Neto, U.M., Dougherty, E.R. (2003).\cr
-            Is cross-validation valid for small-sample microarray classification ?\cr
+\references{Braga-Neto, U.M., Dougherty, E.R. (2003).
+
+            Is cross-validation valid for small-sample microarray classification ?
+
             \emph{Bioinformatics, 20(3), 374-380}
 
-            Molinaro, A.M., Simon, R., Pfeiffer, R.M. (2005). \cr
+            Molinaro, A.M., Simon, R., Pfeiffer, R.M. (2005).
+
             Prediction error estimation: a comparison of resampling
-            methods.\cr
+            methods.
+
             \emph{Bioinformatics, 21(15), 3301-3307}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{learningsets}}, \code{\link{GeneSelection}}, \code{\link{tune}},

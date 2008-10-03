@@ -34,7 +34,8 @@
 	    }
       }
 \value{No return.}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 \seealso{\code{\link{genesel}}, \code{\link{GeneSelection}}, \code{\link{toplist}}}
 \keyword{multivariate}

@@ -11,7 +11,7 @@
  'optimal projections' in which classification is performed.
  The directions of optimal projections are computed by the
  function \code{cancor} from the package \code{stats}. For
- an exhaustive treatment, see e.g. Ripley (1996).\cr
+ an exhaustive treatment, see e.g. Ripley (1996).
 }
 \section{Methods}{
 \describe{

@@ -13,11 +13,15 @@ created with the intention to be used for Microarray data, it can as well
 be used in various \code{(p > n)}-scenarios.}
 \details{
 \tabular{ll}{
-Package: \tab CMA\cr
-Type: \tab Package\cr
-Version: \tab 0.8.5 \cr
-Date: \tab 2008-2-13\cr
-License: \tab GPL (version 2 or later) \cr
+Package: \tab CMA
+
+Type: \tab Package
+
+Version: \tab 0.8.5
+
+Date: \tab 2008-2-13
+
+License: \tab GPL (version 2 or later)
 }
 Most Important Steps for the workflow are:
 \describe{
@@ -38,8 +42,8 @@ Most Important Steps for the workflow are:
       }
       }
 \author{
+Martin Slawski \email{martin.slawski@campus.lmu.de}
 
-Martin Slawski \email{martin.slawski@campus.lmu.de}, \cr
 Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}
 
 Maintainer: Martin Slawski \email{martin.slawski@campus.lmu.de}.

@@ -8,7 +8,8 @@ three fold Cross-Validation on each \code{learningset} (for fixed selected
 variables). Note that \code{learningsets} usually do not contain the
 complete dataset, so tuning involves a second level of splitting the dataset.
 Increasing the number of folds leads to larger datasets (and possibly to higher accuracy),
-but also to higher computing times.\cr
+but also to higher computing times.
+
 For S4 method information, s. \code{link{tune-methods}}}
 \usage{
 tune(X, y, f, learningsets, genesel, genesellist = list(), nbgene, classifier, fold = 3, strat = FALSE, grids = list(), trace = TRUE, ...)
@@ -108,7 +109,8 @@ tune(X, y, f, learningsets, genesel, genesellist = list(), nbgene, classifier, f
          }
 }
 \value{An object of class \code{\link{tuningresult}}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 \seealso{\code{\link{tuningresult}}, \code{\link{GeneSelection}}, \code{\link{classification}}}
 \examples{

@@ -6,7 +6,8 @@
 Performs a diagonal discriminant analysis under the assumption
 of a multivariate normal distribution in each classes (with equal,
 diagonally structured) covariance matrices.
-The method is also known under the name 'naive Bayes' classifier.\cr
+The method is also known under the name 'naive Bayes' classifier.
+
 For \code{S4} method information, see \link{dldaCMA-methods}.
 }
 \usage{
@@ -46,10 +47,13 @@ dldaCMA(X, y, f, learnind, ...)
 \note{As opposed to linear or quadratic discriminant analysis, variable
       selection is not strictly necessary.}
 \value{An object of class \code{\link{cloutput}}.}
-\references{McLachlan, G.J. (1992).\cr
-           Discriminant Analysis and Statistical Pattern Recognition.\cr
+\references{McLachlan, G.J. (1992).
+
+           Discriminant Analysis and Statistical Pattern Recognition.
+
            \emph{Wiley, New York}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{ElasticNetCMA}},

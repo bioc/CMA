@@ -1,7 +1,7 @@
 Package: CMA
 Type: Package
 Title: Synthesis of microarray-based classification
-Version: 0.8.5
+Version: 0.8.6
 Date: 2008-02-13
 Author: Martin Slawski <martin.slawski@campus.lmu.de>, Anne-Laure Boulesteix <boulesteix@slcmsr.net>.
 Maintainer: Martin Slawski <martin.slawski@campus.lmu.de>

@@ -6,7 +6,8 @@
  this method ranks the genes from the most relevant to the less relevant using
  one of various 'filter' criteria or provides a sparse collection of variables
  (Lasso, ElasticNet, Boosting). The results are typically used for variable selection for
- the classification procedure that follows.\cr
+ the classification procedure that follows.
+
  For S4 class information, s. \code{GeneSelection-methods}.
 }
 \usage{
@@ -86,32 +87,43 @@ GeneSelection(X, y, f, learningsets, method = c("t.test", "welch.test", "wilcox.
 %  ~~ If necessary, more details than the description above ~~
 %}
 \value{An object of class \code{\link{genesel}}.}
-\references{Smyth, G. K., Yang, Y.-H., Speed, T. P. (2003).\cr
-            Statistical issues in microarray data analysis.\cr
+\references{Smyth, G. K., Yang, Y.-H., Speed, T. P. (2003).
+
+            Statistical issues in microarray data analysis.
+
             \emph{Methods in Molecular Biology 224, 111-136}.
 
-            Guyon, I., Weston, J., Barnhill, S., Vapnik, V. (2002).\cr
+            Guyon, I., Weston, J., Barnhill, S., Vapnik, V. (2002).
+
             Gene Selection for Cancer Classification using support
             vector machines.
             \emph{Journal of Machine Learning Research, 46, 389-422}
 
-            Zhou, H., Hastie, T. (2004).\cr
+            Zhou, H., Hastie, T. (2004).
+
             Regularization and variable selection via the elastic net.
             \emph{Journal of the Royal Statistical Society B, 67(2),301-320}
 
-            Buelmann, P., Yu, B. (2003).\cr
-            Boosting with the L2 loss: Regression and Classification.\cr
+            Buelmann, P., Yu, B. (2003).
+
+            Boosting with the L2 loss: Regression and Classification.
+
             \emph{Journal of the American Statistical Association, 98, 324-339}
             
-            Efron, B., Hastie, T., Johnstone, I., Tibshirani, R. (2004).\cr
-            Least Angle Regression.\cr
+            Efron, B., Hastie, T., Johnstone, I., Tibshirani, R. (2004).
+
+            Least Angle Regression.
+
             \emph{Annals of Statistics, 32:407-499}
 
-            Buehlmann, P., Yu, B. (2006).\cr
-            Sparse Boosting.\cr
+            Buehlmann, P., Yu, B. (2006).
+
+            Sparse Boosting.
+
             \emph{Journal of Machine Learning Research, 7- 1001:1024}
             }
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{filter}}, \code{\link{GenerateLearningsets}}, \code{\link{tune}},

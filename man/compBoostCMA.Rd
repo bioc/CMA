@@ -2,12 +2,15 @@
 \alias{compBoostCMA}
 \title{Componentwise Boosting}
 \description{Roughly speaking, Boosting combines 'weak learners'
-            in a weighted manner in a stronger ensemble.\cr
+            in a weighted manner in a stronger ensemble.
+
             'Weak learners' here consist of linear functions
             in one component (variable), as proposed by
-            Buehlmann and Yu (2003).\cr
+            Buehlmann and Yu (2003).
+
             It also generates sparsity and can as well be as
-            used for variable selection alone. (s. \code{\link{GeneSelection}}).\cr
+            used for variable selection alone. (s. \code{\link{GeneSelection}}).
+
             For \code{S4} method information, see \code{\link{compBoostCMA-methods}.}
 }
 \usage{
@@ -54,23 +57,31 @@ compBoostCMA(X, y, f, learnind, loss = c("binomial", "exp", "quadratic"), mstop 
   \item{\dots}{Currently unused arguments.}
 }
 \details{The method is partly based on code from the package \code{mboost}
-         from T. Hothorn and P. Buehlmann.\cr
+         from T. Hothorn and P. Buehlmann.
+
          The algorithm for the multiclass case is described
          in Lutz and Buehlmann (2006) as 'rowwise updating'.}
 \value{An object of class \code{\link{clvarseloutput}}.}
-\references{  Buelmann, P., Yu, B. (2003).\cr
-              Boosting with the L2 loss: Regression and Classification.\cr
+\references{  Buelmann, P., Yu, B. (2003).
+
+              Boosting with the L2 loss: Regression and Classification.
+
               \emph{Journal of the American Statistical Association, 98, 324-339}
 
-              Buehlmann, P., Hothorn, T.\cr
-              Boosting: A statistical perspective.\cr
+              Buehlmann, P., Hothorn, T.
+
+              Boosting: A statistical perspective.
+
               \emph{Statistical Science (to appear)}
               
-              Lutz, R., Buehlmann, P. (2006).\cr
-              Boosting for high-multivariate responses in high-dimensional linear regression.\cr
+              Lutz, R., Buehlmann, P. (2006).
+
+              Boosting for high-multivariate responses in high-dimensional linear regression.
+
               \emph{Statistica Sinica 16, 471-494}.
 }
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

@@ -5,7 +5,8 @@
             in a weighted manner in a stronger ensemble. This
             method calls the function \code{gbm.fit} from the
             package \code{gbm}. The 'weak learners' are
-            simple trees that need only very few splits (default: 1).\cr
+            simple trees that need only very few splits (default: 1).
+
             For \code{S4} method information, see \code{\link{gbmCMA-methods}}.}
 \usage{
 gbmCMA(X, y, f, learnind, ...)
@@ -58,15 +59,20 @@ gbmCMA(X, y, f, learnind, ...)
 
 \note{Up to now, this method can only be applied to binary classification.}
 \value{An onject of class \code{\link{cloutput}}.}
-\references{ Ridgeway, G. (1999).\cr
-            The state of boosting.\cr
+\references{ Ridgeway, G. (1999).
+
+            The state of boosting.
+
             \emph{Computing Science and Statistics, 31:172-181}
 
-            Friedman, J. (2001).\cr
-            Greedy Function Approximation: A Gradient Boosting Machine.\cr
+            Friedman, J. (2001).
+
+            Greedy Function Approximation: A Gradient Boosting Machine.
+
             \emph{Annals of Statistics 29(5):1189-1232}.
             }
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

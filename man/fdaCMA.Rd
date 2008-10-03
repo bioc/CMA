@@ -7,7 +7,8 @@
  'optimal projections' in which classification is performed.
  The directions of optimal projections are computed by the
  function \code{cancor} from the package \code{stats}. For
- an exhaustive treatment, see e.g. Ripley (1996).\cr
+ an exhaustive treatment, see e.g. Ripley (1996).
+
  For \code{S4} method information, see \code{\link{fdaCMA-methods}.}
 }
 \usage{
@@ -56,11 +57,14 @@ fdaCMA(X, y, f, learnind, comp = 1, plot = FALSE)
 
 \value{An object of class \code{\link{cloutput}}.}
 
-\references{Ripley, B.D. (1996)\cr
-            Pattern Recognition and Neural Networks.\cr
+\references{Ripley, B.D. (1996)
+
+            Pattern Recognition and Neural Networks.
+
             \emph{Cambridge University Press}}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 
