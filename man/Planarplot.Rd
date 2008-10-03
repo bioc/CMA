@@ -3,7 +3,7 @@
 \title{Visualize Separability of different classes}
 \description{
   Given two variables, the methods trains a classifier
-  (argument \code{classfier}) based on these two variables
+  (argument \code{classifier}) based on these two variables
   and plots the resulting class regions, learning- and test
   observations in the plane.
 
