@@ -1,11 +1,10 @@
 \name{ElasticNetCMA}
 \alias{ElasticNetCMA}
-\title{Classfication and variable selection by the ElasticNet}
+\title{Classification and variable selection by the ElasticNet}
 \description{
- Zou and Hastie (2004) proposed a combined L1/L2 penalty
- for regularization and variable selection.
- The Elastic Net penalty encourages a grouping
- effect, where strongly correlated predictors tend to be in or out of the model together.
+ Zou and Hastie (2004) proposed a combined L1/L2 penalty for regularization and
+ variable selection. The Elastic Net penalty encourages a grouping effect, where
+ strongly correlated predictors tend to be in or out of the model together.
  The computation is done with the function \code{glmpath} from the package
  of the same name.
 
@@ -24,7 +23,7 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
             \bold{note}: by default, the predictors are scaled to have unit variance
            and zero mean. Can be changed by passing \code{standardize = FALSE} via
             the \code{...} argument. 
-	   }
+           }
            }
   \item{y}{Class labels. Can be one of the following:
            \itemize{
@@ -34,7 +33,7 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
                  specifies the phenotype variable.
            \item \code{missing}, if \code{X} is a \code{data.frame} and a
            proper formula \code{f} is provided.
-	   }
+           }
            \bold{WARNING}: The class labels will be re-coded to
            range from \code{0} to \code{K-1}, where \code{K} is the
            total number of different classes in the learning set.
@@ -52,7 +51,7 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
                        Lower values correspond to higher shrinkage.
                        Note that the default (0.1) need not produce good
                        results, i.e. tuning of this parameter is recommended.}
-  \item{lambda2}{L2 shrinkage intensity, a postive real number. The
+  \item{lambda2}{L2 shrinkage intensity, a positive real number. The
                  default (0.001) need not produce good results.}
   \item{\dots}{Further arguments passed to the function \code{glmpath}
                from the package of the same name.}
