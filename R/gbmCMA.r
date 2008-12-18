@@ -47,7 +47,7 @@ if(!hasArg(n.trees)) ll$n.trees <- 1000
 if(!hasArg(verbose)) ll$verbose <- FALSE
 ll$x <- X[learnind,,drop=FALSE]
 ll$y <- y[learnind]
-output.gbm <- do.call("gbm.fit", args=ll)
+output.gbm <- do.call(gbm.fit, args=ll)
 Xtest <- data.frame(X[-learnind,,drop=FALSE])
 if(nrow(Xtest) == 0){ Xtest <- X[learnind,,drop=FALSE] ; y <- y[learnind] }
 else y <- y[-learnind]

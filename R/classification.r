@@ -45,7 +45,7 @@ if(missing(genesel)){
   genesellist$X <- X
   genesellist$y <- y
   if(!missing(learningsets)) genesellist$learningsets <- learningsets
-  genesel <- do.call("GeneSelection", args=genesellist)
+  genesel <- do.call(GeneSelection, args=genesellist)
   }
  }
 
@@ -69,7 +69,7 @@ if(!missing(tuninglist) && length(tuninglist) != 0){
  if(!missing(learningsets)) tuninglist$learningsets <- learningsets
  if(!missing(genesel)){ tuninglist$genesel <- genesel ; tuninglist$nbgene <- nbgene }
  if(!is.list(tuninglist$grid)) stop("Invalid specification of 'tuninglist'. Grid must itself be a list \n")
- tuneres <- do.call("tune", args=c(tuninglist, ll))
+ tuneres <- do.call(tune, args=c(tuninglist, ll))
  }
 }
 

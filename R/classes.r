@@ -189,7 +189,7 @@ setMethod("plot", signature(x = "genesel", y = "missing"), function(x, top=10, i
            ll$names.arg <- rep("", length(tempimp))
            deltay <- max(ll$height)/top
            if(!hasArg(ylim)) ll$ylim <- c(0, max(ll$height)+deltay*2)
-           bb <- do.call("barplot", args=ll)
+           bb <- do.call(barplot, args=ll)
            for(i in 1:top){
            chars <- as.character(R[[1]][iter,topind]) 
            characterplot(chars[i], bb[i], ll$height[i], deltax=3/top, deltay=deltay, cex=15/top)}
@@ -220,7 +220,7 @@ setMethod("plot", signature(x = "genesel", y = "missing"), function(x, top=10, i
            deltay <- max(ll$height)/top
            if(!hasArg(ylim)) ll$ylim <- c(0, max(ll$height)+deltay*2)
            if(!hasArg(main)) ll$main <- paste(title, nam[[i]], sep=", ")
-           bb <- do.call("barplot", args=ll)
+           bb <- do.call(barplot, args=ll)
            for(i in 1:top){
            chars <- as.character(tempR) 
            characterplot(chars[i], bb[i], ll$height[i], deltax=4/top, deltay=deltay, cex=15/top)
@@ -271,7 +271,7 @@ setMethod("boxplot", signature=(x="evaloutput"), function(x, ...){
             if(!hasArg(main)) 
             ll$main=paste(x@method, ": ", x@measure,", ", x@scheme, sep="")
             ll$x <- x@score
-            do.call("boxplot", args=ll)
+            do.call(boxplot, args=ll)
           })
 
 ###            
@@ -363,8 +363,8 @@ setMethod("plot", signature(x="tuningresult", y="missing"), function(x, iter=1, 
            if(!hasArg(ylim)) ll$ylim <- c(0,1)
            ll$x <- hypergrid[,which]
            ll$y <- tuneres[[iter]]
-           do.call("plot", args=ll)
-           do.call("lines", args=ll)
+           do.call(plot, args=ll)
+           do.call(lines, args=ll)
            bestind <- which.min(tuneres[[iter]])
            abline(h=tuneres[[iter]][bestind], lty="dashed")
            abline(v=hypergrid[bestind,which], lty="dashed")
@@ -375,7 +375,7 @@ setMethod("plot", signature(x="tuningresult", y="missing"), function(x, iter=1, 
            ll$x <- unique(hypergrid[,which[1]])
            ll$y <- unique(hypergrid[,which[2]])
            ll$z <- matrix(tuneres[[iter]], nrow=length(ll$x), ncol=length(ll$y))
-           do.call("contour", args=ll)
+           do.call(contour, args=ll)
            bestind <- which.min(tuneres[[iter]])
            points(hypergrid[bestind,which[1]], hypergrid[bestind,which[2]], cex=2, pch=3)
           }

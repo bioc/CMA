@@ -79,7 +79,7 @@ for(i in seq(along = measure)){
  for(i in seq(along=boxplotdata)){
   if(!hasArg(main)) dots$main <- measure[i]
   dots$x <- data.frame(boxplotdata[[i]])
-  do.call("boxplot", args=dots)
+  do.call(boxplot, args=dots)
  }
 }
 return(invisible(data.frame(perfmatrix)))

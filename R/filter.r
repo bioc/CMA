@@ -166,7 +166,7 @@ dots$type <- "C-classification"
 if(!hasArg(cost)) dots$cost <- 100
 dots$y <- y[learnind]
 dots$x <- X[learnind,,drop=FALSE]
-model <- do.call("svm", args=dots)
+model <- do.call(svm, args=dots)
 stat <- as.numeric((t(model$coefs) %*% dots$x[model$index,,drop=FALSE])^2)
 new("varseloutput", varsel=stat)
 }

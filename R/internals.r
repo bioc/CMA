@@ -161,7 +161,7 @@ ROCinternal <- function(test, resp, plot, ...)
     ll$ylab <- "Sensitivity"
     ll$type <- "n"
     if(plot){
-    do.call("plot", args=ll)
+    do.call(plot, args=ll)
             #plot(xl, 0:1, xlim = xl, xlab = paste(deparse(substitute(test)), 
             #    "(grid at deciles)"), ylim = 0:1, ylab = " ", 
             #    type = "n")
@@ -173,7 +173,7 @@ ROCinternal <- function(test, resp, plot, ...)
      #   abline(0, 1, col = gray(0.4))
         box()
      ll$type <- "l"
-     do.call("lines", args = ll)
+     do.call(lines, args = ll)
 
             
     #box()

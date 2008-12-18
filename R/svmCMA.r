@@ -48,7 +48,7 @@ if(!hasArg(cost)) ll$cost <- 100
 ll$x <- Xlearn
 ll$y <- factor(Ylearn)
 ll$probability <- TRUE
-output.svm <- do.call("svm", args = ll)
+output.svm <- do.call(svm, args = ll)
 Xtest <- X[-learnind,,drop=FALSE]
 if(nrow(Xtest) == 0){ Xtest <- Xlearn ; y <- Ylearn }
 else y <- y[-learnind]

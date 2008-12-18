@@ -56,7 +56,7 @@ if(noweights > ll$MaxNWts) stop("Number of weights too large. Either increase
                                  perform a variable selection \n")
 Xlearn <- X[learnind,,drop = FALSE]
 ll$x <- Xlearn ; ll$y <- G
-output.nnet <- do.call("nnet", args = ll)
+output.nnet <- do.call(nnet, args = ll)
 Xtest <- X[-learnind,,drop=FALSE]
 if(nrow(Xtest) == 0){ Xtest <- Xlearn ; y <- Ylearn }
 else y <- y[-learnind]

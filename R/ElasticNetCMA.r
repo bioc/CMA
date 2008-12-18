@@ -42,7 +42,7 @@ ll$family <- binomial
 ll$lambda2 <- lambda2
 ll$x <- Xlearn
 ll$y <- Ylearn
-output <- do.call("glmpath", args=ll)
+output <- do.call(glmpath, args=ll)
 norm.fraction <- norm.fraction[1]
 varsel <- predict(output, s=norm.fraction, mode="norm.fraction", type="coefficients")
 varsel <- abs(as.numeric(varsel[-1]))

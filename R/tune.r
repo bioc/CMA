@@ -46,7 +46,7 @@ if(missing(genesel)){
   genesellist$X <- X
   genesellist$y <- y
   if(!missing(learningsets)) genesellist$learningsets <- learningsets
-  genesel <- do.call("GeneSelection", args=genesellist)
+  genesel <- do.call(GeneSelection, args=genesellist)
   }
  }
 
@@ -118,7 +118,7 @@ if(missing(genesel)){
   lsi <- GenerateLearningsets(y=yi, method="CV", fold=fold, strat=strat)
   perf <- double(nrow(hypergrid))
   for(k in 1:nrow(hypergrid)){
-   classifk <- do.call("classification", args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
+   classifk <- do.call(classification, args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
                                                  classifier = classifier), as.list(data.frame(hypergrid[k,,drop=FALSE])), ll))
    evalk <- evaluation(classifk, scheme = "iterationwise")
    perf[k] <- mean(evalk@score)
@@ -149,7 +149,7 @@ if(is.element(genesel@method, c("lasso", "elasticnet", "boosting"))){
    lsi <- GenerateLearningsets(y=yi, method="CV", fold=fold, strat=strat)
    perf <- double(nrow(hypergrid))
    for(k in 1:nrow(hypergrid)){
-   classifk <- do.call("classification", args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
+   classifk <- do.call(classification, args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
                                                  classifier = classifier), as.list(data.frame(hypergrid[k,,drop=FALSE])), ll))
    evalk <- evaluation(classifk, scheme = "iterationwise")
    perf[k] <- mean(evalk@score)
@@ -171,7 +171,7 @@ if(is.element(genesel@method, c("lasso", "elasticnet", "boosting"))){
   lsi <- GenerateLearningsets(y=yi, method="CV", fold=fold, strat=strat)
   perf <- double(nrow(hypergrid))
   for(k in 1:nrow(hypergrid)){
-   classifk <- do.call("classification", args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
+   classifk <- do.call(classification, args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
                                                  classifier = classifier), as.list(data.frame(hypergrid[k,,drop=FALSE])), ll))
    evalk <- evaluation(classifk, scheme = "iterationwise")
    perf[k] <- mean(evalk@score)
@@ -195,7 +195,7 @@ else{
    lsi <- GenerateLearningsets(y=yi, method="CV", fold=fold, strat=strat)
    perf <- double(nrow(hypergrid))
    for(k in 1:nrow(hypergrid)){
-   classifk <- do.call("classification", args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
+   classifk <- do.call(classification, args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
                                                  classifier = classifier), as.list(data.frame(hypergrid[k,,drop=FALSE])), ll))
    evalk <- evaluation(classifk, scheme = "iterationwise")
    perf[k] <- mean(evalk@score)
@@ -213,7 +213,7 @@ else{
   lsi <- GenerateLearningsets(y=yi, method="CV", fold=fold, strat=strat)
   perf <- double(nrow(hypergrid))
   for(k in 1:nrow(hypergrid)){
-   classifk <- do.call("classification", args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
+   classifk <- do.call(classification, args=c(list(X=Xi, y=yi, learningsets=lsi, trace = FALSE,
                                                  classifier = classifier), as.list(data.frame(hypergrid[k,,drop=FALSE])), ll))
    evalk <- evaluation(classifk, scheme = "iterationwise")
    perf[k] <- mean(evalk@score)

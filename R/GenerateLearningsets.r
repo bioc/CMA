@@ -108,7 +108,7 @@ if (method=="CV")
    #lower <- cumsum(c(1, classize[-length(classize)]))
    #upper <- cumsum(classize)       templist[[i]]
    for(i in 1:length(indlist)){
-   outp <- do.call("GenerateLearningsets", args=list(n=taby[i], method="CV", niter=niter, fold=fold))@learnmatrix
+   outp <- do.call(GenerateLearningsets, args=list(n=taby[i], method="CV", niter=niter, fold=fold))@learnmatrix
    templist[[i]] <- t(apply(outp, 1, function(z) ifelse(z == 0, 0, indlist[[i]][z])))
    #learnmatrix[1:fold,lower[i]:upper[i]] <- t())
    #templist <- lapply(templist, function(z) ifelse(z == 0, 0, indlist[[i]][z]))
