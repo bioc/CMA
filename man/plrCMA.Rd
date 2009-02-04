@@ -61,7 +61,7 @@ plrCMA(X, y, f, learnind, lambda = 0.01, scale = TRUE, ...)
 
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}.}
 
-\seealso{code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
+\seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},
          \code{\link{knnCMA}}, \code{\link{ldaCMA}}, \code{\link{LassoCMA}},
          \code{\link{nnetCMA}}, \code{\link{pknnCMA}},

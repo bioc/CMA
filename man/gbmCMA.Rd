@@ -75,7 +75,7 @@ gbmCMA(X, y, f, learnind, ...)
 
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
-\seealso{code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
+\seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}},
          \code{\link{knnCMA}}, \code{\link{ldaCMA}}, \code{\link{LassoCMA}},
          \code{\link{nnetCMA}}, \code{\link{pknnCMA}}, \code{\link{plrCMA}},

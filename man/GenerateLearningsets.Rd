@@ -47,11 +47,14 @@ GenerateLearningsets(n, y, method = c("LOOCV", "CV", "MCCV", "bootstrap"), fold 
 }
 
 \details{
-\item When \code{method="CV"}, \code{niter} gives the number of times
-the whole CV-procedure is repeated. The output matrix has then \code{fold}x\code{niter} rows.
-When \code{method="MCCV"} or \code{method="bootstrap"}, \code{niter} is simply the number of considered
-learning sets.
-\item Note that \code{method="CV",fold=n} is equivalent to \code{method="LOOCV"}.
+\itemize{
+  \item When \code{method="CV"}, \code{niter} gives the number of times
+  the whole CV-procedure is repeated. The output matrix has then \code{fold}x\code{niter} rows.
+  When \code{method="MCCV"} or \code{method="bootstrap"}, \code{niter} is simply the number of considered
+  learning sets.
+\item Note that \code{method="CV",fold=n} is equivalent to
+\code{method="LOOCV"}.
+}
 }
 
 \value{An object of class \code{\link{learningsets}}}

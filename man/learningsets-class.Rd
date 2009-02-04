@@ -24,7 +24,9 @@
   }
 }
 \section{Methods}{
- \item{show}{Use \code{show(learningsets-object)} for brief information.}
+ \itemize{
+   \item{show}{Use \code{show(learningsets-object)} for brief information.}
+ }
 }
 
 \author{Martin Slawski \email{martin.slawski@campus.lmu.de}

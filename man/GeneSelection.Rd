@@ -11,7 +11,9 @@
  For S4 class information, s. \code{GeneSelection-methods}.
 }
 \usage{
-GeneSelection(X, y, f, learningsets, method = c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test", "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme, trace = TRUE, ...)
+GeneSelection(X, y, f, learningsets, method = c("t.test", "welch.test", 
+"wilcox.test", "f.test", "kruskal.test", "limma", "rfe", "rf", "lasso", 
+"elasticnet", "boosting", "golub"), scheme, trace = TRUE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -52,21 +54,21 @@ GeneSelection(X, y, f, learningsets, method = c("t.test", "welch.test", "wilcox.
                 \item{\code{rfe}}{One-step Recursive Feature Elimination, based on the Support Vector Machine.
                                     The method is decribed in Guyon et al. (2002). Requires the package \code{e1071}.
                                     Take care that appropriate hyperparameters are passed by the \code{...} argument.}
-                \item{\code{rf}}{Random Forest Variable Importance Measure. Requires the package \code{randomForest}}
+                \item{\code{rf}}{Random Forest Variable Importance Measure. Requires the package \code{randomForest}.}
                 \item{\code{lasso}}{\code{L1} penalized logistic regression leads to sparsity with respect
                                       to the variables used. Calls the function \code{\link{LassoCMA}}, which requires
                                       the package \code{glmpath}.
                                       \bold{warning}: Take care that appropriate hyperparameters are passed by the \code{...} argument.}
                 \item{\code{elasticnet}}{Penalized logistic regression with both \code{L1} and \code{L2} penalty, claimed
                                          by Zhou and Hastie (2004) to select 'variable groups'. Calls
-                                         the function \code{\link{ElasticNetCMA}}, which requires the package \code{glmpath}}.
+                                         the function \code{\link{ElasticNetCMA}}, which requires the package \code{glmpath}
                                          \bold{warning}: Take care that appropriate hyperparameters are passed by the \code{...} argument.}
                 \item{\code{boosting}}{Componentwise boosting (Buehlmann and Yu, 2003) has been shown to mimic
                                        the LASSO (Efron et al., 2004; Buehlmann and Yu, 2006). Calls the function \code{\link{compBoostCMA}}
                                        Take care that appropriate hyperparameters are passed by the \code{...} argument.}
                 \item{\code{golub}}{The (theoretically unfounded) variable selection criterion used by Golub et al. (1999), s. \code{\link{golub}}.}
 
-    }            
+    } }           
   \item{scheme}{The scheme to be used in the case of a non-binary response. Must be one
                 of \code{"pairwise"},\code{"one-vs-all"} or \code{"multiclass"}. The
                 last case only makes sense if \code{method} is one of \code{f.test, limma, rf, boosting},
