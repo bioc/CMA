@@ -1,23 +1,19 @@
 \name{ElasticNetCMA}
 \alias{ElasticNetCMA}
-
-\title{Classification and variable selection by the ElasticNet}
-
+\title{Classfication and variable selection by the ElasticNet}
 \description{
- Zou and Hastie (2004) proposed a combined L1/L2 penalty for regularization and
- variable selection. The Elastic Net penalty encourages a grouping effect, where
- strongly correlated predictors tend to be in or out of the model together.
+ Zou and Hastie (2004) proposed a combined L1/L2 penalty
+ for regularization and variable selection.
+ The Elastic Net penalty encourages a grouping
+ effect, where strongly correlated predictors tend to be in or out of the model together.
  The computation is done with the function \code{glmpath} from the package
- of the same name.
-
- The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.
- For \code{S4} method information, see \code{ElasticNetCMA-methods}.
-}
-
+ of the same name.\cr
+ The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.\cr
+ For \code{S4} method information, see \code{ElasticNetCMA-methods}.}
 \usage{
-ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
+ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, alpha=0.5, ...)
 }
-
+%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{X}{Gene expression data. Can be one of the following:
            \itemize{
@@ -27,7 +23,7 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
             \bold{note}: by default, the predictors are scaled to have unit variance
            and zero mean. Can be changed by passing \code{standardize = FALSE} via
             the \code{...} argument. 
-           }
+	   }
            }
   \item{y}{Class labels. Can be one of the following:
            \itemize{
@@ -37,7 +33,7 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
                  specifies the phenotype variable.
            \item \code{missing}, if \code{X} is a \code{data.frame} and a
            proper formula \code{f} is provided.
-           }
+	   }
            \bold{WARNING}: The class labels will be re-coded to
            range from \code{0} to \code{K-1}, where \code{K} is the
            total number of different classes in the learning set.
@@ -55,33 +51,28 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
                        Lower values correspond to higher shrinkage.
                        Note that the default (0.1) need not produce good
                        results, i.e. tuning of this parameter is recommended.}
-  \item{lambda2}{L2 shrinkage intensity, a positive real number. The
-                 default (0.001) need not produce good results.}
+  \item{alpha}{The elasticnet mixing parameter, with 0<alpha<= 1. The
+          penalty is defined as 
+
+               (1-alpha)/2||beta||_2^2+alpha||beta||_1.
+
+          \code{alpha=1} is the lasso penalty; Currently 'alpha<0.01' not
+          reliable, unless you supply your own \code{lambda} sequence}
   \item{\dots}{Further arguments passed to the function \code{glmpath}
                from the package of the same name.}
 }
-
-\note{For a strongly related method, s. \code{\link{LassoCMA}}.
+\note{For a strongly related method, s. \code{\link{LassoCMA}}.\cr
       Up to now, this method can only be applied to binary classification.}
-
 \value{An object of class \code{\link{clvarseloutput}}.}
-
-\references{Zhou, H., Hastie, T. (2004).
-
+\references{Zhou, H., Hastie, T. (2004).\cr
             Regularization and variable selection via the elastic net.
-
             \emph{Journal of the Royal Statistical Society B, 67(2),301-320}
 
-             Young-Park, M., Hastie, T. (2007)
-
-             L1-regularization path algorithm for generalized linear models.
-
+             Young-Park, M., Hastie, T. (2007)\cr
+             L1-regularization path algorithm for generalized linear models.\cr
              \emph{Journal of the Royal Statistical Society B, 69(4), 659-677}}
-
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}, 
-
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
-
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},
          \code{\link{knnCMA}}, \code{\link{ldaCMA}}, \code{\link{LassoCMA}},
@@ -89,7 +80,6 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, lambda2=1e-3, ...)
          \code{\link{pls_ldaCMA}}, \code{\link{pls_lrCMA}}, \code{\link{pls_rfCMA}},
          \code{\link{pnnCMA}}, \code{\link{qdaCMA}}, \code{\link{rfCMA}},
          \code{\link{scdaCMA}}, \code{\link{shrinkldaCMA}}, \code{\link{svmCMA}}}
-
 \examples{
 ### load Golub AML/ALL data
 data(golub)
@@ -102,10 +92,9 @@ ratio <- 2/3
 set.seed(111)
 learnind <- sample(length(golubY), size=floor(ratio*length(golubY)))
 ### run ElasticNet - penalized logistic regression (no tuning)
-result <- ElasticNetCMA(X=golubX, y=golubY, learnind=learnind, norm.fraction = 0.2, lambda2=0.01)
+result <- ElasticNetCMA(X=golubX, y=golubY, learnind=learnind, norm.fraction = 0.2, alpha=0.5)
 show(result)
 ftable(result)
 plot(result)
 }
-
 \keyword{multivariate}

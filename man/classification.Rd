@@ -6,8 +6,7 @@
   to perform variable selection, hyperparameter tuning and
   classification in one step. Alternatively, the first two
   steps can be performed separately and can then be plugged into
-  this function.
-
+  this function.\cr
   For S4 method information, s. \code{\link{classification-methods}}.
 }
 \usage{
@@ -89,8 +88,7 @@ classification(X, y, f, learningsets, genesel, genesellist = list(), nbgene, cla
        The single elements of the list can convenienly be combined using
        the \code{\link{join}} function. The results can be analyzed and
        evaluated by various measures using the method \code{\link{evaluation}}.}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
-
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 \seealso{\code{\link{GeneSelection}}, \code{\link{tune}}, \code{\link{evaluation}},
          \code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

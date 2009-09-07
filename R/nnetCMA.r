@@ -43,21 +43,35 @@ else mode <- "binary"
 y <- as.numeric(y)-1
 Ylearn <- y[learnind]
 G <- class.ind(as.factor(Ylearn))
-if(eigengenes){
-      svdX <- svd(X)
-      svalue <- svdX$d
-      svaluePos <- seq(svalue)[svalue > 0]
-      svalue <- svalue[svaluePos]
-      X <- svdX$u[, svaluePos] %*% diag(svalue)
-}
+
 noweights <- (ncol(X)+1)*(ll$size)+(ll$size+1)*ncol(G)
 if(noweights > ll$MaxNWts) stop("Number of weights too large. Either increase
                                  'MaxNwts' (s. package nnet, function nnet) or
                                  perform a variable selection \n")
 Xlearn <- X[learnind,,drop = FALSE]
+
+#svd using learning set only
+if(eigengenes){
+      svdX <- svd(Xlearn)
+      svalue <- svdX$d
+      svaluePos <- seq(svalue)[svalue > 0]
+      svalue <- svalue[svaluePos]
+      Xlearn <- svdX$u[, svaluePos] %*% diag(svalue)
+}
+
+
+
 ll$x <- Xlearn ; ll$y <- G
-output.nnet <- do.call(nnet, args = ll)
+output.nnet <- do.call("nnet", args = ll)
 Xtest <- X[-learnind,,drop=FALSE]
+
+#using training-svd for testdata 
+if(eigengenes){
+   Xtest<- Xtest %*% svdX$v
+   colnames(Xtest)<-1:ncol(Xtest)
+}
+
+
 if(nrow(Xtest) == 0){ Xtest <- Xlearn ; y <- Ylearn }
 else y <- y[-learnind]
 pred.test <- predict(object=output.nnet, newdata=Xtest)

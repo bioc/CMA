@@ -45,7 +45,7 @@ if(missing(genesel)){
   genesellist$X <- X
   genesellist$y <- y
   if(!missing(learningsets)) genesellist$learningsets <- learningsets
-  genesel <- do.call(GeneSelection, args=genesellist)
+  genesel <- do.call("GeneSelection", args=genesellist)
   }
  }
 
@@ -58,7 +58,8 @@ else{ if(class(genesel) != "genesel") stop("'genesel' must be of class 'genesel'
     }
 
 if(!missing(nbgene)){
- if(nbgene > ncol(X)) stop("'nbgene' greater than the number all genes \n")}
+ if(nbgene > ncol(X)) stop("'nbgene' greater than the number of all genes \n")
+ }
 else nbgene <- ncol(X)
 
 if(missing(tuneres)){
@@ -69,7 +70,7 @@ if(!missing(tuninglist) && length(tuninglist) != 0){
  if(!missing(learningsets)) tuninglist$learningsets <- learningsets
  if(!missing(genesel)){ tuninglist$genesel <- genesel ; tuninglist$nbgene <- nbgene }
  if(!is.list(tuninglist$grid)) stop("Invalid specification of 'tuninglist'. Grid must itself be a list \n")
- tuneres <- do.call(tune, args=c(tuninglist, ll))
+ tuneres <- do.call("tune", args=c(tuninglist, ll))
  }
 }
 
@@ -120,7 +121,9 @@ cloutlist <- vector(mode="list", length=nrow(learnmatrix))
     rankj <- ranks[[j]][i,]
     impj <- imps[[j]][i,]
     impj <- impj[impj > 0]
+    if(nbgene>length(impj)) warning(paste('nbgene greater than number of variables in active set. Using ',length(impj),' variables.',sep=''))
     nbgene <- min(length(impj), nbgene)
+    
     seli <- c(seli, rankj[1:nbgene])
    }
    Xi <- X[,seli,drop=FALSE]
@@ -134,6 +137,7 @@ cloutlist <- vector(mode="list", length=nrow(learnmatrix))
   if(trace) cat("iteration", i, "\n")
   impi <- imps[i,]
   impi <- impi[impi > 0]
+   if(nbgene>length(impi)) warning(paste('nbgene greater than number of variables in active set. Using ',length(impi),' variables.',sep=''))
   nbgene <- min(length(impi), nbgene)
   seli <- ranks[i,1:nbgene]
   Xi <- X[,seli,drop=FALSE]

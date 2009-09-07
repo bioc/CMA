@@ -1,3 +1,4 @@
+%changes !!?
 \name{compare}
 \alias{compare}
 \title{Compare different classifiers}
@@ -10,7 +11,9 @@
   For S4 method information, s. \code{\link{compare-methods}}}
 
 \usage{
-compare(clresultlist, measure = c("misclassification", "sensitivity", "specifity", "average probability", "brier score", "auc"), aggfun = mean, plot = FALSE, ...)
+compare(clresultlist, measure = c("misclassification", "sensitivity",
+"specifity", "average probability", "brier score", "auc"), aggfun =
+meanrm, plot = FALSE, ...) %!!?
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -44,7 +47,8 @@ compare(clresultlist, measure = c("misclassification", "sensitivity", "specifity
                                      S. also \code{roc,cloutput-method}.}
                  }}
   \item{aggfun}{Function that determines how performance among different iterations are aggregared.
-                Default is \code{mean}, other possible choices are quantiles.}
+    Default is \code{meanrm}, which computes the mean using \code{na.rm=T}.
+    Other possible choices are quantiles.}
   \item{plot}{Should the performance of different classifiers be visualized by a joint boxplot ?
                Default is \code{FALSE}.}
   \item{\dots}{Further arguments passed to \code{boxplot} in the case that \code{plot = TRUE}.}
@@ -53,14 +57,11 @@ compare(clresultlist, measure = c("misclassification", "sensitivity", "specifity
      plot is created for each of them.}
 \value{A \code{data.frame} with rows corresponding to the compared classifiers
        and columns to the performance measures, aggregated by \code{aggfun}, s. above.}
-\references{ Dudoit, S., Fridlyand, J., Speed, T. P. (2002)
-
+\references{ Dudoit, S., Fridlyand, J., Speed, T. P. (2002)\cr
             Comparison of discrimination methods for the classification of tumors
-            using gene expression data.
-
+            using gene expression data.\cr
             \emph{Journal of the American Statistical Association 97, 77-87}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
-
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
         
 \seealso{\code{\link{classification}}, \code{\link{evaluation}}}

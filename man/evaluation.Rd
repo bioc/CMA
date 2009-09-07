@@ -4,8 +4,7 @@
 \description{
   The performance of classifiers can be evaluted by six different
   measures and two different schemes that are described more precisely
-  below.
-
+  below.\cr
   For S4 method information, s. \code{\link{evaluation-methods}}.
 }
 \usage{
@@ -74,11 +73,9 @@ evaluation(clresult, cltrain = NULL, cost = NULL, y = NULL, measure = c("misclas
       }
 \value{An object of class \code{\link{evaloutput}}.}
 \references{Efron, B. and Tibshirani, R. (1997). 
-            Improvements on cross-validation: The .632+ bootstrap method.
-
+            Improvements on cross-validation: The .632+ bootstrap method.\cr 
             \emph{Journal of the American Statistical Association, 92, 548-560}.}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
-
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 \seealso{\code{\link{evaloutput}}, \code{\link{classification}}, \code{\link{compare}}}
 \examples{

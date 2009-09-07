@@ -46,8 +46,7 @@
 	 }
 }
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
-
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 \seealso{\code{\link{GeneSelection}}}
 \keyword{multivariate}

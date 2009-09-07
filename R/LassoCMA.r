@@ -22,7 +22,8 @@ setGeneric("LassoCMA", function(X, y, f, learnind, norm.fraction = 0.1, ...)
 
 setMethod("LassoCMA", signature(X="matrix", y="numeric", f="missing"),
           function(X, y, f, learnind, norm.fraction=0.1, ...){
-require(glmpath, quietly=TRUE)
+require(glmnet, quietly=TRUE)
+#require(glmpath) #vgl
 nrx <- nrow(X)
 ly <- length(y)
 if(nrow(X) != length(y))
@@ -33,25 +34,61 @@ levels(y) <- 1:nlevels(y)
 if(nlevels(y) > 2) stop("'LassoCMA' only possible for binary classification \n")
 y <- as.numeric(y)-1
 Ylearn <- y[learnind]
-mode <- "binary"
+mode <- "binary"   
+type<-'naive'
+
 ### levels(Ylearn) <- 1:nlevels(Ylearn)
 Xlearn <- X[learnind,]
 ll <- eval(substitute(list(...)))
-ll$family <- binomial
-ll$lambda2 <- 0
+ll$family <- 'binomial'
+ll$alpha <- 1
 ll$x <- Xlearn
 ll$y <- Ylearn
-output <- do.call(glmpath, args=ll)
+
+##lambdamin
+if(is.null(ll$lambda.min))
+  ll$lambda.min <- 1e-03
+
+output <- do.call("glmnet", args=ll)
 norm.fraction <- norm.fraction[1]
-varsel <- predict(output, s=norm.fraction, mode="norm.fraction", type="coefficients")
+
+##determine lambda that corresponds to specified norm.fraction
+
+
+ nbeta=rbind2(output$a0,output$beta)
+nbeta <- as.matrix(nbeta)
+b<-t(nbeta)
+s <- norm.fraction
+k <- nrow(b)
+    std.b <- scale(b[ ,-1], FALSE, 1/sd(Xlearn))
+ bnorm <- apply(abs(std.b), 1, sum)
+   sb <- bnorm / bnorm[k]
+sfrac <- (s - sb[1])/(sb[k] - sb[1])
+    sb <- (sb - sb[1])/(sb[k] - sb[1])
+    usb <- unique(sb)
+    useq <- match(usb, sb)
+    sb <- sb[useq]
+    b <- b[useq, ]
+coord <- approx(sb, seq(sb), sfrac)$y
+    left <- floor(coord)
+    right <- ceiling(coord)
+    newb <- ((sb[right] - sfrac) * b[left, , drop = FALSE] + 
+        (sfrac - sb[left]) * b[right, , drop = FALSE])/(sb[right] - sb[left])
+    newb[left == right, ] <- b[left[left == right], ]
+betann3<-newb
+###########################
+
+varsel <- newb
 varsel <- abs(as.numeric(varsel[-1]))
 Xtest <- X[-learnind,,drop=FALSE]
 if(nrow(Xtest) == 0) { Xtest <- Xlearn ; y <- Ylearn }
 else y <- y[-learnind]
-prob <- as.numeric(predict(output, newx=Xtest, s=norm.fraction, mode="norm.fraction",
+prob <- as.numeric(predict.glmnet(output, newx=Xtest, s=(output$lambda[left]+output$lambda[right])/2,
                    type="response"))
 yhat <- as.numeric(prob > 0.5)
 prob <- cbind(1-prob, prob)
+output.net <- output
+
 
 new("clvarseloutput", y=y, yhat=yhat, learnind = learnind,
      prob = prob, method = "Lasso", mode=mode, varsel=varsel)
@@ -87,3 +124,6 @@ setMethod("LassoCMA", signature(X="ExpressionSet", y="character", f="missing"),
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
           LassoCMA(X=X, y=y, learnind=learnind, norm.fraction=norm.fraction, ...)})
+
+      
+

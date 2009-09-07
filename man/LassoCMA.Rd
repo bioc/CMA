@@ -6,8 +6,7 @@ tools for simultaneous shrinkage and variable selection. Recently,
 Young-Park and Hastie (2007) have developped and algorithm to
 compute the entire solution path of the Lasso for an arbitrary
 generalized linear model, implemented in the package \code{glmpath}.
-The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.
-
+The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.\cr
 For \code{S4} method information, see \code{LassoCMA-methods}.}
 \usage{
 LassoCMA(X, y, f, learnind, norm.fraction = 0.1, ...)
@@ -53,25 +52,19 @@ LassoCMA(X, y, f, learnind, norm.fraction = 0.1, ...)
   \item{\dots}{Further arguments passed to the function \code{glmpath}
                from the package of the same name.}
 }
-\note{For a strongly related method, s. \code{\link{ElasticNetCMA}}.
-
+\note{For a strongly related method, s. \code{\link{ElasticNetCMA}}.\cr
       Up to now, this method can only be applied to binary classification.}
 \value{An object of class \code{clvarseloutput}.}
-\references{ Tibshirani, R. (1996)
-
-             Regression shrinkage and selection via the lasso.
-
+\references{ Tibshirani, R. (1996)\cr
+             Regression shrinkage and selection via the lasso.\cr
              \emph{Journal of the Royal Statistical Society B, 58(1), 267-288}
 
-             Young-Park, M., Hastie, T. (2007)
-
-             L1-regularization path algorithm for generalized linear models.
-
+             Young-Park, M., Hastie, T. (2007)\cr
+             L1-regularization path algorithm for generalized linear models.\cr
              \emph{Journal of the Royal Statistical Society B, 69(4), 659-677}
              }
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
-
+\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
         Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},

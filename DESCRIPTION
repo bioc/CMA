@@ -1,12 +1,12 @@
 Package: CMA
 Type: Package
 Title: Synthesis of microarray-based classification
-Version: 1.3.1
-Date: 2008-02-13
+Version: 1.3.2
+Date: 2009-09-07
 Author: Martin Slawski <martin.slawski@campus.lmu.de>, Anne-Laure Boulesteix <boulesteix@slcmsr.net>.
-Maintainer: Martin Slawski <martin.slawski@campus.lmu.de>
+Maintainer: Christoph Bernau <bernau@ibe.med.uni-muenchen.de>
 Depends: R (>= 2.5.1), methods, stats, Biobase
-Suggests: MASS, class, nnet, glmpath, e1071, randomForest, plsgenomics, gbm, mgcv, corpcor, limma
+Suggests: MASS, class, nnet, glmnet, e1071, randomForest, plsgenomics, gbm, mgcv, corpcor, limma
 Description: This package provides a comprehensive collection of various microarray-based classification algorithms
              both from Machine Learning and Statistics.
              Variable Selection, Hyperparameter tuning, Evaluation and Comparison can be performed
@@ -21,5 +21,5 @@ Collate: classes.r GenerateLearningsets.r GeneSelection.r
          pnnCMA.r qdaCMA.r rfCMA.r scdaCMA.r
 	 shrinkldaCMA.r svmCMA.r	       
 	 filter.r internals.r 
-License: GPL (>= 2)
-biocViews: Bioinformatics, Classification
+License: GPL (version 2 or later)
+biocViews: Statistics, Classification

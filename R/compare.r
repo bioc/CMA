@@ -19,12 +19,15 @@
 #
 ###**************************************************************************###
 
+
+
+
 setGeneric("compare", function(clresultlist, measure=c("misclassification",
-            "sensitivity", "specifity", "average probability", "brier score", "auc"), aggfun = mean, plot = FALSE, ...) standardGeneric("compare"))
+            "sensitivity", "specifity", "average probability", "brier score", "auc"), aggfun = meanrm, plot = FALSE, ...) standardGeneric("compare"))
 
 setMethod("compare", signature(clresultlist = "list"),
         function(clresultlist, measure = c("misclassification", "sensitivity", "specifity",
-                                         "average probability", "brier score", "auc"), aggfun = mean, plot = FALSE, ...){
+                                         "average probability", "brier score", "auc"), aggfun = meanrm, plot = FALSE, ...){ 
 
 #if(class(clresultlist) != "list") stop("'clresultlist' must be a list \n")
 classes <- unlist(lapply(clresultlist, function(z) unlist(lapply(z, "class"))))
@@ -79,7 +82,7 @@ for(i in seq(along = measure)){
  for(i in seq(along=boxplotdata)){
   if(!hasArg(main)) dots$main <- measure[i]
   dots$x <- data.frame(boxplotdata[[i]])
-  do.call(boxplot, args=dots)
+  do.call("boxplot", args=dots)
  }
 }
 return(invisible(data.frame(perfmatrix)))

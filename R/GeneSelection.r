@@ -14,19 +14,19 @@
 #
 ###**************************************************************************###
 
-### generic
 
+### generic
 setGeneric("GeneSelection", function(X, y, f, learningsets,
-            method=c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test",
+            method=c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test", 
                     "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme,
                     trace = TRUE, ...)
-           standardGeneric("GeneSelection"))
+           standardGeneric("GeneSelection")) 
 
 ### X=matrix, y=numeric, f=missing
 
 setMethod("GeneSelection", signature(X="matrix", y="numeric", f="missing"),
-        function(X, y, f, learningsets, method=c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test",
-                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme, trace = TRUE, ...)
+        function(X, y, f, learningsets, method=c("LassoCMA","t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test",
+                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme, trace = TRUE, ...) 
 {
 nrx <- nrow(X)
 ly <- length(y)
@@ -51,7 +51,7 @@ else{
   }
 
 method <- match.arg(method)
-if(!is.element(method, eval(formals(GeneSelection)$method)))
+if(!is.element(method, eval(formals(GeneSelection)$method))) 
 stop("Invalid 'method' specified \n")
 
 
@@ -93,9 +93,20 @@ if( maxlvl == 2  | scheme == "multiclass")
                            rf = rfCMA,
                            rfe = rfe,
                            lasso = LassoCMA,
+                            
                            elasticnet = ElasticNetCMA,
+                       
+                           
                            boosting = compBoostCMA,
                            golub = golubcrit)
+
+
+
+
+  
+
+##
+  
   for (i in 1:niter)
    {
    #Xi<-Xi[!is.na(yi),]
@@ -167,7 +178,7 @@ setMethod("GeneSelection", signature(X="matrix", y="factor", f="missing"),
         function(X, y, f, learningsets, method=c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test",
                     "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme, trace = TRUE, ...)
          GeneSelection(X, y=as.numeric(y)-1, learningsets=learningsets,
-                       method=method, scheme=scheme, trace=trace, ...))
+                       method=method, scheme=scheme, trace=trace, ...)) 
 
 ### X=data.frame, y=missing, f=formula
 
