@@ -21,5 +21,5 @@ Collate: classes.r GenerateLearningsets.r GeneSelection.r
          pnnCMA.r qdaCMA.r rfCMA.r scdaCMA.r
 	 shrinkldaCMA.r svmCMA.r	       
 	 filter.r internals.r 
-License: GPL (version 2 or later)
+License: GPL (>= 2)
 biocViews: Statistics, Classification
