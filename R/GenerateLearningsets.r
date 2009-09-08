@@ -91,7 +91,15 @@ if (method=="CV")
     }
    }
    learnmatrix <- learnmatrix[,1:max(size.vector),drop=FALSE]
-   learnmatrix <- t(apply(learnmatrix, 1, function(z) setdiff(0:n, z)))
+   
+   if (size.int != size)  
+	   learnmatrix <- t(apply(learnmatrix, 1, function(z) setdiff(0:n, z)))
+   
+   if (size.int == size)  
+	   learnmatrix <- t(apply(learnmatrix, 1, function(z) setdiff(1:n, z)))
+   
+   
+  
   }
  }
  else{
