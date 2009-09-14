@@ -80,7 +80,7 @@ setMethod("ftable", signature="cloutput", function(x){
           cat("missclassification rate: ", round((sum(ftab)-sum(diag(ftab)))/sum(ftab),3), "\n")
           if(x@mode == "binary"){
           cat("sensitivity:", round(ftab[2,2]/sum(ftab[2,]),3), "\n")
-          cat("specifity:", round(ftab[1,1]/sum(ftab[1,]),3), "\n")
+          cat("specificity:", round(ftab[1,1]/sum(ftab[1,]),3), "\n")
           }
           print(ftab)
           cat("\n")})

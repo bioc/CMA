@@ -133,7 +133,7 @@ ROCinternal <- function(test, resp, plot, ...)
     dotsCall <- substitute(list(...))
           ll <- eval(dotsCall)
           if(!hasArg(xlab)) ll$xlab <- "Threshold for assignment to class 1"
-          if(!hasArg(ylab)) ll$ylab <- "Specifity for class 0"
+          if(!hasArg(ylab)) ll$ylab <- "specificity for class 0"
           if(!hasArg(main)) ll$main <- "Receiver Operator Characteristic"
           if(!hasArg(lwd)) ll$lwd <- 2
     m <- as.matrix(table(test, resp))
@@ -158,7 +158,7 @@ ROCinternal <- function(test, resp, plot, ...)
     ll$x <- 1-res[,2]
     ll$y <- res[,1]
     ll$xlim <- 0:1
-    ll$xlab <- "1-Specifity"
+    ll$xlab <- "1-specificity"
     ll$ylim <- 0:1
     ll$ylab <- "Sensitivity"
     ll$type <- "n"

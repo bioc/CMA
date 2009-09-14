@@ -12,7 +12,7 @@
 
 \usage{
 compare(clresultlist, measure = c("misclassification", "sensitivity",
-"specifity", "average probability", "brier score", "auc"), aggfun =
+"specificity", "average probability", "brier score", "auc"), aggfun =
 meanrm, plot = FALSE, ...) %!!?
 }
 %- maybe also 'usage' for other objects documented here.
@@ -25,13 +25,13 @@ meanrm, plot = FALSE, ...) %!!?
   \item{measure}{A character vector containing one or more of the elements listed below.
                  By default, all measures are computed, using \code{\link{evaluation}}
                  with \code{scheme = "iterationwise"}.
-                 Note that \code{"sensitivity", "specifity", "auc"} cannot be computed
+                 Note that \code{"sensitivity", "specificity", "auc"} cannot be computed
                  for the multiclass case.
                  \describe{
                  \item{\code{"misclassification"}}{The missclassifcation rate.}
                  \item{\code{"sensitivity"}}{The sensitivity or 1-false negative rate.
                                              Can only be computed for binary classifcation.}
-                 \item{\code{"specifity"}}{The specifity or 1-false positive rate.
+                 \item{\code{"specificity"}}{The specificity or 1-false positive rate.
                                            Can only be computed for binary classification.}
                  \item{\code{"average probability"}}{The average probability assigned to the
                                                      correct class. Requirement is that

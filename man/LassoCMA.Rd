@@ -3,9 +3,9 @@
 \title{L1 penalized logistic regression}
 \description{The Lasso (Tibshirani, 1996) is one of the most popular
 tools for simultaneous shrinkage and variable selection. Recently,
-Young-Park and Hastie (2007) have developped and algorithm to
+Friedman, Hastie and Tibshirani (2008) have developped and algorithm to
 compute the entire solution path of the Lasso for an arbitrary
-generalized linear model, implemented in the package \code{glmpath}.
+generalized linear model, implemented in the package \code{glmnet}.
 The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.\cr
 For \code{S4} method information, see \code{LassoCMA-methods}.}
 \usage{
@@ -59,13 +59,15 @@ LassoCMA(X, y, f, learnind, norm.fraction = 0.1, ...)
              Regression shrinkage and selection via the lasso.\cr
              \emph{Journal of the Royal Statistical Society B, 58(1), 267-288}
 
-             Young-Park, M., Hastie, T. (2007)\cr
-             L1-regularization path algorithm for generalized linear models.\cr
-             \emph{Journal of the Royal Statistical Society B, 69(4), 659-677}
+
+             Friedman, J., Hastie, T. and Tibshirani, R. (2008) Regularization \cr
+     Paths for Generalized Linear Models via Coordinate Descent \cr
+     \url{http://www-stat.stanford.edu/~hastie/Papers/glmnet.pdf}
              }
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+\author{Martin Slawski \email{ms@cs.uni-sb.de} \cr
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de} \cr
+        Christoph Bernau \email{bernau@ibe.med.uni-muenchen.de}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},

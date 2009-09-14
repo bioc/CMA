@@ -20,14 +20,14 @@
 ### generic
 
 setGeneric("evaluation", function(clresult, cltrain = NULL, cost =NULL, y=NULL, measure=c("misclassification",
-            "sensitivity", "specifity", "average probability", "brier score", "auc", "0.632", "0.632+"),
+            "sensitivity", "specificity", "average probability", "brier score", "auc", "0.632", "0.632+"),
             scheme = c("iterationwise", "observationwise", "classwise"))
             standardGeneric("evaluation"))
 
 ### signature = "list"
 
 setMethod("evaluation", signature(clresult="list"),
-          function(clresult, cltrain = NULL, cost = NULL, y = NULL, measure=c("misclassification", "sensitivity", "specifity",
+          function(clresult, cltrain = NULL, cost = NULL, y = NULL, measure=c("misclassification", "sensitivity", "specificity",
                     "average probability", "brier score", "auc", "0.632", "0.632+"),
                     scheme = c("iterationwise", "observationwise", "classwise")){
 
@@ -70,8 +70,8 @@ stop("For 'scheme = classwise', argument 'y' must be specified. \n")
 ylvl <- max(unlist(yhatlist))+1
 yhatlvl <- max(unlist(ylist))+1
 
-if(is.element(measure, c("sensitivity", "specifity", "auc")) & (ylvl > 2 || yhatlvl > 2))
-stop("'sensitivity', 'specifity' or 'auc' are only computed for binary classification \n")
+if(is.element(measure, c("sensitivity", "specificity", "auc")) & (ylvl > 2 || yhatlvl > 2))
+stop("'sensitivity', 'specificity' or 'auc' are only computed for binary classification \n")
 
 if(measure == "auc" & scheme %in% c("observationwise", "classwise")){
 warning("For 'measure=auc' only 'scheme = iterationwise' is possible \n")
@@ -101,7 +101,7 @@ if(length(n) > 1) stop("Error occured while generating the prediction matrix;
                         check that all elements of 'clresult' are based
                         on the same 'learningsets' object  \n")
 
-if(is.element(measure, c("misclassification", "sensitivity", "specifity", "0.632", "0.632+"))){
+if(is.element(measure, c("misclassification", "sensitivity", "specificity", "0.632", "0.632+"))){
 predmatrix <- matrix(NA, nrow=ll, ncol = n)
  if(measure == "misclassification"){
  if(trainingmode){
@@ -120,7 +120,7 @@ predmatrix <- matrix(NA, nrow=ll, ncol = n)
   for(i in 1:ll) predmatrix[i,-learnindlist[[i]]] <- ifelse(ylist[[i]] == 0, NA, yhatlist[[i]] == ylist[[i]])
  }
 
- if(measure == "specifity"){
+ if(measure == "specificity"){
   if(trainingmode) for(i in 1:ll) predmatrix[i,] <- ifelse(ylist[[i]] == 1, NA, yhatlist[[i]] == ylist[[i]])
   else
   for(i in 1:ll) predmatrix[i,-learnindlist[[i]]] <- ifelse(ylist[[i]] == 1, NA, yhatlist[[i]] == ylist[[i]])
@@ -221,6 +221,13 @@ if(measure == "average probability"){
    score <- double(ll)
    for(i in 1:ll){
    probli <- problist[[i]][,2]
+   
+   if(length(unique(probli))==1)
+	   warning(paste('Only one distinct probability on learningset ',i,'. \n',sep='' ))
+   
+   if(any(is.na(probli)))
+   stop(paste('Classifier does not provide class probabilities. AUC can not be computed (First occurence of NA-value(s) on learningset ',i,').\n',sep=''))
+   
    yli <- ylist[[i]]
    if(length(yli) < 2 || length(unique(yli)) < 2)
    stop("measure 'auc' cannot be computed for scheme 'iterationwise';

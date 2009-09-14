@@ -23,10 +23,10 @@
 
 
 setGeneric("compare", function(clresultlist, measure=c("misclassification",
-            "sensitivity", "specifity", "average probability", "brier score", "auc"), aggfun = meanrm, plot = FALSE, ...) standardGeneric("compare"))
+            "sensitivity", "specificity", "average probability", "brier score", "auc"), aggfun = meanrm, plot = FALSE, ...) standardGeneric("compare"))
 
 setMethod("compare", signature(clresultlist = "list"),
-        function(clresultlist, measure = c("misclassification", "sensitivity", "specifity",
+        function(clresultlist, measure = c("misclassification", "sensitivity", "specificity",
                                          "average probability", "brier score", "auc"), aggfun = meanrm, plot = FALSE, ...){ 
 
 #if(class(clresultlist) != "list") stop("'clresultlist' must be a list \n")

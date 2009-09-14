@@ -9,9 +9,9 @@
 \description{
  The Lasso (Tibshirani, 1996) is one of the most popular
  tools for simultaneous shrinkage and variable selection. Recently,
- Young-Park and Hastie (2007) have developped and algorithm to
+ Friedman, Hastie and Tibshirani (2008) have developped and algorithm to
  compute the entire solution path of the Lasso for an arbitrary
- generalized linear model, implemented in the package \code{glmpath}.
+ generalized linear model, implemented in the package \code{glmnet}.
  The method can be used for variable selection alone, s. \code{\link{GeneSelection}}
 }
 \section{Methods}{

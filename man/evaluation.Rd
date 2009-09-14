@@ -8,7 +8,7 @@
   For S4 method information, s. \code{\link{evaluation-methods}}.
 }
 \usage{
-evaluation(clresult, cltrain = NULL, cost = NULL, y = NULL, measure = c("misclassification", "sensitivity", "specifity", "average probability", "brier score", "auc", "0.632", "0.632+"),
+evaluation(clresult, cltrain = NULL, cost = NULL, y = NULL, measure = c("misclassification", "sensitivity", "specificity", "average probability", "brier score", "auc", "0.632", "0.632+"),
                      scheme = c("iterationwise", "observationwise", "classwise"))
 }
 %- maybe also 'usage' for other objects documented here.
@@ -35,7 +35,7 @@ evaluation(clresult, cltrain = NULL, cost = NULL, y = NULL, measure = c("misclas
                  \item{\code{"misclassification"}}{The missclassifcation rate.}
                  \item{\code{"sensitivity"}}{The sensitivity or 1-false negative rate.
                                              Can only be computed for binary classifcation.}
-                 \item{\code{"specifity"}}{The specifity or 1-false positive rate.
+                 \item{\code{"specificity"}}{The specificity or 1-false positive rate.
                                            Can only be computed for binary classification.}
                  \item{\code{"average probability"}}{The average probability assigned to the
                                                      correct class. Requirement is that
