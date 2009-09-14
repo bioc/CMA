@@ -52,7 +52,7 @@ yhat <- (0:(nlevels(Ylearn)-1))[apply(pred.test, 1, which.max)]
 if(varimp){
 varsel <- as.numeric(importance(output.rf))
 new("clvarseloutput", y=y, yhat=yhat, learnind = learnind,
-     prob = pred.test, method = "RandomForest", mode=mode, varsel=varsel)
+     prob = pred.test, method = "rf", mode=mode, varsel=varsel)
 }
 else{
 new("cloutput", y=y, yhat=yhat, learnind = learnind,

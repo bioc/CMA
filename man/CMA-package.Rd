@@ -15,8 +15,8 @@ be used in various \code{(p > n)}-scenarios.}
 \tabular{ll}{
 Package: \tab CMA \cr
 Type: \tab Package \cr
-Version: \tab 0.8.5 \cr
-Date: \tab 2008-2-13 \cr
+Version: \tab 1.3.3 \cr
+Date: \tab 2009-9-14 \cr
 License: \tab GPL (version 2 or later) \cr
 }
 Most Important Steps for the workflow are:
@@ -38,10 +38,12 @@ Most Important Steps for the workflow are:
       }
       }
 \author{
-Martin Slawski \email{martin.slawski@campus.lmu.de}
+Martin Slawski \email{ms@cs.uni-sb.de}
 
-Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}
+Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}
 
-Maintainer: Martin Slawski \email{martin.slawski@campus.lmu.de}.
+Christoph Bernau \email{bernau@ibe.med.uni-muenchen.de}
+
+Maintainer: Christoph Bernau \email{bernau@ibe.med.uni-muenchen.de}.
 }
 \keyword{multivariate}
