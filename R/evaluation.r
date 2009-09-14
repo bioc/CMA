@@ -222,17 +222,19 @@ if(measure == "average probability"){
    for(i in 1:ll){
    probli <- problist[[i]][,2]
    
-   if(length(unique(probli))==1)
-	   warning(paste('Only one distinct probability on learningset ',i,'. \n',sep='' ))
-   
+   if(length(unique(probli))==1){
+	   warning(paste('Only one distinct probability on learningset ',i,'. AUC set to 0.5 for the corresponding test set. \n',sep='' ))
+       score[i]<-0.5
+   }
    if(any(is.na(probli)))
-   stop(paste('Classifier does not provide class probabilities. AUC can not be computed (First occurence of NA-value(s) on learningset ',i,').\n',sep=''))
+   stop(paste('Classifier does not provide class probabilities. AUC cannot be computed. \n',sep=''))
    
    yli <- ylist[[i]]
    if(length(yli) < 2 || length(unique(yli)) < 2)
    stop("measure 'auc' cannot be computed for scheme 'iterationwise';
          too few test observations or all test observations are from
          the same class \n")
+if(length(unique(probli))>1)
    score[i] <- ROCinternal(probli, yli, plot=FALSE)
    }
   }
