@@ -108,8 +108,13 @@ tune(X, y, f, learningsets, genesel, genesellist = list(), nbgene, classifier, f
          }
 }
 \value{An object of class \code{\link{tuningresult}}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
+
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}
+        
+        Christoph Bernau \email{bernau@ibe.med.uni-muenchen.de}}
+
 \seealso{\code{\link{tuningresult}}, \code{\link{GeneSelection}}, \code{\link{classification}}}
 \examples{
 \dontrun{

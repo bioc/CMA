@@ -71,8 +71,13 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, alpha=0.5, ...)
              Young-Park, M., Hastie, T. (2007)\cr
              L1-regularization path algorithm for generalized linear models.\cr
              \emph{Journal of the Royal Statistical Society B, 69(4), 659-677}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
+
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}
+        
+        Christoph Bernau \email{bernau@ibe.med.uni-muenchen.de}}
+
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},
          \code{\link{knnCMA}}, \code{\link{ldaCMA}}, \code{\link{LassoCMA}},

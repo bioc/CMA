@@ -54,9 +54,9 @@ rfCMA(X, y, f, learnind, varimp = TRUE, seed = 111, ...)}
 
             \emph{Machine Learning, 45:5-32.}}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
 
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},

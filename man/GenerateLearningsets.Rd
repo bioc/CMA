@@ -70,9 +70,13 @@ GenerateLearningsets(n, y, method = c("LOOCV", "CV", "MCCV", "bootstrap"), fold 
             methods.
 
             \emph{Bioinformatics, 21(15), 3301-3307}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
 
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
+
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}
+        
+        Christoph Bernau \email{bernau@ibe.med.uni-muenchen.de}}
 
 \seealso{\code{\link{learningsets}}, \code{\link{GeneSelection}}, \code{\link{tune}},
          \code{\link{classification}}}

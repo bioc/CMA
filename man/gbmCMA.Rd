@@ -71,9 +71,11 @@ gbmCMA(X, y, f, learnind, ...)
 
             \emph{Annals of Statistics 29(5):1189-1232}.
             }
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
 
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
+
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}},

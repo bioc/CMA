@@ -1,4 +1,4 @@
-77### filename: GenerateLearningsets.r
+### filename: GenerateLearningsets.r
 ### Title: Function to prepare different learningsets, e.g.
 ###        - LOOCV
 ###        - MCCV

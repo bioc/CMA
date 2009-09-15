@@ -115,8 +115,11 @@ GeneSelection(X, y, f, learningsets, method = c("t.test", "welch.test", "wilcox.
             Sparse Boosting.\cr
             \emph{Journal of Machine Learning Research, 7- 1001:1024}
             }
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
+
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}
+        
+        Christoph Bernau \email{bernau@ibe.med.uni-muenchen.de}}
 
 \seealso{\code{\link{filter}}, \code{\link{GenerateLearningsets}}, \code{\link{tune}},
          \code{\link{classification}}}

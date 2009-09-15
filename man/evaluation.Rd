@@ -75,8 +75,13 @@ evaluation(clresult, cltrain = NULL, cost = NULL, y = NULL, measure = c("misclas
 \references{Efron, B. and Tibshirani, R. (1997). 
             Improvements on cross-validation: The .632+ bootstrap method.\cr 
             \emph{Journal of the American Statistical Association, 92, 548-560}.}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
+
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}
+        
+        Christoph Bernau \email{bernau@ibe.med.uni-muenchen.de}}
+
 \seealso{\code{\link{evaloutput}}, \code{\link{classification}}, \code{\link{compare}}}
 \examples{
 ### simple linear discriminant analysis example using bootstrap datasets:

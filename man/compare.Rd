@@ -61,8 +61,13 @@ meanrm, plot = FALSE, ...) %!!?
             Comparison of discrimination methods for the classification of tumors
             using gene expression data.\cr
             \emph{Journal of the American Statistical Association 97, 77-87}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de} \cr
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+
+
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
+
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}
+        
+        Christoph Bernau \email{bernau@ibe.med.uni-muenchen.de}}
         
 \seealso{\code{\link{classification}}, \code{\link{evaluation}}}
 \examples{

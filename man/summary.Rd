@@ -16,8 +16,8 @@ and the median. Additionally, the mean is also shown.}
 \value{No return.}
 \note{That the results normally differ for different evaluation
       schemes ("iterationwise" or "observationwise").}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
 
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}}
 \seealso{\code{\link{evaluation}}, \code{\link{compare}}, \code{\link{obsinfo}}.}
 \keyword{multivariate}

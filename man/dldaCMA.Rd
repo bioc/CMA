@@ -52,9 +52,10 @@ dldaCMA(X, y, f, learnind, ...)
            Discriminant Analysis and Statistical Pattern Recognition.
 
            \emph{Wiley, New York}}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
 
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
+
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}}
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{ElasticNetCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},

@@ -57,9 +57,9 @@ Planarplot(X, y, f, learnind, predind, classifier, gridsize = 100, ...)
 }
 
 \value{No return.}
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
 
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}.
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}.
         Idea is from the \code{MLInterfaces} package, contributed
         by Jess Mar, Robert Gentleman and Vince Carey.}
 \seealso{\code{GeneSelection},

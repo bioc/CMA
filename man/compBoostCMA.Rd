@@ -80,9 +80,10 @@ compBoostCMA(X, y, f, learnind, loss = c("binomial", "exp", "quadratic"), mstop 
 
               \emph{Statistica Sinica 16, 471-494}.
 }
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
 
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
+
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}}
 
 \seealso{\code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
          \code{\link{fdaCMA}}, \code{\link{flexdaCMA}}, \code{\link{gbmCMA}},

@@ -62,9 +62,9 @@ pls_lrCMA(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE)
 
             \emph{Briefings in Bioinformatics 7:32-44.}}
 
-\author{Martin Slawski \email{martin.slawski@campus.lmu.de}
+\author{Martin Slawski \email{ms@cs.uni-sb.de}
 
-        Anne-Laure Boulesteix \url{http://www.slcmsr.net/boulesteix}}
+        Anne-Laure Boulesteix \email{boulesteix@ibe.med.uni-muenchen.de}}
 
 
 \seealso{\code{\link{compBoostCMA}}, \code{\link{dldaCMA}}, \code{\link{ElasticNetCMA}},
