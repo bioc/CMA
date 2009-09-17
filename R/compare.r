@@ -29,6 +29,10 @@ setMethod("compare", signature(clresultlist = "list"),
         function(clresultlist, measure = c("misclassification", "sensitivity", "specificity",
                                          "average probability", "brier score", "auc"), aggfun = meanrm, plot = FALSE, ...){ 
 
+							 
+							 if(any(is.element(measure,'specifity')))
+								 measure[which(measure=='specifity')]<-'specificity'
+							 
 #if(class(clresultlist) != "list") stop("'clresultlist' must be a list \n")
 classes <- unlist(lapply(clresultlist, function(z) unlist(lapply(z, "class"))))
 if(any(!extends(classes, "cloutput")))

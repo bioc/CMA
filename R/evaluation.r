@@ -30,6 +30,9 @@ setMethod("evaluation", signature(clresult="list"),
           function(clresult, cltrain = NULL, cost = NULL, y = NULL, measure=c("misclassification", "sensitivity", "specificity",
                     "average probability", "brier score", "auc", "0.632", "0.632+"),
                     scheme = c("iterationwise", "observationwise", "classwise")){
+				
+if(any(is.element(measure,'specifity')))
+	measure[which(measure=='specifity')]<-'specificity'
 
 if(length(clresult) < 1) stop("'clresult' must contain at least one element \n")
 classes <- unlist(lapply(clresult, class))
