@@ -88,6 +88,11 @@ classification(X, y, f, learningsets, genesel, genesellist = list(), nbgene, cla
        The single elements of the list can convenienly be combined using
        the \code{\link{join}} function. The results can be analyzed and
        evaluated by various measures using the method \code{\link{evaluation}}.}
+       
+\references{
+Slawski, M. Daumer, M.  Boulesteix, A.-L. (2008)
+CMA - A comprehensive Bioconductor package for supervised classification with high dimensional data.
+\emph{BMC Bioinformatics 9: 439} }
 
 \author{Martin Slawski \email{ms@cs.uni-sb.de}
 

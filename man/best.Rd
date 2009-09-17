@@ -24,6 +24,8 @@ best(object, ...)
 \value{A list with elements equal to the number of different learningsets.
        Each element contains the best hyperparameter combination and
        the corresponding misclassification rate.}
+       
+
 
 \author{Martin Slawski \email{ms@cs.uni-sb.de}
 

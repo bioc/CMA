@@ -74,7 +74,12 @@ evaluation(clresult, cltrain = NULL, cost = NULL, y = NULL, measure = c("misclas
 \value{An object of class \code{\link{evaloutput}}.}
 \references{Efron, B. and Tibshirani, R. (1997). 
             Improvements on cross-validation: The .632+ bootstrap method.\cr 
-            \emph{Journal of the American Statistical Association, 92, 548-560}.}
+            \emph{Journal of the American Statistical Association, 92, 548-560}.
+            
+            Slawski, M. Daumer, M.  Boulesteix, A.-L. (2008)
+CMA - A comprehensive Bioconductor package for supervised classification with high dimensional data.
+\emph{BMC Bioinformatics 9: 439}
+            }
 
 \author{Martin Slawski \email{ms@cs.uni-sb.de}
 

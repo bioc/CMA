@@ -114,6 +114,11 @@ GeneSelection(X, y, f, learningsets, method = c("t.test", "welch.test", "wilcox.
             Buehlmann, P., Yu, B. (2006).\cr
             Sparse Boosting.\cr
             \emph{Journal of Machine Learning Research, 7- 1001:1024}
+            
+            Slawski, M. Daumer, M.  Boulesteix, A.-L. (2008)
+CMA - A comprehensive Bioconductor package for supervised classification with high dimensional data.
+\emph{BMC Bioinformatics 9: 439}
+            
             }
 \author{Martin Slawski \email{ms@cs.uni-sb.de}
 

@@ -69,7 +69,13 @@ GenerateLearningsets(n, y, method = c("LOOCV", "CV", "MCCV", "bootstrap"), fold 
             Prediction error estimation: a comparison of resampling
             methods.
 
-            \emph{Bioinformatics, 21(15), 3301-3307}}
+            \emph{Bioinformatics, 21(15), 3301-3307}
+            
+            Slawski, M. Daumer, M.  Boulesteix, A.-L. (2008)
+CMA - A comprehensive Bioconductor package for supervised classification with high dimensional data.
+\emph{BMC Bioinformatics 9: 439}
+            
+            }
 
 
 \author{Martin Slawski \email{ms@cs.uni-sb.de}

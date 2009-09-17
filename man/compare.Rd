@@ -60,7 +60,13 @@ meanrm, plot = FALSE, ...) %!!?
 \references{ Dudoit, S., Fridlyand, J., Speed, T. P. (2002)\cr
             Comparison of discrimination methods for the classification of tumors
             using gene expression data.\cr
-            \emph{Journal of the American Statistical Association 97, 77-87}}
+            \emph{Journal of the American Statistical Association 97, 77-87}
+            
+            Slawski, M. Daumer, M.  Boulesteix, A.-L. (2008)
+CMA - A comprehensive Bioconductor package for supervised classification with high dimensional data.
+\emph{BMC Bioinformatics 9: 439}
+            
+            }
 
 
 \author{Martin Slawski \email{ms@cs.uni-sb.de}

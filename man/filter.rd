@@ -27,5 +27,10 @@ rfe(X, y, learnind,...)
  \item{...}{Currently unused argument.}}
                   
 \value{An object of class \code{\link{varseloutput}}.}
+\references{
+Slawski, M. Daumer, M.  Boulesteix, A.-L. (2008)
+CMA - A comprehensive Bioconductor package for supervised classification with high dimensional data.
+\emph{BMC Bioinformatics 9: 439}}
+
 \keyword{multivariate}
 
