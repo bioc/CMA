@@ -46,7 +46,7 @@ else{
 y <- y[-learnind]
 Xarr <- rbind(Xlearn, Xtest)
 DD <- as.matrix(dist(Xarr))
-nlearn <- length(learnind)
+nlearn <- nrow(Xlearn)
 part <- DD[1:nlearn,(nlearn+1):nrx]
 part <- apply(part, 2, function(z){ ind <- order(z)[1:k]; z[-ind] <- 0; z})
 freq <- apply(part, 2, function(z) {z[z > 0] <- Ylearn[which(z > 0)]+1; z})
