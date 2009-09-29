@@ -11,7 +11,8 @@
   This function is usually the basis for all deeper analyses.
 }
 \usage{
-GenerateLearningsets(n, y, method = c("LOOCV", "CV", "MCCV", "bootstrap"), fold = NULL, niter = NULL, ntrain = NULL, strat = FALSE)
+GenerateLearningsets(n, y, method = c("LOOCV", "CV", "MCCV", "bootstrap"),
+                     fold = NULL, niter = NULL, ntrain = NULL, strat = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -52,8 +53,7 @@ GenerateLearningsets(n, y, method = c("LOOCV", "CV", "MCCV", "bootstrap"), fold 
   the whole CV-procedure is repeated. The output matrix has then \code{fold}x\code{niter} rows.
   When \code{method="MCCV"} or \code{method="bootstrap"}, \code{niter} is simply the number of considered
   learning sets.
-\item Note that \code{method="CV",fold=n} is equivalent to
-\code{method="LOOCV"}.
+\item Note that \code{method="CV",fold=n} is equivalent to \code{method="LOOCV"}.
 }
 }
 

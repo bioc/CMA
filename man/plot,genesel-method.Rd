@@ -1,4 +1,4 @@
-\name{plot}
+\name{Barplot}
 \alias{plot,genesel-method}
 \alias{plot,genesel,missing-method}
 \title{Barplot of variable importance}
