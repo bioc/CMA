@@ -71,7 +71,7 @@ if (method=="CV")
   {
   size <- n/fold
   #if (size < 5) stop("argument 'fold' is too large; The ratio of no. observations/fold should be > 5. \n")
-  learnmatrix <- matrix(0, niter*fold, n-ceiling(size))
+  learnmatrix <- matrix(0, niter*fold, n-floor(size))
   size.int <- floor(size)
   size.vector <- rep(size.int, fold)
 
