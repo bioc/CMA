@@ -19,13 +19,13 @@
 
 ### generic
 
-setGeneric("gbmCMA", function(X, y, f, learnind, ...)
+setGeneric("gbmCMA", function(X, y, f, learnind,models=FALSE, ...)
            standardGeneric("gbmCMA"))
 
 ### X=matrix, y=numeric, f=missing.
 
 setMethod("gbmCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, ...){
+          function(X, y, f, learnind,models=FALSE, ...){
 require(gbm, quietly=TRUE)
 nrx <- nrow(X)
 ly <- length(y)
@@ -54,21 +54,26 @@ else y <- y[-learnind]
 prob <- predict(output.gbm, newdata=Xtest, n.trees=ll$n.trees, type="response")
 prob <- cbind(1-prob, prob)
 yhat <- apply(prob, 1, which.max)-1
+
+modd<-list(NULL)
+if(models==TRUE)
+	modd<-list(output.gbm)
+
 new("cloutput", yhat=yhat, y=y, learnind = learnind,
-     prob = prob, method = "gbm", mode=mode)
+     prob = prob, method = "gbm", mode=mode,model=modd)
 })
 
 #### signature X=matrix, y=numeric, f=missing
 
 setMethod("gbmCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, ...){
-gbmCMA(X, y=as.numeric(y)-1, learnind=learnind,...)
+          function(X, y, learnind, models=FALSE,...){
+gbmCMA(X, y=as.numeric(y)-1, learnind=learnind,models=models,...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("gbmCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, ...){
+          function(X, y, f, learnind, models=FALSE, ...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -77,14 +82,14 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
-gbmCMA(as.matrix(X), y=y, learnind=learnind,...)})
+gbmCMA(as.matrix(X), y=y, learnind=learnind,models=models,...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("gbmCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind,...){
+          function(X, y, learnind,models=FALSE,...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          gbmCMA(X=X, y=y, learnind=learnind, ...)})
+          gbmCMA(X=X, y=y, learnind=learnind, models=models,...)})

@@ -7,7 +7,7 @@
 
              For \code{S4} method information, see \link{pnnCMA-methods}.}
 \usage{
-pnnCMA(X, y, f, learnind, sigma = 1)
+pnnCMA(X, y, f, learnind, sigma = 1,models=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -44,6 +44,7 @@ pnnCMA(X, y, f, learnind, sigma = 1)
                lead to good results. Actually, this method reacts
                very sensitively to the value of sigma. Take care
                if warnings appear related to the particular choice.}
+               \item{models}{a logical value indicating whether the model object shall be returned }
 }
 
 

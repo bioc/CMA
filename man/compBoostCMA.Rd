@@ -14,7 +14,7 @@
             For \code{S4} method information, see \code{\link{compBoostCMA-methods}.}
 }
 \usage{
-compBoostCMA(X, y, f, learnind, loss = c("binomial", "exp", "quadratic"), mstop = 100, nu = 0.1, ...)
+compBoostCMA(X, y, f, learnind, loss = c("binomial", "exp", "quadratic"), mstop = 100, nu = 0.1, models=FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -54,6 +54,7 @@ compBoostCMA(X, y, f, learnind, loss = c("binomial", "exp", "quadratic"), mstop 
   \item{nu}{Shrinkage factor applied to the update steps, defaults to 0.1.
             In most cases, it suffices to set \code{nu} to a very low value
             and to concentrate on the optimization of \code{mstop}.}
+  \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Currently unused arguments.}
 }
 \details{The method is partly based on code from the package \code{mboost}

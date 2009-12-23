@@ -11,7 +11,7 @@
   For \code{S4} method information, see \code{\link{pls_lrCMA-methods}}.
 }
 \usage{
-pls_lrCMA(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE)
+pls_lrCMA(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE,models=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -50,6 +50,7 @@ pls_lrCMA(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE)
                 stabilize estimation in the case of separable data.}
   \item{plot}{If \code{comp <= 2}, should the classification space of the
               Partial Least Squares components be plotted ? Default is \code{FALSE}.}
+              \item{models}{a logical value indicating whether the model object shall be returned }
 }
 
 \value{An object of class \code{\link{cloutput}}.}

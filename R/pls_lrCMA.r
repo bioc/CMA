@@ -19,13 +19,13 @@
 
 ###
 
-setGeneric("pls_lrCMA", function(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE)
+setGeneric("pls_lrCMA", function(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE,models=FALSE)
            standardGeneric("pls_lrCMA"))
 
 ### X=matrix, y=numeric, f=missing
 
 setMethod("pls_lrCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE){
+          function(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE,models=FALSE){
 require(plsgenomics, quietly=TRUE)
 nrx <- nrow(X)
 ly <- length(y)
@@ -88,8 +88,12 @@ if(plot){
    }
   }
 
+  modd<-list(NULL)
+  if(models==TRUE)
+	  modd<-list(output.glm)
+  
 new("cloutput", yhat = yhat, y=y, learnind = learnind,
-     prob = prob, method = "pls_lr", mode=mode)
+     prob = prob, method = "pls_lr", mode=mode,model=modd)
 
 
 })
@@ -97,14 +101,14 @@ new("cloutput", yhat = yhat, y=y, learnind = learnind,
 ### signature X=matrix, y=factor, f=missing:
 
 setMethod("pls_lrCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, comp = 2, lambda = 1e-4, plot = FALSE){
-pls_lrCMA(X, y = as.numeric(y)-1, learnind = learnind, comp = comp, lambda = lambda, plot = plot)
+          function(X, y, learnind, comp = 2, lambda = 1e-4, plot = FALSE,models=FALSE){
+pls_lrCMA(X, y = as.numeric(y)-1, learnind = learnind, comp = comp, lambda = lambda, plot = plot,models=models)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("pls_lrCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE){
+          function(X, y, f, learnind, comp = 2, lambda = 1e-4, plot = FALSE,models=FALSE){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -113,14 +117,14 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
-pls_lrCMA(as.matrix(X), y=y, learnind=learnind, comp = comp, lambda = lambda, plot = plot)})
+pls_lrCMA(as.matrix(X), y=y, learnind=learnind, comp = comp, lambda = lambda, plot = plot,models=models)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("pls_lrCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind, comp = 2, lambda = 1e-4, plot = FALSE){
+          function(X, y, learnind, comp = 2, lambda = 1e-4, plot = FALSE,models=FALSE){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          pls_lrCMA(X=X, y=y, learnind=learnind, comp = comp, lambda = lambda, plot = plot)})
+          pls_lrCMA(X=X, y=y, learnind=learnind, comp = comp, lambda = lambda, plot = plot,models=models)})

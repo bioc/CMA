@@ -16,14 +16,14 @@
 #
 ###**************************************************************************###
 
-setGeneric("shrinkldaCMA", function(X, y, f, learnind, ...)
+setGeneric("shrinkldaCMA", function(X, y, f, learnind, models=FALSE,...)
            standardGeneric("shrinkldaCMA"))
 
 
 ### signature X=matrix, y=numeric, f=missing:
 
 setMethod("shrinkldaCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, ...){
+          function(X, y, f, learnind, models=FALSE, ...){
 require(corpcor, quietly=TRUE)
 nrx <- nrow(X)
 ly <- length(y)
@@ -60,21 +60,27 @@ probs <- exp(Dis)
 probs <- probs/rowSums(probs)
 colnames(probs) <- names(taby)
 
+
+if(models==TRUE)
+	modd<-list(NULL)
+if(models==FALSE)
+	modd<-list(NULL)
+
 new("cloutput", y=y, yhat=classes, learnind = learnind,
-    prob = probs, method = "shrinkLDA", mode=mode)
+    prob = probs, method = "shrinkLDA", mode=mode,model=modd)
 })
 
 ### signature X=matrix, y=factor, f=missing
 
 setMethod("shrinkldaCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, ...){
-shrinkldaCMA(X, y=as.numeric(y)-1, learnind=learnind,...)
+          function(X, y, learnind, models=FALSE,...){
+shrinkldaCMA(X, y=as.numeric(y)-1, learnind=learnind,models=models,...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("shrinkldaCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, ...){
+          function(X, y, f, learnind, models=FALSE,...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -83,14 +89,14 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
-shrinkldaCMA(as.matrix(X), y=y, learnind=learnind,...)})
+shrinkldaCMA(as.matrix(X), y=y, learnind=learnind,models=models,...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("shrinkldaCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind,...){
+          function(X, y, learnind,models=FALSE,...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          shrinkldaCMA(X=X, y=y, learnind=learnind, ...)})
+          shrinkldaCMA(X=X, y=y, learnind=learnind, models=models,...)})

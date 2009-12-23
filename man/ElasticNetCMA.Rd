@@ -11,7 +11,7 @@
  The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.\cr
  For \code{S4} method information, see \code{ElasticNetCMA-methods}.}
 \usage{
-ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, alpha=0.5, ...)
+ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, alpha=0.5, models=FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -58,6 +58,7 @@ ElasticNetCMA(X, y, f, learnind, norm.fraction = 0.1, alpha=0.5, ...)
 
           \code{alpha=1} is the lasso penalty; Currently 'alpha<0.01' not
           reliable, unless you supply your own \code{lambda} sequence}
+  \item{models}{a logical value indicating whether the model object shall be returned}
   \item{\dots}{Further arguments passed to the function \code{glmpath}
                from the package of the same name.}
 }

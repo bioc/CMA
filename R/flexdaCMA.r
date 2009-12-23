@@ -20,14 +20,14 @@
 #
 ###**************************************************************************###
 
-setGeneric("flexdaCMA", function(X, y, f, learnind, comp = 1, plot = FALSE, ...)
+setGeneric("flexdaCMA", function(X, y, f, learnind, comp = 1, plot = FALSE, models=FALSE, ...)
            standardGeneric("flexdaCMA"))
 
 
 ### signature X=matrix, y=numeric, f=missing:
 
 setMethod("flexdaCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, comp=1, plot=FALSE, ...){
+          function(X, y, f, learnind, comp=1, plot=FALSE, models=FALSE,...){
 require(mgcv, quietly=TRUE)
 nrx <- nrow(X)
 ly <- length(y)
@@ -121,20 +121,27 @@ if(plot){
     }
  }
 }
-new("cloutput", yhat=yhat, y=y, prob = prob, method = "flexDA", mode=mode)
+
+
+if(models==TRUE)
+	modd<-list(NULL)
+if(models==FALSE)
+	modd<-list(NULL)
+
+new("cloutput", yhat=yhat, y=y, prob = prob, method = "flexDA", mode=mode,model=modd)
 })
 
 ### signature X=matrix, y=factor, f=missing:
 
 setMethod("flexdaCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, comp=1, plot=FALSE, ...){
-flexdaCMA(X, y=as.numeric(y)-1, learnind=learnind, comp=comp, plot=plot, ...)
+          function(X, y, learnind, comp=1, plot=FALSE,models=FALSE, ...){
+flexdaCMA(X, y=as.numeric(y)-1, learnind=learnind, comp=comp, plot=plot,models=models, ...)
 })
 
 ### signature X=data.frame, y=missing f=formula:
 
 setMethod("flexdaCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, learnind, f, comp=1, plot=FALSE, ...){
+          function(X, y, learnind, f, comp=1, plot=FALSE, models=FALSE,...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -143,13 +150,13 @@ else y <- get(yvar)
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
 flexdaCMA(as.matrix(X), y=as.numeric(y)-1, learnind=learnind,
-      comp = comp, plot=plot,...)  })
+      comp = comp, plot=plot,models=models,...)  })
 
 ### signature X=ExpressionSet, y=character
 
 setMethod("flexdaCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind, comp = 1, plot = FALSE, ...){
+          function(X, y, learnind, comp = 1, plot = FALSE, models=FALSE,...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          flexdaCMA(X=X, y=y, learnind=learnind, comp = 1, plot = FALSE, ...)})
+          flexdaCMA(X=X, y=y, learnind=learnind, comp = 1, plot = FALSE,models=models, ...)})

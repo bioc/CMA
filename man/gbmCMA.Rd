@@ -9,7 +9,7 @@
 
             For \code{S4} method information, see \code{\link{gbmCMA-methods}}.}
 \usage{
-gbmCMA(X, y, f, learnind, ...)
+gbmCMA(X, y, f, learnind, models=FALSE,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -40,6 +40,7 @@ gbmCMA(X, y, f, learnind, ...)
                   in that case, the learning set consists of all
                   observations and predictions are made on the
                   learning set.}
+                  \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments passed to the function \code{gbm.fit}
                from the package of the same name. Worth mentionning are
                \describe{
@@ -53,6 +54,7 @@ gbmCMA(X, y, f, learnind, ...)
                            is \code{"adaboost"}.}
                \item{\code{interaction.depth}}{Number of splits used by the 'weak learner'
                  (single decision tree). Default is \code{1}.}
+                 
 	     }
                 }
 }

@@ -8,7 +8,7 @@
   For \code{S4} method information, see \code{\link{pls_rfCMA-methods}}.
 }
 \usage{
-pls_rfCMA(X, y, f, learnind, comp = 2 * nlevels(as.factor(y)), seed = 111, ...)
+pls_rfCMA(X, y, f, learnind, comp = 2 * nlevels(as.factor(y)), seed = 111,models=FALSE, ...)
 }
 \arguments{
   \item{X}{Gene expression data. Can be one of the following:
@@ -43,6 +43,7 @@ pls_rfCMA(X, y, f, learnind, comp = 2 * nlevels(as.factor(y)), seed = 111, ...)
   \item{seed}{Fix Random number generator seed to \code{seed}. This is
               useful to guarantee reproducibility of the results,
               due to the random component in the random Forest.}
+              \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments to be passed to \code{randomForests} from the
                package of the same name.}
 }

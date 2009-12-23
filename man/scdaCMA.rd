@@ -11,7 +11,7 @@ which can also be found in the package \code{pamr}.
 For \code{S4} method information, see \link{scdaCMA-methods}.
 }
 \usage{
-scdaCMA(X, y, f, learnind, delta = 0.5, ...)
+scdaCMA(X, y, f, learnind, delta = 0.5, models=FALSE,...)
 }
 
 \arguments{
@@ -45,6 +45,7 @@ scdaCMA(X, y, f, learnind, delta = 0.5, ...)
   \item{delta}{The shrinkage intensity for the class centroids -
                a hyperparameter that must be tuned. The default
                \code{0.5} not necessarily produces good results.}
+               \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Currently unused argument.}
 }
 

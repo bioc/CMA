@@ -19,15 +19,16 @@
 
 setGeneric("classification", function(X, y, f, learningsets,
             genesel, genesellist = list(), nbgene, classifier,
-            tuneres, tuninglist = list(), trace =TRUE, ...) standardGeneric("classification"))
+            tuneres, tuninglist = list(), trace =TRUE, models=FALSE, ...) standardGeneric("classification"))
 
 ### X=matrix, y=numeric, f=missing
 
 setMethod("classification", signature(X = "matrix", y = "numeric", f = "missing"),
           function(X, y, f, learningsets, genesel, genesellist = list(),
-                   nbgene, classifier, tuneres, tuninglist = list(), trace = TRUE, ...){
+                   nbgene, classifier, tuneres, tuninglist = list(), trace = TRUE, models=FALSE,...){
 dotsCall <- substitute(list(...))
 ll <- eval(dotsCall)
+ll$models<-models
 if(missing(classifier)) stop("argument 'classifier' is missing \n")
 
 if(missing(learningsets)){
@@ -180,18 +181,18 @@ return(cloutlist)
 
 setMethod("classification", signature(X="matrix", y="factor", f="missing"),
           function(X, y, learningsets, genesel, genesellist = list(), nbgene,
-                  classifier, tuneres, tuninglist = list(), trace =TRUE, ...){
+                  classifier, tuneres, tuninglist = list(), trace =TRUE, models=FALSE,...){
 classification(X, y=as.numeric(y)-1, learningsets=learningsets,
                genesel = genesel, genesellist = genesellist, nbgene = nbgene,
                classifier = classifier, tuneres = tuneres, tuninglist = tuninglist,
-               trace = trace, ...)
+               trace = trace, models=models,...)
 })
 
 ### X=matrix, y=missing, f=formula
 
 setMethod("classification", signature(X="data.frame", y="missing", f="formula"),
           function(X, y, f, learningsets, genesel, genesellist = list(), nbgene,
-                  classifier, tuneres, tuninglist = list(), trace =TRUE, ...){
+                  classifier, tuneres, tuninglist = list(), trace =TRUE, models=FALSE,...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -203,17 +204,17 @@ X <- model.matrix(f, data=X)[,-1,drop=FALSE]
 classification(as.matrix(X), y=y, learningsets=learningsets,
                genesel = genesel, genesellist = genesellist, nbgene = nbgene,
                classifier = classifier, tuneres = tuneres, tuninglist = tuninglist,
-               trace = trace, ...)})
+               trace = trace, models=models,...)})
 
 ### X=ExpressionSet, y="character", f="missing"
 
 setMethod("classification", signature(X="ExpressionSet", y="character", f="missing"),
           function(X, y, f, learningsets, genesel, genesellist = list(), nbgene,
-                  classifier, tuneres, tuninglist = list(), trace =TRUE, ...){
+                  classifier, tuneres, tuninglist = list(), trace =TRUE, models=FALSE,...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
           classification(X=X, y=y, learningsets=learningsets,
                genesel = genesel, genesellist = genesellist, nbgene = nbgene,
                classifier = classifier, tuneres = tuneres, tuninglist = tuninglist,
-               trace = trace, ...)})
+               trace = trace, models=models,...)})

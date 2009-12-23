@@ -9,7 +9,7 @@ the package \code{MASS} is called for computation.
 For \code{S4} method information, see \link{ldaCMA-methods}.
 }
 \usage{
-ldaCMA(X, y, f, learnind, ...)
+ldaCMA(X, y, f, learnind, models=FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -40,6 +40,7 @@ ldaCMA(X, y, f, learnind, ...)
                   in that case, the learning set consists of all
                   observations and predictions are made on the
                   learning set.}
+  \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments to be passed to \code{lda} from the
                package \code{MASS}}
 }

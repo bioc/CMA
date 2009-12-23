@@ -16,12 +16,12 @@
 #
 ###**************************************************************************###
 
-setGeneric("LassoCMA", function(X, y, f, learnind, norm.fraction = 0.1, ...)
+setGeneric("LassoCMA", function(X, y, f, learnind, norm.fraction = 0.1, models=FALSE,...)
            standardGeneric("LassoCMA"))
 
 
 setMethod("LassoCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, norm.fraction=0.1, ...){
+          function(X, y, f, learnind, norm.fraction=0.1, models=FALSE, ...){
 require(glmnet, quietly=TRUE)
 #require(glmpath) #vgl
 nrx <- nrow(X)
@@ -83,28 +83,32 @@ varsel <- abs(as.numeric(varsel[-1]))
 Xtest <- X[-learnind,,drop=FALSE]
 if(nrow(Xtest) == 0) { Xtest <- Xlearn ; y <- Ylearn }
 else y <- y[-learnind]
-prob <- as.numeric(predict.glmnet(output, newx=Xtest, s=(output$lambda[left]+output$lambda[right])/2,
+prob <- as.numeric(predict(output, newx=Xtest, s=(output$lambda[left]+output$lambda[right])/2,
                    type="response"))
 yhat <- as.numeric(prob > 0.5)
 prob <- cbind(1-prob, prob)
 output.net <- output
 
+modd<-list(NULL)
+if(models==TRUE)
+	modd<-list(output.net)
+
 
 new("clvarseloutput", y=y, yhat=yhat, learnind = learnind,
-     prob = prob, method = "Lasso", mode=mode, varsel=varsel)
+     prob = prob, method = "Lasso", mode=mode, varsel=varsel,model=modd)
 })
 
 ### signature X=matrix, y=factor, f=missing:
 
 setMethod("LassoCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, norm.fraction=0.1, ...){
-LassoCMA(X, y=as.numeric(y)-1, learnind=learnind, norm.fraction=norm.fraction, ...)
+          function(X, y, learnind, norm.fraction=0.1, models=FALSE,...){
+LassoCMA(X, y=as.numeric(y)-1, learnind=learnind, norm.fraction=norm.fraction,models=models, ...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("LassoCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, norm.fraction=0.1, ...){
+          function(X, y, f, learnind, norm.fraction=0.1, models=FALSE, ...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -113,17 +117,17 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
-LassoCMA(as.matrix(X), y=y, learnind=learnind, norm.fraction=norm.fraction, ...)})
+LassoCMA(as.matrix(X), y=y, learnind=learnind, norm.fraction=norm.fraction, models=models, ...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("LassoCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind, norm.fraction = 0.1, ...){
+          function(X, y, learnind, norm.fraction = 0.1, models=FALSE,...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          LassoCMA(X=X, y=y, learnind=learnind, norm.fraction=norm.fraction, ...)})
+          LassoCMA(X=X, y=y, learnind=learnind, norm.fraction=norm.fraction, models=models,...)})
 
       
 

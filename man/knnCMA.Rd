@@ -7,7 +7,7 @@ very fast implementation in the package \code{class}.
 For \code{S4} method information, see \link{knnCMA-methods}.
 }
 \usage{
-knnCMA(X, y, f, learnind, ...)
+knnCMA(X, y, f, learnind, models=FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -36,6 +36,7 @@ knnCMA(X, y, f, learnind, ...)
   \item{learnind}{An index vector specifying the observations that
                   belong to the learning set. Must not be missing
                   for this method.}
+                  \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments to be passed to \code{knn} from the
                package \code{class}, in particular the number of
                nearest neighbours to use (argument \code{k}).}

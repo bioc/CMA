@@ -7,7 +7,7 @@ that provides an interface to the award-winning LIBSVM routines.
 For \code{S4} method information, see \link{svmCMA-methods}
 }
 \usage{
-svmCMA(X, y, f, learnind, probability, ...) %!!?
+svmCMA(X, y, f, learnind, probability, models=FALSE,...) %!!?
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -41,6 +41,7 @@ svmCMA(X, y, f, learnind, probability, ...) %!!?
 
   \item{probability}{logical indicating whether the model should allow for
           probability predictions.}
+          \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments to be passed to \code{svm} from the
                package \code{e1071}}
 }

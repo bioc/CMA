@@ -17,12 +17,12 @@
 #   involves a second hyperparameter.
 #
 ###**************************************************************************###
-setGeneric("ElasticNetCMA", function(X, y, f, learnind, norm.fraction = 0.1, alpha=0.5, ...)
+setGeneric("ElasticNetCMA", function(X, y, f, learnind, norm.fraction = 0.1, alpha=0.5, models=FALSE,...)
            standardGeneric("ElasticNetCMA"))
 
 
 setMethod("ElasticNetCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, norm.fraction=0.1, alpha=0.5, ...){
+          function(X, y, f, learnind, norm.fraction=0.1, alpha=0.5,models=FALSE, ...){
 
 require(glmnet,quietly=T)
 nrx <- nrow(X)
@@ -78,22 +78,26 @@ prob <- as.numeric(predict(output, newx=Xtest, s=(output$lambda[left]+output$lam
 yhat <- as.numeric(prob > 0.5)
 prob <- cbind(1-prob, prob)
 
+modd<-list(NULL)
+if(models==TRUE)
+modd<-list(output)
+
 new("clvarseloutput", y=y, yhat=yhat, learnind = learnind,
-     prob = prob, method = "ElasticNet", mode=mode, varsel=varsel)
+     prob = prob, method = "ElasticNet", mode=mode, varsel=varsel, model=modd)
 })
 
 ### signature X=matrix, y=factor, f=missing:
 
 setMethod("ElasticNetCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, norm.fraction=0.1, alpha=0.5, ...){
+          function(X, y, learnind, norm.fraction=0.1, alpha=0.5, models=FALSE,...){
 ElasticNetCMA(X, y=as.numeric(y)-1, learnind=learnind,
-              norm.fraction = norm.fraction, alpha=alpha, ...)
+              norm.fraction = norm.fraction, alpha=alpha, models=models,...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("ElasticNetCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, norm.fraction=0.1, alpha=0.5, ...){
+          function(X, y, f, learnind, norm.fraction=0.1, alpha=0.5, models=FALSE,...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -103,15 +107,15 @@ if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
 ElasticNetCMA(as.matrix(X), y=y, learnind=learnind, norm.fraction = norm.fraction,
-              alpha=alpha, ...)})
+              alpha=alpha, models=models,...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("ElasticNetCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind, norm.fraction=0.1, alpha=0.5, ...){
+          function(X, y, learnind, norm.fraction=0.1, alpha=0.5, models=FALSE, ...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
           ElasticNetCMA(X=X, y=y, learnind=learnind, norm.fraction = norm.fraction,
-              alpha=alpha, ...)})
+              alpha=alpha, models=models,...)})

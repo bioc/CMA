@@ -6,7 +6,7 @@
              Multiclass case is also possible.
              For \code{S4} method information, see \link{plrCMA-methods}}
 \usage{
-plrCMA(X, y, f, learnind, lambda = 0.01, scale = TRUE, ...)
+plrCMA(X, y, f, learnind, lambda = 0.01, scale = TRUE, models=FALSE,...)
 }
 
 \arguments{
@@ -41,6 +41,7 @@ plrCMA(X, y, f, learnind, lambda = 0.01, scale = TRUE, ...)
                 This hyperparameter should be \code{\link{tune}}d.}
   \item{ scale }{Scale the predictors as specified by \code{X} to have unit variance
                  and zero mean.}
+                 \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Currently unused argument.}
 }
 

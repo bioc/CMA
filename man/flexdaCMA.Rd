@@ -17,7 +17,7 @@
  For \code{S4} method information, s. \code{\link{flexdaCMA-methods}}.
 }
 \usage{
-flexdaCMA(X, y, f, learnind, comp = 1, plot = FALSE, ...)
+flexdaCMA(X, y, f, learnind, comp = 1, plot = FALSE, models=FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -53,6 +53,7 @@ flexdaCMA(X, y, f, learnind, comp = 1, plot = FALSE, ...)
               \code{K} is the number of classes.}
   \item{plot}{Should the projections onto the space spanned by the optimal
               projection directions be plotted ? Default is \code{FALSE}.}
+  \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments passed to the function \code{gam} from
                the package \code{mgcv}.}
 }

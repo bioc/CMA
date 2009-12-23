@@ -7,7 +7,7 @@ Feed-forward Neural Networks with one hidden layer.\cr
 For \code{S4} method information, see \link{nnetCMA-methods}
 }
 \usage{
-nnetCMA(X, y, f, learnind, eigengenes = FALSE, ...)
+nnetCMA(X, y, f, learnind, eigengenes = FALSE, models=FALSE,...)
 }
 \arguments{
   \item{X}{Gene expression data. Can be one of the following:
@@ -42,6 +42,7 @@ nnetCMA(X, y, f, learnind, eigengenes = FALSE, ...)
                     of the Gene expression data matrix ? Default is \code{FALSE};
                     in this case, variable selection is necessary to reduce
                     the number of weights that have to be optimized.}
+                    \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments passed to the function \code{nnet}
                from the package of the same name.\cr
                Important parameters are:

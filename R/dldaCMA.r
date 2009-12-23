@@ -1,11 +1,11 @@
-setGeneric("dldaCMA", function(X, y, f, learnind, ...)
+setGeneric("dldaCMA", function(X, y, f, learnind, models=FALSE,...)
            standardGeneric("dldaCMA"))
 
 
 ### signature X=matrix, y=numeric, f=missing:
 
 setMethod("dldaCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, ...){
+          function(X, y, f, learnind,models=FALSE, ...){
 nrx <- nrow(X)
 ly <- length(y)
 if(nrx != length(y))
@@ -42,21 +42,27 @@ dist <- dist - rowMeans(dist)
 prob <- safeexp(-0.5*dist)
 prob <- prob/rowSums(prob)
 yhat <- apply(prob, 1, which.max)-1
+
+if(models==TRUE)
+	modd<-list(NULL)
+if(models==FALSE)
+	modd<-list(NULL)
+
 new("cloutput", yhat=yhat, y=y, learnind = learnind,
-     prob = prob, method = "DLDA", mode=mode)
+     prob = prob, method = "DLDA", mode=mode,model=modd)
 })
 
 ### signature X=matrix, y=factor, f=missing:
 
 setMethod("dldaCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, ...){
-dldaCMA(X, y=as.numeric(y)-1, learnind=learnind,...)
+          function(X, y, learnind, models=FALSE,...){
+dldaCMA(X, y=as.numeric(y)-1, learnind=learnind,models=models,...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("dldaCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, ...){
+          function(X, y, f, learnind, models=FALSE,...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -65,14 +71,14 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
-dldaCMA(as.matrix(X), y=y, learnind=learnind,...)})
+dldaCMA(as.matrix(X), y=y, learnind=learnind,models=models,...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("dldaCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind,...){
+          function(X, y, learnind,models=FALSE,...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          dldaCMA(X=X, y=y, learnind=learnind, ...)})
+          dldaCMA(X=X, y=y, learnind=learnind, models=models,...)})

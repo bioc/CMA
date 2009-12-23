@@ -9,7 +9,7 @@
 
              For \code{S4} method information, see \link{shrinkldaCMA-methods}}
 \usage{
-shrinkldaCMA(X, y, f, learnind, ...)
+shrinkldaCMA(X, y, f, learnind, models=FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -40,6 +40,7 @@ shrinkldaCMA(X, y, f, learnind, ...)
                   in that case, the learning set consists of all
                   observations and predictions are made on the
                   learning set.}
+                  \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments to be passed to \code{cov.shrink} from the
                package \code{corpcor}}
  }

@@ -23,6 +23,7 @@
     \item{\code{method}:}{Name of the classifer used.}
     \item{\code{mode}:}{\code{character}, one of \code{"binary"} (if the number of classes in the learning set is two)
                           or \code{multiclass} (if it is more than two).}
+                          \item{\code{model}:}{List containing the constructed classifiers.}
   }
 }
 \section{Methods}{

@@ -1,7 +1,7 @@
 Package: CMA
 Type: Package
 Title: Synthesis of microarray-based classification
-Version: 1.5.0
+Version: 1.5.2
 Date: 2009-09-14
 Author: Martin Slawski <ms@cs.uni-sb.de>, Anne-Laure Boulesteix <boulesteix@ibe.med.uni-muenchen.de>, Christoph Bernau <bernau@ibe.med.uni-muenchen.de>.
 Maintainer: Christoph Bernau <bernau@ibe.med.uni-muenchen.de>
@@ -13,7 +13,7 @@ Description: This package provides a comprehensive collection of various microar
              combined or stepwise in a user-friendly environment.
 Collate: classes.r GenerateLearningsets.r GeneSelection.r
          tune.r classification.r evaluation.r join.r compare.r
-         Planarplot.r  
+         Planarplot.r 
 	 compBoostCMA.r dldaCMA.r ElasticNetCMA.r fdaCMA.r 
 	 flexdaCMA.r gbmCMA.r knnCMA.r LassoCMA.r   
 	 ldaCMA.r nnetCMA.r pknnCMA.r plrCMA.r

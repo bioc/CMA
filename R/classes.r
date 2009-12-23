@@ -20,7 +20,7 @@
 
 setClass(Class="cloutput",
         representation(learnind = "numeric", y="numeric", yhat="numeric", 
-                        prob="matrix", method="character", mode="character"))
+                        prob="matrix", method="character", mode="character", model="list"))
                        
 #+++++++++++ Class: varseloutput ++++++++++++++++++++++++++++++++++++++++++++++#
 
@@ -381,12 +381,97 @@ setMethod("plot", signature(x="tuningresult", y="missing"), function(x, iter=1, 
           }
           })
           
+		  
+		  
+#+++++++++++ Class:  predoutput  ++++++++++++++++++++++++++++++++++++++++++++++#
+setClass(Class='predoutput',representation(Xnew='matrix',yhat='factor',model='list'))
 
+setMethod("show",signature(object="predoutput"),function(object){
+			cat('Number of predictions: ',length(object@yhat),'\n',sep='')
+			object@yhat})
+
+setGeneric("prediction",function(X.tr,y.tr,X.new,f,classifier,genesel,models=F,nbgene,tuneres,...) standardGeneric("prediction"))
+
+setMethod("prediction", signature(X.tr='matrix',X.new='matrix',f="missing"), function(X.tr,y.tr,X.new,classifier,genesel,models=F,f,nbgene,tuneres,...){
+			
+			if(missing(genesel))
+				X<-rbind(X.tr,X.new)
+			
+			if(!missing(genesel)){
+				
+				if(length(genesel@rankings)!=1) stop('GeneSelection object contains more than one variable selection.')  
+				if(missing(nbgene)) stop('nbgene must be specified')
+				if(!missing(nbgene)) 
+					X<-rbind(X.tr,X.new)[,genesel@rankings[[1]][1:nbgene]]
+			}
+			
+			
+			y<-c(y.tr,rep(0,nrow(X.new)))
+			learnind<-1:nrow(X.tr)
+			
+			if(!missing(tuneres)){
+				
+				if(length(best(tuneres))!=1) stop('bad tuneres object (Contains more than one tuning iteration).')
+				
+				tu<-best(tuneres)
+				
+			}
+			
+			
+			dotsCall <- substitute(list(...))
+			ll <- eval(dotsCall)
+			ll$models<-models
+			
+			if(!missing(tuneres))
+				ll<-c(ll,tu[[1]])
+			
+			clf<- do.call(classifier, args=c(list(X=X, y=y, learnind = learnind), ll))
+			if(is.factor(y.tr)){
+				yhn<-clf@yhat+1
+				lev<-levels(y.tr)
+				yhc<-sapply(yhn,FUN=function(z){lev[z]})
+				clf@yhat<-factor(yhc)
+			}
+			if(!is.factor(y.tr))
+				clf@yhat<-factor(clf@yhat)
+			    names(clf@yhat)<-1:length(clf@yhat)
+			new('predoutput',Xnew=X.new,yhat=clf@yhat,model=clf@model)
+			
+		})
           
+		
+###signature X.tr='data.frame', X.new='data.frame',y.tr='missing','f=formula
+
+setMethod("prediction", signature(X.tr='data.frame',X.new='data.frame',y.tr='missing',f="formula"), function(X.tr,y.tr,X.new,f,classifier,genesel,models=F,nbgene,tuneres,...){
           
+			yvar <- all.vars(f)[1]
+			xvar <- strsplit(as.character(f), split = "~")[[3]]
+			where <- which(colnames(X.tr) == yvar)
+			if(length(where) > 0 ){  y.tr <- X.tr[,where[1]] ; X.tr<- X.tr[,-where[1]]}
+			else stop('Response variable has to be part of data.frames X.tr.')#y.tr <- get(yvar)
+			where2<-which(colnames(X.new)==yvar)
+			if(length(where)>0){X.new<-X.new[,where2[1]]}
+			#f(nrow(X.tr) != length(y.tr)) stop("Number of rows of 'X' must agree with length of y \n")
+			f <- as.formula(paste("~", xvar))
+			X.tr <- model.matrix(f, data=X.tr)[,-1,drop=FALSE]
+			X.new <- model.matrix(f, data=X.new)[,-1,drop=FALSE]
+			predicition(X.tr=X.tr,y.tr=y.tr,X.new=X.new,classifier=classifier,genesel=genesel,models=models,f=f,nbgene=nbgene,tuneres=tuneres,...)
+			
+		})
+
+###signature X.tr="ExpressionSet", X.new="ExpressionSet", y.tr="char", f='missing'.
 
 
-
+setMethod("prediction",signature(X.tr="ExpressionSet",X.new="ExpressionSet",y.tr="character",f='missing'),function(X.tr,y.tr,X.new,f,classifier,genesel,models=F,nbgene,tuneres,...){
+			
+			y.tr <- pData(X.tr)[,y.tr]
+			X.tr <-  exprs(X.tr)
+			X.new <-  exprs(X.new)
+			
+			if(nrow(X.tr) != length(y.tr)) { X.tr <- t(X.tr);X.new<-t(X.new)}
+			
+		prediction(X.tr=X.tr,y.tr=y.tr,X.new=X.new,classifier=classifier,genesel=genesel,models=models,nbgene=nbgene,tuneres=tuneres,...)
+			})
                                         
 
           

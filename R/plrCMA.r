@@ -15,13 +15,13 @@
 
 ### generic
 
-setGeneric("plrCMA", function(X, y, f, learnind, lambda = 0.01, scale = TRUE, ...)
+setGeneric("plrCMA", function(X, y, f, learnind, lambda = 0.01, scale = TRUE, models=FALSE,...)
            standardGeneric("plrCMA"))
 
 ### X=matrix, y=numeric, f=missing
 
 setMethod("plrCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, lambda=0.01, scale =TRUE, ...){
+          function(X, y, f, learnind, lambda=0.01, scale =TRUE, models=FALSE,...){
 if(scale) X <- scale(X)
 nrx <- nrow(X)
 ly <- length(y)
@@ -60,22 +60,26 @@ if(mode == "multiclass"){
  prob <- pred.out$mu
  }
 
+ modd<-list(NULL)
+ if(models==TRUE)
+	 modd<-list(output)
+ 
  #browser()
 new("cloutput", y=y, yhat=yhat, learnind = learnind,
-     prob = prob, method = "plr", mode=mode)
+     prob = prob, method = "plr", mode=mode,model=modd)
 })
 
 ### X=matrix, y=factor, f=missing
 
 setMethod("plrCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, lambda = 0.01, scale =TRUE, ...){
-plrCMA(X, y=as.numeric(y)-1, learnind=learnind, lambda = lambda, scale = scale, ...)
+          function(X, y, learnind, lambda = 0.01, scale =TRUE, models=FALSE,...){
+plrCMA(X, y=as.numeric(y)-1, learnind=learnind, lambda = lambda, scale = scale, models=models,...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("plrCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, lambda = 0.01, scale =TRUE, ...){
+          function(X, y, f, learnind, lambda = 0.01, scale =TRUE, models=FALSE, ...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -84,14 +88,14 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
-plrCMA(as.matrix(X), y=y, learnind=learnind, lambda = lambda, scale = scale, ...)})
+plrCMA(as.matrix(X), y=y, learnind=learnind, lambda = lambda, scale = scale, models=models, ...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("plrCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind, lambda = 0.01, scale = TRUE, ...){
+          function(X, y, learnind, lambda = 0.01, scale = TRUE, models=FALSE, ...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          plrCMA(X=X, y=y, learnind=learnind, lambda = lambda, scale = scale, ...)})
+          plrCMA(X=X, y=y, learnind=learnind, lambda = lambda, scale = scale, models=models,...)})

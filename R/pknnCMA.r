@@ -16,13 +16,13 @@
 #
 ###**************************************************************************###
 
-setGeneric("pknnCMA", function(X, y, f, learnind, beta = 1, k=1, ...)
+setGeneric("pknnCMA", function(X, y, f, learnind, beta = 1, k=1, models=FALSE,...)
            standardGeneric("pknnCMA"))
 
 ### X=matrix, y=numeric, f=missing
 
 setMethod("pknnCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, beta = 1, k=1, ...){
+          function(X, y, f, learnind, beta = 1, k=1, models=FALSE, ...){
 require(class, quietly=TRUE)
 nrx <- nrow(X)
 ly <- length(y)
@@ -62,21 +62,27 @@ if(any(!is.finite(prob)))
 warning("class probabilities cannot be computed; reduce size of parameter 'beta' \n")
 yhat <- apply(prob, 1, which.max)-1
 }
+
+if(models==TRUE)
+	modd<-list(NULL)
+if(models==FALSE)
+	modd<-list(NULL)
+
 new("cloutput", yhat=yhat, y=y, learnind = learnind,
-     prob = prob, method = "pknn", mode=mode)
+     prob = prob, method = "pknn", mode=mode,model=modd)
      })
 
 ### signature X=matrix, y=factor, f=missing
 
 setMethod("pknnCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, beta = 1, k=1, ...){
-pknnCMA(X, y=as.numeric(y)-1, learnind=learnind, beta = beta, k=k, ...)
+          function(X, y, learnind, beta = 1, k=1,models=FALSE, ...){
+pknnCMA(X, y=as.numeric(y)-1, learnind=learnind, beta = beta, k=k, models=models,...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("pknnCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, beta = 1, k=1, ...){
+          function(X, y, f, learnind, beta = 1, k=1, models=FALSE,...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -85,14 +91,14 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
-pknnCMA(as.matrix(X), y=y, learnind=learnind, beta = beta, k=k, ...)})
+pknnCMA(as.matrix(X), y=y, learnind=learnind, beta = beta, k=k, models=models,...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("pknnCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind, beta = 1, k=1, ...){
+          function(X, y, learnind, beta = 1, k=1, models=FALSE, ...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          pknnCMA(X=X, y=y, learnind=learnind, beta = beta, k=k, ...)})
+          pknnCMA(X=X, y=y, learnind=learnind, beta = beta, k=k, models=models, ...)})

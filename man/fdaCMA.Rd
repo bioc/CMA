@@ -12,7 +12,7 @@
  For \code{S4} method information, see \code{\link{fdaCMA-methods}.}
 }
 \usage{
-fdaCMA(X, y, f, learnind, comp = 1, plot = FALSE)
+fdaCMA(X, y, f, learnind, comp = 1, plot = FALSE,models=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -48,6 +48,7 @@ fdaCMA(X, y, f, learnind, comp = 1, plot = FALSE)
               \code{K} is the number of classes.}
   \item{plot}{Should the projections onto the space spanned by the optimal
               projection directions be plotted ? Default is \code{FALSE}.}
+              \item{models}{a logical value indicating whether the model object shall be returned }
 }
 
 \note{Excessive variable selection has usually to performed before

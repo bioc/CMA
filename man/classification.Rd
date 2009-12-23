@@ -10,7 +10,7 @@
   For S4 method information, s. \code{\link{classification-methods}}.
 }
 \usage{
-classification(X, y, f, learningsets, genesel, genesellist = list(), nbgene, classifier, tuneres, tuninglist = list(), trace = TRUE, ...)
+classification(X, y, f, learningsets, genesel, genesellist = list(), nbgene, classifier, tuneres, tuninglist = list(), trace = TRUE, models=FALSE,...)
 }
 \arguments{
   \item{X}{Gene expression data. Can be one of the following:
@@ -80,6 +80,7 @@ classification(X, y, f, learningsets, genesel, genesellist = list(), nbgene, cla
                     will be performed at all. To use pre-defined hyperparameter
                     grids, the argument is \code{tuninglist = list(grids = list())}.}
   \item{trace}{Should progress be traced ? Default is \code{TRUE}.}
+  \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments passed to the function \code{classifier}.}
 }
 \details{For details about hyperparameter tuning, consult \code{\link{tune}}.}

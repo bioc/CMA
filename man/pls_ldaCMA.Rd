@@ -11,7 +11,7 @@
   For \code{S4} method information, see \code{\link{pls_ldaCMA-methods}}.
 }
 \usage{
-pls_ldaCMA(X, y, f, learnind, comp = 2, plot = FALSE)
+pls_ldaCMA(X, y, f, learnind, comp = 2, plot = FALSE,models=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -47,6 +47,7 @@ pls_ldaCMA(X, y, f, learnind, comp = 2, plot = FALSE)
               particular dataset. Can be optimized using \code{\link{tune}}.}
   \item{plot}{If \code{comp <= 2}, should the classification space of the
               Partial Least Squares components be plotted ? Default is \code{FALSE}.}
+              \item{models}{a logical value indicating whether the model object shall be returned }
 }
 
 \value{An object of class \code{\link{cloutput}}.}

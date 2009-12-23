@@ -20,13 +20,13 @@
 
 ### generic
 
-setGeneric("pnnCMA", function(X, y, f, learnind, sigma = 1)
+setGeneric("pnnCMA", function(X, y, f, learnind, sigma = 1,models=FALSE)
            standardGeneric("pnnCMA"))
 
 ### signature X=matrix, y=numeric, f=missing
 
 setMethod("pnnCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, learnind, sigma=1){
+          function(X, y, learnind, sigma=1,models=FALSE){
 X <- scale(X)
 X <- as.matrix(X)
 nrx <- nrow(X)
@@ -62,21 +62,27 @@ warning("Value for 'sigma' should be changed, all output units  are zero for
       at least one test observation; NaNs for class probabilities occured \n")
 yhat <- (0:(layers-1))[apply(res, 1, which.max)]
 prob <- res/rowSums(res)
+
+if(models==TRUE)
+	modd<-list(NULL)
+if(models==FALSE)
+	modd<-list(NULL)
+
 new("cloutput", yhat=yhat, y=y[-learnind], learnind = learnind,
-     prob = prob, method = "pnn", mode=mode)
+     prob = prob, method = "pnn", mode=mode,model=modd)
 })
 
 ### signature X=matrix, y=factor, f=missing
 
 setMethod("pnnCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, sigma = 1){
-pnnCMA(X, y=as.numeric(y)-1, learnind=learnind, sigma = sigma)
+          function(X, y, learnind, sigma = 1,models=FALSE){
+pnnCMA(X, y=as.numeric(y)-1, learnind=learnind, sigma = sigma,models=models)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("pnnCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, sigma = 1){
+          function(X, y, f, learnind, sigma = 1,models=FALSE){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -85,14 +91,14 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
-pnnCMA(as.matrix(X), y=y, learnind=learnind, sigma = sigma)})
+pnnCMA(as.matrix(X), y=y, learnind=learnind, sigma = sigma,models=models)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("pnnCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind, sigma = 1){
+          function(X, y, learnind, sigma = 1,models=FALSE){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          pnnCMA(X=X, y=y, learnind=learnind, sigma=sigma)})
+          pnnCMA(X=X, y=y, learnind=learnind, sigma=sigma,models=models)})

@@ -1,5 +1,5 @@
 setGeneric("compBoostCMA", function(X, y, f, learnind, loss=c("binomial", "exp", "quadratic"),
-                   mstop=100, nu=0.1, ...)
+                   mstop=100, nu=0.1, models=FALSE,...)
            standardGeneric("compBoostCMA"))
 
 
@@ -7,7 +7,7 @@ setGeneric("compBoostCMA", function(X, y, f, learnind, loss=c("binomial", "exp",
 
 setMethod("compBoostCMA", signature(X="matrix", y="numeric", f="missing"),
           function(X, y, f, learnind, loss=c("binomial", "exp", "quadratic"),
-                   mstop=100, nu=0.1, ...){
+                   mstop=100, nu=0.1, models=FALSE, ...){
 nrx <- nrow(X)
 ly <- length(y)
 if(nrow(X) != length(y))
@@ -107,24 +107,30 @@ if(mode == "multiclass"){
  varsel <- rowSums(abs(varsel))
 }
 
+if(models==TRUE)
+	modd<-list(NULL)
+if(models==FALSE)
+	modd<-list(NULL)
+
+
 new("clvarseloutput", y=y, yhat=yhat, learnind = learnind,
-     prob = prob, method = "compBoost", mode=mode, varsel=varsel)
+     prob = prob, method = "compBoost", mode=mode, varsel=varsel,model=modd)
 })
 
 ### signature X=matrix, y=factor, f=missing:
 
 setMethod("compBoostCMA", signature(X="matrix", y="factor", f="missing"),
           function(X, y, learnind, loss=c("binomial", "exp", "quadratic"),
-                   mstop=100, nu=0.1,...){
+                   mstop=100, nu=0.1, models=FALSE,...){
 compBoostCMA(X, y=as.numeric(y)-1, learnind=learnind, loss=loss,
-             mstop = mstop, nu=nu, ...)
+             mstop = mstop, nu=nu, models=models,...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("compBoostCMA", signature(X="data.frame", y="missing", f="formula"),
           function(X, y, f, learnind, loss=c("binomial", "exp", "quadratic"),
-                   mstop=100, nu=0.1, ...){
+                   mstop=100, nu=0.1, models=FALSE,...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -135,16 +141,16 @@ if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
 compBoostCMA(as.matrix(X), y=y, learnind=learnind, loss = loss,
-              mstop = mstop, nu = nu, ...)})
+              mstop = mstop, nu = nu, models=models, ...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("compBoostCMA", signature(X="ExpressionSet", y="character", f="missing"),
           function(X, y, learnind, loss=c("binomial", "exp", "quadratic"),
-                   mstop=100, nu=0.1,...){
+                   mstop=100, nu=0.1,models=FALSE,...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
           compBoostCMA(X=X, y=y, learnind=learnind,
-                       loss = loss, mstop = mstop, nu = nu,...)})
+                       loss = loss, mstop = mstop, nu = nu,models=models,...)})

@@ -17,12 +17,12 @@
 
 ### generic
 
-setGeneric("nnetCMA", function(X, y, f, learnind, eigengenes = FALSE, ...) standardGeneric("nnetCMA"))
+setGeneric("nnetCMA", function(X, y, f, learnind, eigengenes = FALSE,models=FALSE, ...) standardGeneric("nnetCMA"))
 
 ### X=matrix, y=numeric, f=missing method
 
 setMethod("nnetCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, eigengenes = FALSE, ...){
+          function(X, y, f, learnind, eigengenes = FALSE,models=FALSE, ...){
 require(nnet, quietly=TRUE)
 nrx <- nrow(X)
 ly <- length(y)
@@ -76,21 +76,27 @@ if(nrow(Xtest) == 0){ Xtest <- Xlearn ; y <- Ylearn }
 else y <- y[-learnind]
 pred.test <- predict(object=output.nnet, newdata=Xtest)
 yhat <- apply(pred.test, 1, which.max)-1
+
+
+modd<-list(NULL)
+if(models==TRUE)
+modd<-list(output.nnet)
+
 new("cloutput", yhat=yhat, y=y, learnind = learnind,
-     prob = pred.test, method = "nnet", mode=mode)
+     prob = pred.test, method = "nnet", mode=mode,model=modd)
 })
 
 ### signature X=matrix, y=factor, f=missing:
 
 setMethod("nnetCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, eigengenes = FALSE, ...){
-nnetCMA(X, y=as.numeric(y)-1, learnind=learnind, eigengenes = eigengenes, ...)
+          function(X, y, learnind, eigengenes = FALSE, models=FALSE, ...){
+nnetCMA(X, y=as.numeric(y)-1, learnind=learnind, eigengenes = eigengenes, models=models,...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("nnetCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind, eigengenes = FALSE, ...){
+          function(X, y, f, learnind, eigengenes = FALSE,models=FALSE, ...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -99,14 +105,14 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
-nnetCMA(as.matrix(X), y=y, learnind=learnind, eigengenes = eigengenes, ...)})
+nnetCMA(as.matrix(X), y=y, learnind=learnind, eigengenes = eigengenes, models=FALSE, ...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("nnetCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind, eigengenes = FALSE, ...){
+          function(X, y, learnind, eigengenes = FALSE, models=FALSE,...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)
-          nnetCMA(X=X, y=y, learnind=learnind, eigengenes = eigengenes, ...)})
+          nnetCMA(X=X, y=y, learnind=learnind, eigengenes = eigengenes, models=models,...)})

@@ -9,7 +9,7 @@ generalized linear model, implemented in the package \code{glmnet}.
 The method can be used for variable selection alone, s. \code{\link{GeneSelection}}.\cr
 For \code{S4} method information, see \code{LassoCMA-methods}.}
 \usage{
-LassoCMA(X, y, f, learnind, norm.fraction = 0.1, ...)
+LassoCMA(X, y, f, learnind, norm.fraction = 0.1,models=FALSE,...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -49,6 +49,7 @@ LassoCMA(X, y, f, learnind, norm.fraction = 0.1, ...)
                        Lower values correspond to higher shrinkage.
                        Note that the default (0.1) need not produce good
                        results, i.e. tuning of this parameter is recommended.}
+                       \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments passed to the function \code{glmpath}
                from the package of the same name.}
 }

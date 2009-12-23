@@ -9,7 +9,7 @@
   For \code{S4} class information, see \link{pknnCMA-methods}.
 }
 \usage{
-pknnCMA(X, y, f, learnind, beta = 1, k = 1, ...)
+pknnCMA(X, y, f, learnind, beta = 1, k = 1, models=FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -43,6 +43,7 @@ pknnCMA(X, y, f, learnind, beta = 1, k = 1, ...)
               The default value (1) need not produce reasonable
               results and can produce warnings.}
   \item{k}{Number of nearest neighbours to use.}
+  \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Currently unused argument.}
 }
 \details{The algorithm is as follows:
