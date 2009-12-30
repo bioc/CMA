@@ -392,7 +392,7 @@ setMethod("show",signature(object="predoutput"),function(object){
 
 setGeneric("prediction",function(X.tr,y.tr,X.new,f,classifier,genesel,models=F,nbgene,tuneres,...) standardGeneric("prediction"))
 
-setMethod("prediction", signature(X.tr='matrix',X.new='matrix',f="missing"), function(X.tr,y.tr,X.new,classifier,genesel,models=F,f,nbgene,tuneres,...){
+setMethod("prediction", signature(X.tr='matrix',y.tr='ANY',X.new='matrix',f="missing"), function(X.tr,y.tr,X.new,classifier,genesel,models=F,f,nbgene,tuneres,...){
 			
 			if(missing(genesel))
 				X<-rbind(X.tr,X.new)
@@ -442,7 +442,7 @@ setMethod("prediction", signature(X.tr='matrix',X.new='matrix',f="missing"), fun
 		
 ###signature X.tr='data.frame', X.new='data.frame',y.tr='missing','f=formula
 
-setMethod("prediction", signature(X.tr='data.frame',X.new='data.frame',y.tr='missing',f="formula"), function(X.tr,y.tr,X.new,f,classifier,genesel,models=F,nbgene,tuneres,...){
+setMethod("prediction", signature(X.tr='data.frame',y.tr='missing',X.new='data.frame',f="formula"), function(X.tr,y.tr,X.new,f,classifier,genesel,models=F,nbgene,tuneres,...){
           
 			yvar <- all.vars(f)[1]
 			xvar <- strsplit(as.character(f), split = "~")[[3]]
@@ -462,7 +462,7 @@ setMethod("prediction", signature(X.tr='data.frame',X.new='data.frame',y.tr='mis
 ###signature X.tr="ExpressionSet", X.new="ExpressionSet", y.tr="char", f='missing'.
 
 
-setMethod("prediction",signature(X.tr="ExpressionSet",X.new="ExpressionSet",y.tr="character",f='missing'),function(X.tr,y.tr,X.new,f,classifier,genesel,models=F,nbgene,tuneres,...){
+setMethod("prediction",signature(X.tr="ExpressionSet",y.tr="character",X.new="ExpressionSet",f='missing'),function(X.tr,y.tr,X.new,f,classifier,genesel,models=F,nbgene,tuneres,...){
 			
 			y.tr <- pData(X.tr)[,y.tr]
 			X.tr <-  exprs(X.tr)

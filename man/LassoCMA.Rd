@@ -85,13 +85,13 @@ golubY <- golub[,1]
 ### extract gene expression
 golubX <- as.matrix(golub[,-1])
 ### select learningset
-#ratio <- 2/3
-#set.seed(111)
-#learnind <- sample(length(golubY), size=floor(ratio*length(golubY)))
+ratio <- 2/3
+set.seed(111)
+learnind <- sample(length(golubY), size=floor(ratio*length(golubY)))
 ### run L1 penalized logistic regression (no tuning)
-#lassoresult <- LassoCMA(X=golubX, y=golubY, learnind=learnind, norm.fraction = 0.2)
-#show(lassoresult)
-#ftable(lassoresult)
-#plot(lassoresult)
+lassoresult <- LassoCMA(X=golubX, y=golubY, learnind=learnind, norm.fraction = 0.2)
+show(lassoresult)
+ftable(lassoresult)
+plot(lassoresult)
 }
 \keyword{multivariate}
