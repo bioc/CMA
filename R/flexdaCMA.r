@@ -134,14 +134,14 @@ new("cloutput", yhat=yhat, y=y, prob = prob, method = "flexDA", mode=mode,model=
 ### signature X=matrix, y=factor, f=missing:
 
 setMethod("flexdaCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, comp=1, plot=FALSE,models=FALSE, ...){
+          function(X, y,learnind, comp=1, plot=FALSE,models=FALSE, ...){
 flexdaCMA(X, y=as.numeric(y)-1, learnind=learnind, comp=comp, plot=plot,models=models, ...)
 })
 
 ### signature X=data.frame, y=missing f=formula:
 
 setMethod("flexdaCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, learnind, f, comp=1, plot=FALSE, models=FALSE,...){
+          function(X, y,f, learnind, comp=1, plot=FALSE, models=FALSE,...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)

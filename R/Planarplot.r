@@ -101,7 +101,7 @@ Planarplot(X, y=as.numeric(y)-1, learnind=learnind, predind=predind, classifier=
 ### signature X=data.frame, f=formula
 
 setMethod("Planarplot", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, learnind, f, predind, classifier, gridsize=100, ...){
+          function(X, y,f, learnind, predind, classifier, gridsize=100, ...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
