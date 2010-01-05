@@ -115,7 +115,7 @@ fdaCMA(X, y=as.numeric(y)-1, learnind=learnind, comp=comp, plot=plot)
 ### signature X=data.frame, y=missing f=formula:
 
 setMethod("fdaCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, learnind, f, comp=1, plot=FALSE){
+          function(X, y, f,learnind, comp=1, plot=FALSE){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)

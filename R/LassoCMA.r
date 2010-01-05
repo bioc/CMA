@@ -83,7 +83,7 @@ varsel <- abs(as.numeric(varsel[-1]))
 Xtest <- X[-learnind,,drop=FALSE]
 if(nrow(Xtest) == 0) { Xtest <- Xlearn ; y <- Ylearn }
 else y <- y[-learnind]
-prob <- as.numeric(predict.glmnet(output, newx=Xtest, s=(output$lambda[left]+output$lambda[right])/2,
+prob <- as.numeric(predict(output, newx=Xtest, s=(output$lambda[left]+output$lambda[right])/2,
                    type="response"))
 yhat <- as.numeric(prob > 0.5)
 prob <- cbind(1-prob, prob)
