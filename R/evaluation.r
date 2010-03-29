@@ -57,7 +57,7 @@ stop("Classifier to evaluate does not provide estimates for class probabilities.
 
 learnindlist <- lapply(clresult, slot, name="learnind")
 lulearn <- unlist(lapply(learnindlist, function(z) length(unique(z[z != 0]))))
-trainingmode <- identical(lulearn, llyhat)
+trainingmode <- identical(lulearn, llyhat) & length(lulearn)==1 & identical(learnindlist[[1]],1:length(learnindlist[[1]]))
 
 measure <- match.arg(measure)
 if(!is.element(measure, eval(formals(evaluation)$measure)))

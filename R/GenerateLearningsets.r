@@ -43,7 +43,7 @@ if (method=="MCCV")
  {
  if (is.null(niter) | is.null(ntrain))
   stop("With the MCCV method, arguments niter and ntrain should be given.")
-   if(strat){
+   if(strat){				
    taby <- table(y)
    prop <- taby/sum(taby)
    classize <- roundvector(prop*ntrain, ntrain)
@@ -130,8 +130,8 @@ if (method=="CV")
 
    topass <- lapply(templist, function(z) z[1:fold,,drop=FALSE])
    swaporder <- rowswaps(topass)
-   nrep <- 0
-   while(nrep < niter-1){
+   nrep <- 1
+   while(nrep < niter){
     swaporder <- rbind(swaporder, swaporder[1:fold,,drop=FALSE]+fold*nrep)
     nrep <- nrep+1
     }
