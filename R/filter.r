@@ -130,10 +130,13 @@ Xprime <- X[learnind,,drop=FALSE]
 yprime <- as.factor(yprime)
 des <- model.matrix(~yprime)
 limo <- lmFit(t(Xprime), des)
-outp <- eBayes(limo, ...)
+cont<-matrix(0,nrow=ncol(des)-1,ncol=ncol(des))
+cont[,-1]<-diag(ncol(des)-1)
+conp<-contrasts.fit(limo,contrasts=t(cont))
+outp <- eBayes(conp, ...)
 stat <-  classifyTestsF(object = outp, fstat.only = TRUE)
-attr(stat, "df1") <- NULL
-attr(stat, "df2") <- NULL
+attributes(stat) <- NULL
+
 new("varseloutput", varsel=stat)
 }
 
