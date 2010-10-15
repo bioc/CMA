@@ -18,6 +18,7 @@ kruskaltest(X, y, learnind,...)
 limmatest(X, y, learnind,...)
 golubcrit(X, y, learnind,...)
 rfe(X, y, learnind,...)
+shrinkcat(X,y,learnind,...)
 }
 \arguments{
  \item{X}{A \code{numeric} matrix of gene expression values.}

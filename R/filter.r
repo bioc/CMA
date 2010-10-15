@@ -174,6 +174,20 @@ stat <- as.numeric((t(model$coefs) %*% dots$x[model$index,,drop=FALSE])^2)
 new("varseloutput", varsel=stat)
 }
 
+### [9] shrinked correlation adjusted t ("shrinkcat")
+shrinkcat<-function(X,y,learnind,...){
+ ##library
+ require('st', quietly=TRUE)
+ ## arguments for shrinkcat.stat call
+ if(nlevels(y)>2) stop("The class vector must have 2 labels")	
+ dots<-eval(substitute(list(...)))
+ dots$X=X[learnind,,drop=FALSE]
+ dots$L=y[learnind]
+ dots$verbose=FALSE
+ stat<-do.call('shrinkcat.stat', args=dots)
+ new("varseloutput", varsel=abs(stat))
+}
+
 
 
 

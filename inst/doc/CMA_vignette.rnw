@@ -4,12 +4,19 @@
 %\VignettePackage{CMA}
 
 \input{preamble.tex}
-\title{\large{\texttt{CMA}} package vignette}
-\author{Martin Slawski \footnote{\url{Martin.Slawski@campus.lmu.de}}\\
-        Anne-Laure Boulesteix \footnote{\url{http://www.slcmsr.net/boulesteix}}}
+\title{\Huge{\texttt{CMA}} package vignette}
+\author{Martin Slawski \footnote{\url{ms@cs.uni-sb.de}}\\
+        Anne-Laure Boulesteix \footnote{\url{www.ibe.med.uni-muenchen.de/organisation/mitarbeiter/020_professuren/boulesteix/}}}
 
 \begin{document}
-\date{\normalsize{Sylvia Lawry Centre, Hohenlindenerstr. 1, D-81677 Munich, Germany}}
+\date{
+\normalsize{Department of Computer Science, Saarland University, D - 66041 Saarbruecken, Germany}
+\\
+\normalsize{Department of Medical Informatics, Biometry and Epidemiology (IBE)
+University of Munich , D-81377 Munich, Germany}}
+
+
+
 \maketitle
 
 <<preliminaries,echo=FALSE,results=hide>>=
@@ -135,7 +142,7 @@ the full $S$. This option is very useful (and sometimes even necessary)
 in order to guarantee that each class is sufficiently often represented
 in each $\mc{L}_b$, in particular if there are classes that are small in size.\\
 Benefits and drawbacks of above splitting rules are discussed in 
-\citet{BragaNeto} and \citet{Molinaro}.\\
+\citet{BragaNeto} and \citet{Mol2005}.\\
 
 \subsection{Constructing a prediction rule}\label{subsec:pred}
 The second main issue is the construction of a appropriate prediction rule. 
@@ -286,25 +293,25 @@ In a nutshell, the package has the following features.
 Componentwise Boosting & \texttt{compBoostCMA} &  \texttt{CMA} & \citet{Buhlmann2003} \\
 Diagonal Discriminant Analysis & \texttt{dldaCMA}      &  \texttt{CMA} & \citet{dabook} \\
 Elastic Net & \texttt{ElasticNetCMA} & \texttt{glmpath} & \citet{elasticnet} \\
-Fisher's Discriminant Analysis& \texttt{fdaCMA} &   \texttt{CMA}          & \citet{Ripley1996} \\
-Flexible Discriminant Analysis & \texttt{flexdaCMA} & \texttt{mgcv}    &  \citet{Ripley1996} \\ 
+Fisher's Discriminant Analysis& \texttt{fdaCMA} &   \texttt{CMA}          & \citet{Rip1996} \\
+Flexible Discriminant Analysis & \texttt{flexdaCMA} & \texttt{mgcv}    &  \citet{Rip1996} \\ 
 Tree-based Boosting &\texttt{gbmCMA} & \texttt{gbm} &   \citet{Friedman2001} \\
-$k$-nearest neighbours & \texttt{knnCMA} & \texttt{class}             &   \citet{Ripley1996} \\
+$k$-nearest neighbours & \texttt{knnCMA} & \texttt{class}             &   \citet{Rip1996} \\
 Linear Discriminant Analysis ${\ast}$ & \texttt{ldaCMA}      &  \texttt{MASS} & \citet{dabook} \\
 Lasso & \texttt{LassoCMA}      &  \texttt{glmpath} & \citet{glmpath} \\
-Feed-Forward Neural Networks & \texttt{nnetCMA} & \texttt{nnet} & \citet{Ripley1996} \\
+Feed-Forward Neural Networks & \texttt{nnetCMA} & \texttt{nnet} & \citet{Rip1996} \\
 Probalistic nearest neighbours & \texttt{pknnCMA} & \texttt{CMA} & $-$ \\
 Penalized Logistic Regression & \texttt{plrCMA} & \texttt{CMA} &
 \citet{Zhu2004} \\
 Partial Least Squares ${\star}$ + $\ast$ & \verb+pls_ldaCMA+ & \texttt{plsgenomics} &
-\citet{Boulesteixpls} \\
-$\star$ + logistic regression & \verb+pls_lrCMA+ & \texttt{plsgenomics} & \citet{Boulesteixpls} \\
-$\star$ + Random Forest & \verb+pls_rfCMA+ & \texttt{plsgenomics} & \citet{Boulesteixpls} \\
+\citet{Bou2007a} \\
+$\star$ + logistic regression & \verb+pls_lrCMA+ & \texttt{plsgenomics} & \citet{Bou2007a} \\
+$\star$ + Random Forest & \verb+pls_rfCMA+ & \texttt{plsgenomics} & \citet{Bou2007a} \\
 Probabilistic Neural Networks & \texttt{pnnCMA} &  \texttt{CMA} &
 \citet{specht} \\
 Quadratic Discriminant Analysis ${\ast}$ & \texttt{qdaCMA}      &  \texttt{MASS} & \citet{dabook} \\ 
 Random Forest &\texttt{rfCMA} & \texttt{randomForest} &   \citet{Breiman2001} \\
-PAM & \texttt{scdaCMA} & \texttt{CMA} & \citet{Tibshirani2002}   \\
+PAM & \texttt{scdaCMA} & \texttt{CMA} & \citet{Tib2002}   \\
 Shrinkage Discriminant Analysis & \texttt{shrinkldaCMA} & \texttt{CMA} &  $-$ \\
 Support Vector Machine & \texttt{svmCMA} &  \texttt{e1071} &
 \citet{ScholkopfSmola2002} \\

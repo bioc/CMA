@@ -18,7 +18,7 @@
 ### generic
 setGeneric("GeneSelection", function(X, y, f, learningsets,
             method=c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test", 
-                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme,
+                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub","shrinkcat"), scheme,
                     trace = TRUE, ...)
            standardGeneric("GeneSelection")) 
 
@@ -26,7 +26,7 @@ setGeneric("GeneSelection", function(X, y, f, learningsets,
 
 setMethod("GeneSelection", signature(X="matrix", y="numeric", f="missing"),
         function(X, y, f, learningsets, method=c("LassoCMA","t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test",
-                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme, trace = TRUE, ...) 
+                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub","shrinkcat"), scheme, trace = TRUE, ...) 
 {
 nrx <- nrow(X)
 ly <- length(y)
@@ -98,7 +98,8 @@ if( maxlvl == 2  | scheme == "multiclass")
                        
                            
                            boosting = compBoostCMA,
-                           golub = golubcrit)
+                           golub = golubcrit,
+                           shrinkcat=shrinkcat)
 
 
 
@@ -176,7 +177,7 @@ new("genesel", rankings=rankings, importance=importance, method=method,
 
 setMethod("GeneSelection", signature(X="matrix", y="factor", f="missing"),
         function(X, y, f, learningsets, method=c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test",
-                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme, trace = TRUE, ...)
+                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub","shrinkcat"), scheme, trace = TRUE, ...)
          GeneSelection(X, y=as.numeric(y)-1, learningsets=learningsets,
                        method=method, scheme=scheme, trace=trace, ...)) 
 
@@ -184,7 +185,7 @@ setMethod("GeneSelection", signature(X="matrix", y="factor", f="missing"),
 
 setMethod("GeneSelection", signature(X="data.frame", y="missing", f="formula"),
           function(X, y, f, learningsets, method=c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test",
-                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme, trace = TRUE, ...){
+                    "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub","shrinkcat"), scheme, trace = TRUE, ...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -200,7 +201,7 @@ GeneSelection(X=as.matrix(X), y=y, learningsets=learningsets, method=method,
 
 setMethod("GeneSelection", signature(X="ExpressionSet", y="character", f="missing"),
           function(X, y, learningsets, method=c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test",
-                   "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme,
+                   "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub","shrinkcat"), scheme,
                    trace = trace, ...){
           y <- pData(X)[,y]
           X <-  exprs(X)

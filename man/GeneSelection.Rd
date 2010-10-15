@@ -64,6 +64,8 @@ GeneSelection(X, y, f, learningsets, method = c("t.test", "welch.test", "wilcox.
                                        the LASSO (Efron et al., 2004; Buehlmann and Yu, 2006). Calls the function \code{\link{compBoostCMA}}
                                        Take care that appropriate hyperparameters are passed by the \code{...} argument.}
                 \item{\code{golub}}{The (theoretically unfounded) variable selection criterion used by Golub et al. (1999), s. \code{\link{golub}}.}
+	           \item{\code{shrinkcat}}{The correlation-adjusted t-score from Zuber and Strimmer (2009)}
+	     
 	      }
 	      }
                 
