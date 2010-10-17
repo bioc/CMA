@@ -7,6 +7,7 @@
 \alias{limmatest}
 \alias{golubcrit}
 \alias{rfe}
+\alias{shrinkcat}
 \title{Filter functions for Gene Selection}
 \description{The functions listed above are usually not called by the
              user but via \code{\link{GeneSelection}}.}

@@ -10,7 +10,7 @@
  For S4 class information, s. \code{GeneSelection-methods}.
 }
 \usage{
-GeneSelection(X, y, f, learningsets, method = c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test", "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub"), scheme, trace = TRUE, ...)
+GeneSelection(X, y, f, learningsets, method = c("t.test", "welch.test", "wilcox.test", "f.test", "kruskal.test", "limma", "rfe", "rf", "lasso", "elasticnet", "boosting", "golub", "shrinkcat"), scheme, trace = TRUE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
