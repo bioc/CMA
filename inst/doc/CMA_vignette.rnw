@@ -166,12 +166,12 @@ There are basically three approaches to cope with the $n\ll p$ setting:
       or Boosting  (\citet{Friedman2001}; \citet{Buhlmann2003}) from
       which some also perform variable selection
 \item dimension reduction or feature extraction. Most prominent is the 
-      Partial Least Squares method (\citet{Boulesteixpls}). 
+      Partial Least Squares method (\citet{Bou2007a}). 
 \end{enumerate}
 Most classification methods depend on a vector of hyperparameters $\bm{\lambda}$
 that have to be correctly chosen. Together with variable selection, this is part of the
 model selection and has thus to be performed separately for each learning sample
-$\mc{L}_b$ to avoid bias (\citet{modelselection}). An optimal vector of
+$\mc{L}_b$ to avoid bias. An optimal vector of
 hyperparameters $\bm{\lambda}^{\text{opt}}$ is determined by defining a discrete set of
 values whose performance is then measured by cross-validation. This involves
 a further splitting step, which is sometimes called 'inner loop' or 
