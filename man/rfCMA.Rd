@@ -77,11 +77,11 @@ khanX <- as.matrix(khan[,-1])
 set.seed(111)
 learnind <- sample(length(khanY), size=floor(2/3*length(khanY)))
 ### run random Forest
-rfresult <- rfCMA(X=khanX, y=khanY, learnind=learnind, varimp = FALSE)
+#rfresult <- rfCMA(X=khanX, y=khanY, learnind=learnind, varimp = FALSE)
 ### show results
-show(rfresult)
-ftable(rfresult)
-plot(rfresult)}
+#show(rfresult)
+#ftable(rfresult)
+#plot(rfresult)}
 
 
 \keyword{multivariate}

@@ -79,11 +79,11 @@ ratio <- 2/3
 set.seed(111)
 learnind <- sample(length(golubY), size=floor(ratio*length(golubY)))
 ### run PLS, combined with Random Forest
-result <- pls_rfCMA(X=golubX, y=golubY, learnind=learnind)
+#result <- pls_rfCMA(X=golubX, y=golubY, learnind=learnind)
 ### show results
-show(result)
-ftable(result)
-plot(result)
+#show(result)
+#ftable(result)
+#plot(result)
 }
 
 \keyword{multivariate}
