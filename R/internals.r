@@ -148,7 +148,7 @@ ROCinternal <- function(test, resp, plot, ...)
     pvn <- (a[1] - m[, 1])/(sum(a) - m[, 3])
     pvn <- c(pvn, rev(pvn)[1])
     res <- data.frame(cbind(sn, sp, pvp, pvn, c(NA, fv)))
-    auc <- sum((res[-1, 1] + res[-nr, 1])/2 * diff(res[, 2]))
+    auc <- sum((res[-1, 1] +res[-nr, 1])/2 * diff(res[, 2]))
     #xl <- range(test)
     #ll$x <- xl
     #ll$y <- 0:1

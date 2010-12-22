@@ -238,7 +238,7 @@ if(length(unique(probli))==1){
    yli <- ylist[[i]]
    if(length(yli) < 2 || length(unique(yli)) < 2)
    stop("measure 'auc' cannot be computed for scheme 'iterationwise';
-         too few test observations or all test observations are from
+         too few test observations or all test observations from
          the same class \n")
 if(length(unique(probli))>1)
    score[i] <- ROCinternal(probli, yli, plot=FALSE)
