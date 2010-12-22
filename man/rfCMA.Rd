@@ -81,7 +81,8 @@ learnind <- sample(length(khanY), size=floor(2/3*length(khanY)))
 ### show results
 #show(rfresult)
 #ftable(rfresult)
-#plot(rfresult)}
+#plot(rfresult)
+}
 
 
 \keyword{multivariate}
