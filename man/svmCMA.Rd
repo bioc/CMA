@@ -7,7 +7,7 @@ that provides an interface to the award-winning LIBSVM routines.
 For \code{S4} method information, see \link{svmCMA-methods}
 }
 \usage{
-svmCMA(X, y, f, learnind, probability, models=FALSE,...) %!!?
+svmCMA(X, y, f, learnind, probability, models=FALSE,seed=341,...) %!!?
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -41,9 +41,12 @@ svmCMA(X, y, f, learnind, probability, models=FALSE,...) %!!?
 
   \item{probability}{logical indicating whether the model should allow for
           probability predictions.}
+          \item{seed}{Fix random number generator for reproducibility.}
           \item{models}{a logical value indicating whether the model object shall be returned }
   \item{\dots}{Further arguments to be passed to \code{svm} from the
                package \code{e1071}}
+               
+  
 }
 \note{Contrary to the default settings in \code{e1071:::svm}, the used
       kernel is a linear kernel which has turned to be out a better

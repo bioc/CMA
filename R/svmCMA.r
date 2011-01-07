@@ -18,13 +18,13 @@
 #
 ###**************************************************************************###
 
-setGeneric("svmCMA", function(X, y, f, learnind,probability,models=FALSE, ...)
+setGeneric("svmCMA", function(X, y, f, learnind,probability,models=FALSE,seed=341, ...)
            standardGeneric("svmCMA"))
 
 ### X=matrix, y=numeric, f=missing 
 
 setMethod("svmCMA", signature(X="matrix", y="numeric", f="missing"),
-          function(X, y, f, learnind, probability, models=FALSE,...){
+          function(X, y, f, learnind, probability, models=FALSE,seed=341,...){
 library(e1071, pos = length(search()))
 nrx <- nrow(X)
 ly <- length(y)
@@ -89,14 +89,14 @@ ret.obj
 #### signature X=matrix, y=numeric, f=missing
 
 setMethod("svmCMA", signature(X="matrix", y="factor", f="missing"),#!!?
-          function(X, y, learnind, probability, models=FALSE,...){
+          function(X, y, learnind, probability, models=FALSE,seed=341,...){
 svmCMA(X, y=as.numeric(y)-1, learnind=learnind,probability=probability,models=models,...)
 })
 
 ### signature X=data.frame, f=formula
 
 setMethod("svmCMA", signature(X="data.frame", y="missing", f="formula"),
-          function(X, y, f, learnind,probability, models=FALSE,...){
+          function(X, y, f, learnind,probability, models=FALSE,seed=341,...){
 yvar <- all.vars(f)[1]
 xvar <- strsplit(as.character(f), split = "~")[[3]]
 where <- which(colnames(X) == yvar)
@@ -105,13 +105,16 @@ else y <- get(yvar)
 if(nrow(X) != length(y)) stop("Number of rows of 'X' must agree with length of y \n")
 f <- as.formula(paste("~", xvar))
 X <- model.matrix(f, data=X)[,-1,drop=FALSE]
+
+set.seed(seed)
+
 svmCMA(as.matrix(X), y=y, learnind=learnind,probability=probability,models=models,...)})
 
 
 ### signature: X=ExpressionSet, y=character.
 
 setMethod("svmCMA", signature(X="ExpressionSet", y="character", f="missing"),
-          function(X, y, learnind,probability,models=FALSE,...){
+          function(X, y, learnind,probability,models=FALSE,seed=341,...){
           y <- pData(X)[,y]
           X <-  exprs(X)
           if(nrow(X) != length(y)) X <- t(X)

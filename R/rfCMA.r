@@ -71,7 +71,7 @@ new("cloutput", y=y, yhat=yhat, learnind = learnind,
 ### signature X=matrix, y=factor, f=missing:
 
 setMethod("rfCMA", signature(X="matrix", y="factor", f="missing"),
-          function(X, y, learnind, varimp=TRUE, seed=111, models=FALSE,...){
+          function(X, y, learnind, varimp=TRUE, seed=111, models=FALSE, ...){
 rfCMA(X, y=as.numeric(y)-1, learnind=learnind, varimp=varimp, seed=seed, models=models,...)
 })
 

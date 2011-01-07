@@ -448,7 +448,7 @@ bootdat <- GenerateLearningsets(y=golubY, method = "bootstrap", niter = 3, strat
 
 In this example, we choose the Support Vector Machine with linear
 kernel as classification method. Variable selection is not strictly necessary, 
-but is has empirically been shown that the performance of the SVM method 
+but it has empirically been shown that the performance of the SVM method 
 can significantly be improved when noise features are removed (\citet{Has2001}). 
 For simplicity, we choose the distribution free
 Wilcoxon-Test to rank the variables, separately for each learning sample :
@@ -476,8 +476,7 @@ sort(table(seliter), dec = TRUE)
 
 @     
 
-We see that no variable is among the top 10 in every learning sample; the highest
-frequency is 4 out of 5.
+We see that just 1 variable is among the top 10 in every learning sample.
 
 The next step is hyperparameter tuning. It is well-known that the SVM
 needs much tuning (\citet{Sta2005a}) and that its performance can decrease 
@@ -508,7 +507,7 @@ and the second five is the number of outer cross-validation folds.
 set.seed(351) 
 tuningstep <- CMA:::tune(X = golubX, y=golubY, learningsets = fiveCVdat,
                       genesel = varsel_fiveCV, nbgene = 100, classifier = svmCMA,
-                      grids = list(cost = c(0.1, 1, 10, 100, 200)))
+                      grids = list(cost = c(0.1, 1, 10, 100, 200)),probability=T)
 
 @ 
 
@@ -521,8 +520,8 @@ unlist(best(tuningstep))
 
 @
 
-It is evident that the results are rather unstable. In order to decide for
-a suitable for the hyperparameter, we additionally visualize the results : 
+The results seem to equivocally favour \texttt{cost=0.1}. However, if we visualize the tuning results, we see that almost all 
+tuning parameter values perform quite well. Please note that CMA will by default choose the smallest value if performances of several values are equal: 
 
 
 <<eval=FALSE, fig=TRUE>>=
@@ -532,8 +531,7 @@ for(i in 1:4)
 plot(tuningstep, iter = i, main = paste("iteration", i))
 @ 
 
-Although it remains unclear which value is actually best, we take \texttt{cost
-  = 100} because this never produced bad results.\\
+Nonetheless, we will choose \texttt{cost=0.1} since it produced good results.\\
 We can now  turn the attention to class prediction:
 
 <<eval=FALSE, results=hide>>=
@@ -544,15 +542,15 @@ We can now  turn the attention to class prediction:
                       
 class_fiveCV <- classification(X = golubX, y=golubY, learningsets = fiveCVdat,
                       genesel = varsel_fiveCV, nbgene = 100, classifier = svmCMA,
-                      cost = 100)
+                      cost = 0.1,probability=T)
                       
 class_MCCV <- classification(X = golubX, y=golubY, learningsets = MCCVdat,
                       genesel = varsel_MCCV, nbgene = 100, classifier = svmCMA,
-                      cost = 100)
+                      cost = 0.1,probability=T)
                       
 class_boot <- classification(X = golubX, y=golubY, learningsets = bootdat,
-                      genesel = varsel_boot, nbgene = 100, classifier = svmCMA,
-                      cost = 100)
+                      genesel = varsel_boot, nbgene = 0.1, classifier = svmCMA,
+                      cost = 100,probability=T)
                       
 
 @ 
