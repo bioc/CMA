@@ -522,8 +522,11 @@ meanrm<-function(x){
 mean(x,na.rm=T)
 }
 
-
-
+### [11] cma-compatible wilcoxontest
+wilcoxtestcma<-function(x,y){
+	
+	1-wilcox.test(x~y)$p.value
+}
 
 
 

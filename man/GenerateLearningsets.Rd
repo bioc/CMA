@@ -31,7 +31,7 @@ GenerateLearningsets(n, y, method = c("LOOCV", "CV", "MCCV", "bootstrap"),
                                \code{ntrain}(s.below) observations
                                and tests sets with \code{ntrain} observations.}
                  \item{"bootstrap"}{Learning sets are generated
-                                    by drawing \code{ntrain} times with replacement from
+                                    by drawing \code{n} times with replacement from
                                     all observations. Those not drawn not all
                                     form the test set.}
                 }
@@ -39,7 +39,7 @@ GenerateLearningsets(n, y, method = c("LOOCV", "CV", "MCCV", "bootstrap"),
   \item{fold}{Gives the number of CV-groups. Used only when \code{method="CV"}}
   \item{niter}{Number of iterations (s.\code{details).}}
   \item{ntrain}{Number of observations in the learning sets. Used
-                only when \code{method="MCCV"} or \code{method="bootstrap"}.}
+                only when \code{method="MCCV"}.}
   \item{strat}{Logical. Should stratified sampling be performed,
                   i.e. the proportion of observations from each class in the learning
                   sets be the same as in the whole data set ?

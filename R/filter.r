@@ -73,18 +73,14 @@ new("varseloutput", varsel=abs(stat))
 ### [3] Wilcoxon-Test
 
 wilcoxtest <- function(X, y, learnind,...){
-
-yprime <- y[learnind]
-Xprime <- X[learnind,,drop=FALSE]
-yprime <- as.factor(yprime)
-levels(yprime) <- 1:nlevels(yprime)
-yprime <- as.numeric(yprime)-1
-cl0  <-  yprime == 0
-n0 <- sum(cl0)
-n1 <- sum(!cl0)
-Rx <- apply(Xprime, 2, rank)
-stat <- colSums(Rx[cl0, ,drop=FALSE])-sum(1:sum(cl0))
-new("varseloutput", varsel=stat)
+	
+	yprime <- y[learnind]
+	Xprime <- X[learnind,,drop=FALSE]
+	yprime <- as.factor(yprime)
+	levels(yprime) <- 1:nlevels(yprime)
+	yprime <- as.numeric(yprime)-1
+	stat<-apply(Xprime,2,wilcoxtestcma,y=yprime)
+	new("varseloutput", varsel=stat)
 }
 
 ### [4] F-Test ~ 5.sec 4000 genes, 40 samples
