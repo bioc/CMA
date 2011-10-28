@@ -50,7 +50,10 @@ nbeta <- as.matrix(nbeta)
 b<-t(nbeta)
 s <- norm.fraction
 k <- nrow(b)
-    std.b <- scale(b[ ,-1], FALSE, 1/sd(Xlearn))
+    std.b <- scale(b[ ,-1], FALSE, 1/apply(Xlearn,2,sd))
+	
+	
+	
  bnorm <- apply(abs(std.b), 1, sum)
    sb <- bnorm / bnorm[k]
 sfrac <- (s - sb[1])/(sb[k] - sb[1])
