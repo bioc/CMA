@@ -1,7 +1,7 @@
 Package: CMA
 Type: Package
 Title: Synthesis of microarray-based classification
-Version: 1.11.1
+Version: 1.11.2
 Date: 2009-09-14
 Author: Martin Slawski <ms@cs.uni-sb.de>, Anne-Laure Boulesteix <boulesteix@ibe.med.uni-muenchen.de>, Christoph Bernau <bernau@ibe.med.uni-muenchen.de>.
 Maintainer: Christoph Bernau <bernau@ibe.med.uni-muenchen.de>
