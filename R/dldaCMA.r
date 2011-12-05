@@ -27,7 +27,7 @@ variances <- matrix(nrow = ncol(X), ncol = K)
 for(k in 1:K){
   indk <- (Ylearn == (k-1))
   centroids[,k] <- muk <- colMeans(Xlearn[indk,,drop=FALSE])
-  variances[,k] <- colSums((Xlearn[indk,,drop=FALSE]-muk)^2)
+  variances[,k] <- rowSums((t(Xlearn[indk,,drop=FALSE])-muk)^2)
 }
 variances <- rowSums(variances)/(length(learnind) - K)
 priors <- as.numeric(-2*log(table(Ylearn)/sum(table(Ylearn))))
