@@ -406,7 +406,7 @@ setMethod("prediction", signature(X.tr='matrix',y.tr='ANY',X.new='matrix',f="mis
 			}
 			
 			
-			y<-c(y.tr,rep(0,nrow(X.new)))
+			y<-c(y.tr,rep(y.tr[1],nrow(X.new)))
 			learnind<-1:nrow(X.tr)
 			
 			if(!missing(tuneres)){
