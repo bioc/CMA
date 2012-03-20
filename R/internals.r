@@ -137,7 +137,7 @@ ROCinternal <- function(test, resp, plot, ...)
           if(!hasArg(main)) ll$main <- "Receiver Operator Characteristic"
           if(!hasArg(lwd)) ll$lwd <- 2
     m <- as.matrix(table(test, resp))
-    fv <- sort(unique(test))
+    fv <- as.numeric(row.names(m))
     nr <- dim(m)[1]
     a <- apply(m, 2, sum)
     m <- addmargins(m, 2)
