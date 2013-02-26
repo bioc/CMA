@@ -9,7 +9,7 @@
 
              For \code{S4} method information, see \link{rfCMA-methods}}
 \usage{
-rfCMA(X, y, f, learnind, varimp = TRUE, seed = 111, models=FALSE, ...)}
+rfCMA(X, y, f, learnind, varimp = TRUE, seed = 111, models=FALSE,type=1,scale=FALSE,importance=TRUE, ...)}
 \arguments{
   \item{X}{Gene expression data. Can be one of the following:
            \itemize{
@@ -38,10 +38,16 @@ rfCMA(X, y, f, learnind, varimp = TRUE, seed = 111, models=FALSE, ...)}
                   in that case, the learning set consists of all
                   observations and predictions are made on the
                   learning set.}
-  \item{varimp}{Should variable importance measures be computed ? Defauls to \code{TRUE}.}
+  \item{varimp}{Should additional information for variable selection be provided ? Defaults to \code{TRUE}.}
   \item{seed}{Fix Random number generator seed to \code{seed}. This is
               useful to guarantee reproducibility of the results.}
               \item{models}{a logical value indicating whether the model object shall be returned }
+ \item{type}{Parameter passed to function \code{importance}. Either 1 or 2, specifying the type of importance measure
+          (1=mean decrease in accuracy, 2=mean decrease in node
+          impurity).}
+ \item{scale}{Parameter passed to function \code{importance}. For permutation based measures, should the measures be
+          divided by their standard errors?}
+ \item{importance}{Parameter passed to function \code{randomForest}.Should importance of predictors be assessed by permutation?}
   \item{\dots}{Further arguments to be passed to \code{randomForest} from the
                package of the same name.}
 }
