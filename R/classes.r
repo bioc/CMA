@@ -476,7 +476,29 @@ setMethod("prediction",signature(X.tr="ExpressionSet",y.tr="character",X.new="Ex
 
           
 
-
+	###########-----class: wmcr.result and corresponding print Method---######      ###return-object for weighted.mcr
+	
+	setClass(Class="wmcr.result",
+			representation(corrected.mcr = "numeric", best.method="character", mcrs="numeric", 
+					weights='numeric',cov="matrix", uncorrected.mcr='numeric',ranges="data.frame",mcr.m='matrix',shrinkage='logical'))  
+	
+	###print-method
+	###print method
+	setMethod("show",signature="wmcr.result",function(object){
+				
+				cat(' The best method was ',object@best.method)
+				cat('\n with a corrected MCR of ', round(object@corrected.mcr,digits=3))
+				cat('\n and an uncorrected MCR of ', round(object@uncorrected.mcr,digits=3),'\b.\n')
+				cat(' Mean MCRs were between ',round(object@ranges[1,1],digits=3),' and ',round(object@ranges[2,1],digits=3),'\b.\n')
+			}
+	)
+	
+	
+	
+	
+	
+	
+	
 
                         
 

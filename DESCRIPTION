@@ -1,7 +1,7 @@
 Package: CMA
 Type: Package
 Title: Synthesis of microarray-based classification
-Version: 1.19.0
+Version: 1.19.1
 Date: 2009-09-14
 Author: Martin Slawski <ms@cs.uni-sb.de>, Anne-Laure Boulesteix <boulesteix@ibe.med.uni-muenchen.de>, Christoph Bernau <bernau@ibe.med.uni-muenchen.de>.
 Maintainer: Christoph Bernau <bernau@ibe.med.uni-muenchen.de>
@@ -18,7 +18,7 @@ Collate: classes.r GenerateLearningsets.r GeneSelection.r
 	 flexdaCMA.r gbmCMA.r knnCMA.r LassoCMA.r   
 	 ldaCMA.r nnetCMA.r pknnCMA.r plrCMA.r
 	 pls_ldaCMA.r pls_lrCMA.r pls_rfCMA.r
-         pnnCMA.r qdaCMA.r rfCMA.r scdaCMA.r
+         pnnCMA.r qdaCMA.r rfCMA.r scdaCMA.r weighted_mcr.r wmc.r
 	 shrinkldaCMA.r svmCMA.r	       
 	 filter.r internals.r 
 License: GPL (>= 2)
