@@ -132,7 +132,7 @@ predmatrix <- matrix(NA, nrow=ll, ncol = n)
  if(scheme == "iterationwise") score <- rowMeans(predmatrix, na.rm = TRUE)
  if(scheme == "observationwise") score <- colMeans(predmatrix, na.rm = TRUE)
  if(scheme == "classwise"){ 
-    splitpredmatrix <- split(predmatrix, as.factor(y))
+    splitpredmatrix <- split(t(predmatrix), as.factor(y))
     score <- unlist(lapply(splitpredmatrix, mean, na.rm =TRUE))
     names(score) <- unique(y)  
  }   
