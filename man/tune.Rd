@@ -90,7 +90,7 @@ tune(X, y, f, learningsets, genesel, genesellist = list(), nbgene, classifier, f
          \item{\code{\link{gbmCMA}}}{\code{n.trees = c(50, 100, 200, 500, 1000)}}
          \item{\code{\link{compBoostCMA}}}{\code{mstop = c(50, 100, 200, 500, 1000)}}
          \item{\code{\link{LassoCMA}}}{\code{norm.fraction = seq(from=0.1, to=0.9, length=9)}}
-         \item{\code{\link{ElasticNetCMA}}}{\code{norm.fraction = seq(from=0.1, to=0.9, length=5), lambda2 = 2^{-(5:1)}}}
+         \item{\code{\link{ElasticNetCMA}}}{\code{norm.fraction = seq(from=0.1, to=0.9, length=5), alpha = 2^{-(5:1)}}}
          \item{\code{\link{plrCMA}}}{\code{lambda = 2^{-4:4}}}
          \item{\code{\link{pls_ldaCMA}}}{\code{comp = 1:10}}
          \item{\code{\link{pls_lrCMA}}}{\code{comp = 1:10}}
