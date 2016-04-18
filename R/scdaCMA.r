@@ -63,7 +63,7 @@ setMethod("scdaCMA", signature(X="matrix", y="numeric", f="missing"),
 			} else y <- y[-learnind]
 			dist <- t(apply(Xtest, 1, function(z)   colSums(sweep(sweep(-shrunkcentroids, 1, z, "+")^2, 1, variances, "/")) + priors))
 			dist <- sweep(dist, 1, rowMeans(dist), "-")
-			prob <- safexp(-0.5 * dist)
+			prob <- safeexp(-0.5 * dist)
 			prob <- sweep(prob, 1, rowSums(prob), "/")
 			yhat <- apply(prob, 1, which.max) - 1
 			if (models == TRUE) 
