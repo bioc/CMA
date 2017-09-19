@@ -77,6 +77,7 @@ pls_ldaCMA(X, y, f, learnind, comp = 2, plot = FALSE,models=FALSE)
          \code{\link{scdaCMA}}, \code{\link{shrinkldaCMA}}, \code{\link{svmCMA}}}
 
 \examples{
+\dontrun{
 ### load Khan data
 data(khan)
 ### extract class labels
@@ -91,6 +92,6 @@ plsresult <- pls_ldaCMA(X=khanX, y=khanY, learnind=learnind, comp = 4)
 ### show results
 show(plsresult)
 ftable(plsresult)
-plot(plsresult)}
+plot(plsresult)}}
 
 \keyword{multivariate}
