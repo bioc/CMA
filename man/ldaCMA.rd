@@ -70,6 +70,7 @@ ldaCMA(X, y, f, learnind, models=FALSE, ...)
          \code{\link{qdaCMA}}, \code{\link{rfCMA}}, \code{\link{scdaCMA}},
          \code{\link{shrinkldaCMA}}, \code{\link{svmCMA}}}
 \examples{
+\dontrun{
 ### load Golub AML/ALL data
 data(golub)
 ### extract class labels
@@ -102,5 +103,5 @@ ldaresult <- ldaCMA(X=khanX, y=khanY, learnind=learnind)
 show(ldaresult)
 ftable(ldaresult)
 plot(ldaresult)
-}
+}}
 \keyword{multivariate}
