@@ -489,7 +489,7 @@ penlogitfit <- function(Z, y, lambda){
  eps <- 1e-10
  converged <- FALSE
  iter <- 0
- maxiter <- 25
+ maxiter <- 100
  ###
  beta <- c(glm.fit(Z[,1],y)$coef, rep(0, pp))
   while((iter <= maxiter) & !converged){
